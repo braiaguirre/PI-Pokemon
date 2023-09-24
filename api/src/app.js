@@ -10,4 +10,4 @@ server.use(morgan('dev'));
 server.use(cors());
 server.use('/pokemon', mainRouter);
 
-module.exports = server;
+module.exports = server; // TODO: CHECK
