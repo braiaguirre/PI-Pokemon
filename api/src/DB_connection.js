@@ -17,6 +17,6 @@ const sequelize = new Sequelize(
 // Favorite.belongsToMany(User, {through: 'user_favorite'});
 
 module.exports = {
-   // ...sequelize.models, // TODO: CHECK
+   // ...sequelize.models,
    conn: sequelize,
 };
