@@ -4,9 +4,9 @@ const Router = require('express');
 // HANDLERS
 const getTypesHandler = require('../handlers/typesHandlers/getTypesHandler');
 
-const pokemonsRouter = Router();
+const typesRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/', getTypesHandler);
+typesRouter.get('/', getTypesHandler);
 
-module.exports = pokemonsRouter;
+module.exports = typesRouter;

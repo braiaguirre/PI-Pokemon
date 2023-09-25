@@ -6,4 +6,4 @@ const getPokemonsByNameHandler = async (req, res) => {
     }
 }
 
-module.exports = getTypesHandler;
+module.exports = getPokemonsByNameHandler;

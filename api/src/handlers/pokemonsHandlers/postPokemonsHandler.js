@@ -6,4 +6,4 @@ const postPokemonsHandler = async (req, res) => {
     }
 }
 
-module.exports = getTypesHandler;
+module.exports = postPokemonsHandler;
