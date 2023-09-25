@@ -1,3 +1,4 @@
+// DEPENDENCIES
 const getTypesController = require('../../controllers/typesControllers/getTypesController');
 
 const getTypesHandler = async (req, res) => {
