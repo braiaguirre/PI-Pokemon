@@ -2,17 +2,18 @@ const axios = require('axios');
 const URL = 'https://pokeapi.co/api/v2/type/';
 
 const getTypesController = async () => {
-    const results = [];
+    const types = [];
 
     // CHECKING NEXT PAGE
-    let next = URL;
-    while (next) {
-        const { data } = await axios.get(next);
-        results.push(data.results);
-        next = data.next;
+    let current = URL;
+    while (current) {
+        const { data } = await axios.get(current);
+        console.log(data);
+        types.push(...data.results);
+        current = data.next;
     }
 
-    return results.map(type => type.name);
+    return types.map(type => type.name);
 }
 
 
