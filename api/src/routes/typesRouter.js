@@ -7,6 +7,6 @@ const getTypesHandler = require('../handlers/typesHandlers/getTypesHandler');
 const pokemonsRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/types', getTypesHandler);
+pokemonsRouter.get('/', getTypesHandler);
 
 module.exports = pokemonsRouter;

@@ -10,9 +10,9 @@ const postPokemonsHandler = require('../handlers/pokemonHandlers/postPokemonsHan
 const pokemonsRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/pokemons', getPokemonsHandler);
-pokemonsRouter.get('/pokemons/name', getPokemonsByNameHandler);   // TODO: FIX
-pokemonsRouter.get('/pokemons/:id', getPokemonsByIdHandler);    // TODO: FIX
-pokemonsRouter.post('/pokemons', postPokemonsHandler);
+pokemonsRouter.get('/', getPokemonsHandler);
+pokemonsRouter.get('/name', getPokemonsByNameHandler);   // TODO: FIX
+pokemonsRouter.get('/:id', getPokemonsByIdHandler);    // TODO: FIX
+pokemonsRouter.post('/', postPokemonsHandler);
 
 module.exports = pokemonsRouter;
