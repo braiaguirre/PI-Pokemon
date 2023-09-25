@@ -11,8 +11,8 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        image: {
-            type: DataTypes.STRING,
+        xp: {
+            type: DataTypes.INTEGER,
             allowNull: false
         },
         hp: {
@@ -23,7 +23,15 @@ module.exports = (sequelize) => {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+        spAttack: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         defense: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        spDefense: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
@@ -37,6 +45,18 @@ module.exports = (sequelize) => {
         },
         weight: {
             type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        types: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false
+        },
+        abilities: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            allowNull: false
+        },
+        image: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     }, { timestamps: false} );

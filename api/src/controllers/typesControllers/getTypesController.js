@@ -10,7 +10,6 @@ const getTypesController = async () => {
     let current = URL;
     while (current) {
         const { data } = await axios.get(current);
-        console.log(data);
         types.push(...data.results);
         current = data.next;
     }
