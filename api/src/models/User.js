@@ -23,6 +23,10 @@ module.exports = (sequelize) => {
         image: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        access: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
         }
     }, { timestamps: false} );
 };
