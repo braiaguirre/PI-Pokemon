@@ -10,9 +10,9 @@ const postPokemonsHandler = require('../handlers/pokemonsHandlers/postPokemonsHa
 const pokemonsRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/', getPokemonsByNameHandler);   // TODO: FIX
 pokemonsRouter.get('/', getPokemonsHandler);
-pokemonsRouter.get('/:id', getPokemonsByIdHandler);    // TODO: FIX
+pokemonsRouter.get('/name', getPokemonsByNameHandler); // ? UNIFY NAME AND '/'
+pokemonsRouter.get('/:id', getPokemonsByIdHandler);
 pokemonsRouter.post('/', postPokemonsHandler);
 
 module.exports = pokemonsRouter;
