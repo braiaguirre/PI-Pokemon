@@ -7,6 +7,6 @@ const getAccessHandler = require('../handlers/accessHandlers/getAccessHandler');
 const accessRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/', getAccessHandler);
+accessRouter.get('/', getAccessHandler);
 
 module.exports = accessRouter;
