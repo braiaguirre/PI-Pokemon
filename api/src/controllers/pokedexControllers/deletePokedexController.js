@@ -11,7 +11,7 @@ const deletePokedexController = async (userId, pokemonId) => {
     userDbPokedex.pokemons = [ ...filteredPokemonsId ];
     userDbPokedex.save();
     
-    return 'User deleted';
+    return 'Pokemon deleted from Pokedex';
 }
 
 

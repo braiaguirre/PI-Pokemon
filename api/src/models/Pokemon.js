@@ -9,7 +9,8 @@ module.exports = (sequelize) => {
         },
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            unique: true
         },
         xp: {
             type: DataTypes.INTEGER,
@@ -46,6 +47,11 @@ module.exports = (sequelize) => {
         weight: {
             type: DataTypes.INTEGER,
             allowNull: false
+        },
+        custom: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
         },
         types: {
             type: DataTypes.ARRAY(DataTypes.STRING),
