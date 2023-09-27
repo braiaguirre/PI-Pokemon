@@ -9,7 +9,7 @@ const postUsersController = async (editUserData) => {
     for (let edit in edits) userDb[edit] = edits[edit];
 
     userDb.save();
-    return 'Saved edit'
+    return 'Edited';
 }
 
 
