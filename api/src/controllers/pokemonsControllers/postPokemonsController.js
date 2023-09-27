@@ -6,7 +6,7 @@ const postPokemonController = async (pokemon) => {
         where: { id: pokemon.id },
         defaults: { ...pokemon }
     });
-    return created ? pokemonDb : 'Already exists';
+    return pokemonDb;
 }
 
 module.exports = postPokemonController;

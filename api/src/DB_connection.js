@@ -7,7 +7,6 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
 const modelPokemon = require('./models/Pokemon');
 const modelPokemonType = require('./models/PokemonType');
 const modelUser = require('./models/User');
-const modelPokedex = require('./models/Pokedex');
 const modelPokemons_Raw = require('./models/Pokemons_Raw');
 
 const sequelize = new Sequelize(
@@ -18,21 +17,18 @@ const sequelize = new Sequelize(
 modelPokemon(sequelize);
 modelPokemonType(sequelize);
 modelUser(sequelize);
-modelPokedex(sequelize);
 modelPokemons_Raw(sequelize);
 
 const { 
    Pokemon, 
    PokemonType, 
    User,
-   Pokedex
 } = sequelize.models;
 
-Pokemon.belongsToMany(PokemonType, {through: 'pokemon_types'});
-PokemonType.belongsToMany(Pokemon, {through: 'pokemon_types'});
-User.hasOne(Pokedex);
-Pokemon.belongsToMany(Pokedex, {through: 'pokemon_pokedex'});
-Pokedex.belongsToMany(Pokemon, {through: 'pokemon_pokedex'});
+Pokemon.belongsToMany(PokemonType, {through: 'Pokemon_Types'});
+PokemonType.belongsToMany(Pokemon, {through: 'Pokemon_Types'});
+User.belongsToMany(Pokemon, {through: 'User_Pokemon'});
+Pokemon.belongsToMany(User, {through: 'User_Pokemon'});
 
 module.exports = {
    ...sequelize.models,
