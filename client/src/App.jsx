@@ -1,33 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// STYLE
+import './App.module.css';
+
+// DEPENDENCIES
+import { useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+// VIEWS
+import Detail from './views/Detail';
+import Home from './views/Home';
 
 function App() {
-  const [count, setCount] = useState(0)
+  // HOOKS
+  const navigate = useNavigate();
+
+  // STATES
+  const access = useSelector(state => state.access);
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {access ? 
+        <Routes>
+          <Route path="/" />
+          <Route path="/signup" />
+        </Routes>
+      :
+        <Routes>
+          <Route path="/" />
+          <Route path="/pokedex" />
+          <Route path="/detail/:id" />
+        </Routes>}
     </>
   )
 }
