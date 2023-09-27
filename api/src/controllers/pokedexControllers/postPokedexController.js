@@ -1,9 +1,7 @@
 // DEPENDENCIES
 const { User } = require('../../DB_connection');
 
-const postPokedexController = async (pokedexData) => {
-    const { userId, pokemonId } = pokedexData;
-    
+const postPokedexController = async (userId, pokemonId) => {
     const userDb = await User.findOne({ where: { id: userId } });
     const userDbPokedex = await userDb.getPokedex();
 

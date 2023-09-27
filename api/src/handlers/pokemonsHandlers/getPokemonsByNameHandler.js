@@ -4,8 +4,8 @@ const getPokemonsByNameController = require('../../controllers/pokemonsControlle
 const getPokemonsByNameHandler = async (req, res) => {
     try {
         const { name } = req.query;
-        const pokemon = await getPokemonsByNameController(name);
-        res.status(200).json(pokemon);
+        const response = await getPokemonsByNameController(name);
+        res.status(200).json(response);
     } catch (err) {
         res.status(404).json({ error: err.message });
     }

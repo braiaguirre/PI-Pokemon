@@ -3,9 +3,9 @@ const editUsersController = require('../../controllers/usersControllers/editUser
 
 const editUsersHandler = async (req, res) => {
     try {
-        const editUserData = req.body;
-        const result = await editUsersController(editUserData);
-        res.status(200).json(result);
+        const { id, edits } = req.body;
+        const response = await editUsersController(id, edits);
+        res.status(200).json(response);
     } catch (err) {
         res.status(404).json({ error: err.message })
     }

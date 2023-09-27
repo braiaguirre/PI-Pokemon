@@ -3,9 +3,9 @@ const postPokedexController = require('../../controllers/pokedexControllers/post
 
 const postPokedexHandler = async (req, res) => {
     try {
-        const pokedexData = req.body;
-        const result = await postPokedexController(pokedexData);
-        res.status(200).json(result);
+        const { userId, pokemonId } = req.body;
+        const response = await postPokedexController(userId, pokemonId);
+        res.status(200).json(response);
     } catch (err) {
         res.status(200).json({ error: err.message });
     }

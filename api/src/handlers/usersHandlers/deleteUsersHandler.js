@@ -4,8 +4,8 @@ const deleteUsersController = require('../../controllers/usersControllers/delete
 const deleteUsersHandler = async (req, res) => {
     try {
         const { user } = req.body;
-        const result = await deleteUsersController(user);
-        res.status(200).json(result);
+        const response = await deleteUsersController(user);
+        res.status(200).json(response);
     } catch (err) {
         res.status(404).json({ error: err.message })
     }

@@ -1,9 +1,7 @@
 // DEPENDENCIES
 const { User } = require('../../DB_connection');
 
-const deletePokedexController = async (pokedexData) => {
-    const { userId, pokemonId } = pokedexData;
-    
+const deletePokedexController = async (userId, pokemonId) => {
     const userDb = await User.findOne({ where: { id: userId } });
     const userDbPokedex = await userDb.getPokedex();
 
@@ -13,7 +11,7 @@ const deletePokedexController = async (pokedexData) => {
     userDbPokedex.pokemons = [ ...filteredPokemonsId ];
     userDbPokedex.save();
     
-    return 'Deleted correctly';
+    return 'User deleted';
 }
 
 

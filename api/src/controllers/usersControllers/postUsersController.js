@@ -2,9 +2,7 @@
 const { Op } = require('sequelize');
 const { User } = require('../../DB_connection');
 
-const postUsersController = async (userData) => {
-    const { user, email } = userData;
-    
+const postUsersController = async (user, email) => {
     // CREATE USER
     const [userDb, created] = await User.findOrCreate({
         where: { [Op.or]: [{ user }, {email} ] },

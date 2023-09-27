@@ -3,8 +3,8 @@ const getTypesController = require('../../controllers/typesControllers/getTypesC
 
 const getTypesHandler = async (req, res) => {
     try {
-        const types = await getTypesController();
-        res.status(200).json(types);
+        const response = await getTypesController();
+        res.status(200).json(response);
     } catch {
         res.status(404).json({ error: error.message })
     }

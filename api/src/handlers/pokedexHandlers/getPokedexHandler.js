@@ -4,9 +4,8 @@ const getPokedexController = require('../../controllers/pokedexControllers/getPo
 const getPokedexHandler = async (req, res) => {
     try {
         const { userId } = req.params;
-        console.log(req.params);
-        const result = await getPokedexController(userId);
-        res.status(200).json(result);
+        const response = await getPokedexController(userId);
+        res.status(200).json(response);
     } catch (err) {
         res.status(200).json({ error: err.message });
     }

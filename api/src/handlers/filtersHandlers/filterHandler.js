@@ -4,8 +4,8 @@ const filterController = require('../../controllers/filtersControllers/filterCon
 const filterHandler = async (req, res) => {
     try {
         const { prop, filter, pokemons } = req.body;
-        const result = await filterController(prop, filter, pokemons);
-        res.status(200).json(result);
+        const response = await filterController(prop, filter, pokemons);
+        res.status(200).json(response);
     } catch (err) {
         res.status(200).json({ error: err.message });
     }
