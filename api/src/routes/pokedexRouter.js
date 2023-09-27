@@ -8,7 +8,7 @@ const postPokedexHandler = require('../handlers/pokedexHandlers/postPokedexHandl
 const pokedexRouter = Router();
 
 // ROUTES
-pokedexRouter.get('/:id', getPokedexHandler);
+pokedexRouter.get('/:userId', getPokedexHandler);
 pokedexRouter.post('/', postPokedexHandler);
 
 module.exports = pokedexRouter;

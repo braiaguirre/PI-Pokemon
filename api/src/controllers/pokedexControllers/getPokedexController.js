@@ -4,7 +4,7 @@ const { User, Pokemon } = require('../../DB_connection');
 const getPokedexController = async (userId) => {
 
     const userDb = await User.findOne({ where: { id: userId } });
-    const userDbPokedex = await User.getPokedex();
+    const userDbPokedex = await userDb.getPokedex();
 
     if (userDb && userDbPokedex) {
         const pokemonsId = userDbPokedex.pokemons;
