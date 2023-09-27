@@ -2,7 +2,8 @@
 const Router = require('express');
 
 // HANDLERS
-const getTypesHandler = require('../handlers/typesHandlers/getTypesHandler');
+const URL = '../handlers/typesHandlers/';
+const getTypesHandler = require(URL + 'getTypesHandler');
 
 const typesRouter = Router();
 

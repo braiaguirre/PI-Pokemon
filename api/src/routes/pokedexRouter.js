@@ -2,9 +2,10 @@
 const Router = require('express');
 
 // HANDLERS
-const getPokedexHandler = require('../handlers/pokedexHandlers/getPokedexHandler');
-const postPokedexHandler = require('../handlers/pokedexHandlers/postPokedexHandler');
-const deletePokedexHandler = require('../handlers/pokedexHandlers/deletePokedexHandler');
+const URL = '../handlers/pokedexHandlers/';
+const getPokedexHandler = require(URL + 'getPokedexHandler');
+const postPokedexHandler = require(URL + 'postPokedexHandler');
+const deletePokedexHandler = require(URL + 'deletePokedexHandler');
 
 const pokedexRouter = Router();
 

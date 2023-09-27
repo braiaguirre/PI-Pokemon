@@ -2,11 +2,12 @@
 const Router = require('express');
 
 // HANDLERS
-const getLoginHandler = require('../handlers/usersHandlers/getLoginHandler');
-const getLogoutHandler = require('../handlers/usersHandlers/getLogoutHandler');
-const editUsersHandler = require('../handlers/usersHandlers/editUsersHandler');
-const postUsersHandler = require('../handlers/usersHandlers/postUsersHandler');
-const deleteUsersHandler = require('../handlers/usersHandlers/deleteUsersHandler');
+const URL = '../handlers/usersHandlers';
+const getLoginHandler = require(URL + 'getLoginHandler');
+const getLogoutHandler = require(URL + 'getLogoutHandler');
+const editUsersHandler = require(URL + 'editUsersHandler');
+const postUsersHandler = require(URL + 'postUsersHandler');
+const deleteUsersHandler = require(URL + 'deleteUsersHandler');
 
 const usersRouter = Router();
 
