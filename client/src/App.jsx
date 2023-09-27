@@ -2,18 +2,18 @@
 import './App.module.css';
 
 // DEPENDENCIES
-import { useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 // VIEWS
-import Detail from './views/Detail';
-import Home from './views/Home';
+import Home from './views/Home/Home';
+import Login from './views/Login/Login';
+import Signup from './views/Signup/Signup';
+import Detail from './views/Detail/Detail';
+import Pokedex from './views/Pokedex/Pokedex';
+import Error404 from './views/Error404/Error404';
 
-function App() {
-  // HOOKS
-  const navigate = useNavigate();
-
+const App = () => {
   // STATES
   const access = useSelector(state => state.access);
 
@@ -29,7 +29,8 @@ function App() {
           <Route path="/" />
           <Route path="/pokedex" />
           <Route path="/detail/:id" />
-        </Routes>}
+        </Routes>
+      }
     </>
   )
 }
