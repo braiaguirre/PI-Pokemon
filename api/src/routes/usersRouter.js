@@ -2,7 +2,7 @@
 const Router = require('express');
 
 // HANDLERS
-const URL = '../handlers/usersHandlers';
+const URL = '../handlers/usersHandlers/';
 const getLoginHandler = require(URL + 'getLoginHandler');
 const getLogoutHandler = require(URL + 'getLogoutHandler');
 const editUsersHandler = require(URL + 'editUsersHandler');
