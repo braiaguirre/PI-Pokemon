@@ -2,8 +2,13 @@
 const { User } = require('../../DB_connection');
 
 const deleteUsersController = async (user) => {
-    await User.destroy({ where: { user } });
-    return 'User deleted'
+    // GETS USER AND POKEDEX
+    const userDb = await User.findOne({ where: { user } });
+    const userDbPokedex = await userDb.getPokedex();
+    // DESTROY USER AND POKEDEX
+    userDb.destroy();
+    userDbPokedex.destroy();
+    return 'User deleted';
 }
 
 

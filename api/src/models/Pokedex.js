@@ -2,11 +2,10 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     sequelize.define('Pokedex', {
-        id: {
+        userId: {
             type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4
         },
         pokemons: {
             type: DataTypes.ARRAY(DataTypes.INTEGER),
