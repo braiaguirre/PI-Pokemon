@@ -13,8 +13,8 @@ const usersRouter = Router();
 
 // ROUTES
 usersRouter.get('/login', getLoginHandler);
-usersRouter.get('/logout', getLogoutHandler);
-usersRouter.post('/edit', editUsersHandler);
+usersRouter.get('/logout/:id', getLogoutHandler);
+usersRouter.put('/edit', editUsersHandler);
 usersRouter.post('/register', postUsersHandler);
 usersRouter.delete('/', deleteUsersHandler);
 

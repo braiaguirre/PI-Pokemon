@@ -3,7 +3,7 @@ const getLogoutController = require('../../controllers/usersControllers/getLogou
 
 const getLogoutHandler = async (req, res) => {
     try {
-        const { id } = req.body;
+        const { id } = req.params;
         const response = await getLogoutController(id);
         res.status(200).json(response);
     } catch (err) {

@@ -3,7 +3,7 @@ const getLoginController = require('../../controllers/usersControllers/getLoginC
 
 const getLoginHandler = async (req, res) => {
     try {
-        const { userOrEmail, password } = req.body;
+        const { userOrEmail, password } = req.query;
         const response = await getLoginController(userOrEmail, password);
         res.status(200).json(response);
     } catch (err) {

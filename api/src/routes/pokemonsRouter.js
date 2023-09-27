@@ -12,7 +12,7 @@ const pokemonsRouter = Router();
 
 // ROUTES
 pokemonsRouter.get('/', getPokemonsHandler);
-pokemonsRouter.get('/name', getPokemonsByNameHandler); // ? UNIFY NAME AND '/'
+pokemonsRouter.get('/name', getPokemonsByNameHandler);
 pokemonsRouter.get('/:id', getPokemonsByIdHandler);
 pokemonsRouter.post('/', postPokemonsHandler);
 
