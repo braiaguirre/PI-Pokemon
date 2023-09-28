@@ -1,0 +1,20 @@
+.container {
+    align-items: center;
+    background-color: rgb(127, 255, 212);
+    color: #000000;
+    display: flex;
+    height: 60px;
+    padding: 5px 50px;
+    width: 100vw;
+    z-index: 1;
+}
+
+li {
+    cursor: pointer;
+    display: inline;
+    padding: 10px;
+}
+
+li:hover {
+    text-decoration: underline;
+}

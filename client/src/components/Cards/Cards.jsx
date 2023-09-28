@@ -5,7 +5,7 @@ const Cards = (pokemons) => {
     
     return (
         <div className={ styles.container }>
-            { pokemons.map(pokemon => <Card pokemon={ pokemon } />) }
+            { pokemons.length && pokemons.map(pokemon => <Card pokemon={ pokemon } />) }
         </div>
     );
 }

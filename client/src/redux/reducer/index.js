@@ -23,7 +23,7 @@ const initialState = {
     pokemonsFiltered: [],
     pokemonsPokedex: [],
     image: '',
-    access: false,
+    access: true,
     alert: {
         title: '',
         message: '',
