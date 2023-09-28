@@ -5,6 +5,15 @@
   text-align: center;
 }
 
+.popupContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.253);
+}
+
 ul {
   padding: 0;
   margin: 0;

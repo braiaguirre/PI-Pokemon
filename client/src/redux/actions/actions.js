@@ -4,11 +4,9 @@ import {
     GET_SIGNUP,
     
     SET_POPUP,
-    SET_ALERT,
     SET_ORDER,
     SET_FILTER,
     CLEAR_POPUP,
-    CLEAR_ALERT,
     CLEAR_ORDER,
     CLEAR_FILTER,
     
@@ -33,7 +31,7 @@ export const getPokemonById = (id) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_ALERT,
+                type: SET_POPUP,
                 payload: err.response.data.error
             })
         }
@@ -52,7 +50,7 @@ export const getLogin = ({ userOrEmail, password }) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_ALERT,
+                type: SET_POPUP,
                 payload: err.response.data.error
             })
         }
@@ -66,36 +64,38 @@ export const getSignup = (signupData) => {
         try {
             const { data } = await axios.get(endpoint, signupData);
             return dispatch({
-                type: SET_ALERT,
+                type: SET_POPUP,
                 payload: data
             });
         } catch (err) {
             return dispatch({
-                type: SET_ALERT,
+                type: SET_POPUP,
                 payload: err.response.data.error
             })
         }
     }
 }
 
-export const setAlert = (title, message, type) => {
-    return dispatch({
-        type: SET_ALERT,
+export const setPopup = (title, message, type, callback) => {
+    return {
+        type: SET_POPUP,
         payload: {
-            title,
-            message,
-            type
+            title: title,
+            message: message,
+            type: type,
+            callback: callback
         }
-    });
+    };
 }
 
-export const clearAlert = () => {
-    return dispatch({
-        type: CLEAR_ALERT,
+export const clearPopup = () => {
+    return {
+        type: CLEAR_POPUP,
         payload: {
             title: '',
             message: '',
-            type: ''
+            type: '',
+            callback: {}
         }
-    });
+    };
 }

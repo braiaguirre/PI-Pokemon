@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
-import { getSignup, setAlert } from '../../redux/actions/actions';
+import { getSignup, setPopup } from '../../redux/actions/actions';
 
 const Signup = () => {
     document.title = 'PokeHenry > Signup';
@@ -18,20 +18,20 @@ const Signup = () => {
 
     // STATES
     const [signupData, setSignupData] = useState({ username: '', email: '', password: '', image: '' });
-    const [signupErrors, setSignupErrors] = useState({ });
+    const [signupErrors, setSignupErrors] = useState({  username: '', email: '', password: '', confirm: '', image: ''  });
 
     // HANDLERS
     const signupHandler = () => dispatch(getSignup({ ...signupData }));
     const changeHandler = (e) => {
         const key = e.target.name;
         const value = e.target.value;
-        setLoginData({ ...loginData, [key]: value });
-        setLoginErrors({ ...loginData, [key]: value });
+        setSignupData({ ...signupData, [key]: value });
+        setSignupErrors({ ...signupData, [key]: value });
     }
     const submitHandler = (e) => {
         e.preventDefault();
         if (!Object.keys(signupErrors).length) signupHandler();
-        else dispatch(setAlert('Error', 'All fields are required', 'accept'));
+        else dispatch(setPopup('Error', 'All fields are required', 'alert'));
     }
     const backHandler = (e) => {
         e.preventDefault();

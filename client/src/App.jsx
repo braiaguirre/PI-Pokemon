@@ -27,7 +27,6 @@ const App = () => {
 
   // STATES
   const access = useSelector(state => state.access);
-  const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      { alert.title !== '' &&
+      { popup.type === 'alert' &&
         <div className={ styles.popupContainer }>
           <Alert />
         </div>

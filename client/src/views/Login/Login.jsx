@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
-import { getLogin, setAlert } from '../../redux/actions/actions';
+import { getLogin, setPopup } from '../../redux/actions/actions';
 
 const Login = () => {
     document.title = 'PokeHenry > Login';
@@ -31,7 +31,7 @@ const Login = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (!Object.keys(loginErrors).length) loginHandler();
-        else dispatch(setAlert('Error', 'Incorrect username, email or password', 'accept'));
+        else dispatch(setPopup('Error', 'Incorrect username, email or password', 'accept'));
     }
     const signupHandler = (e) => {
         e.preventDefault();
