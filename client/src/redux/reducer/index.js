@@ -1,7 +1,7 @@
 import {
-    LOGIN,
-    LOGOUT,
-    SIGNUP,
+    GET_LOGIN,
+    GET_LOGOUT,
+    GET_SIGNUP,
     
     SET_POPUP,
     SET_ALERT,
@@ -23,11 +23,11 @@ const initialState = {
     pokemonsFiltered: [],
     pokemonsPokedex: [],
     image: '',
-    access: true,
+    access: false,
     alert: {
         title: '',
         message: '',
-        alertType: ''
+        type: ''
     },
     popup: {
         popupType: '',
@@ -42,6 +42,31 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 pokemons: [payload]
             }
+
+        case GET_LOGIN:
+            return {
+                ...state,
+                access: payload
+            }
+
+        case GET_SIGNUP:
+            return {
+                ...state,
+                alert: payload
+            }
+
+        case SET_ALERT:
+            return {
+                ...state,
+                alert: payload
+            }
+
+        case SET_ALERT:
+            return {
+                ...state,
+                alert: payload
+            }
+
         default: 
             return {
                 ...state

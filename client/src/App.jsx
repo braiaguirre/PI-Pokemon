@@ -1,5 +1,5 @@
 // STYLE
-import './App.module.css';
+import styles from './App.module.css';
 
 // DEPENDENCIES
 import { useEffect } from 'react';
@@ -15,6 +15,7 @@ import Pokedex from './views/Pokedex/Pokedex';
 import Error404 from './views/Error404/Error404'; // TODO: FIX
 
 // COMPONENTS
+import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 
 // ACTIONS
@@ -35,7 +36,12 @@ const App = () => {
 
   return (
     <>
-      {!access ? 
+      { alert.title !== '' &&
+        <div className={ styles.popupContainer }>
+          <Alert />
+        </div>
+      }
+      { !access ? 
         <Routes>
           <Route path="/" element={ <Login /> } />
           <Route path="/signup" element={ <Signup /> } />

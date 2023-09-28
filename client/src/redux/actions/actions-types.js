@@ -1,6 +1,6 @@
-export const LOGIN = 'LOGIN';
-export const LOGOUT = 'LOGOUT';
-export const SIGNUP = 'SIGNUP';
+export const GET_LOGIN = 'GET_LOGIN';
+export const GET_LOGOUT = 'GET_LOGOUT';
+export const GET_SIGNUP = 'GET_SIGNUP';
 
 export const SET_POPUP = 'SET_POPUP';
 export const SET_ALERT = 'SET_ALERT';

@@ -15,7 +15,7 @@ const usersRouter = Router();
 usersRouter.get('/login', getLoginHandler);
 usersRouter.get('/logout/:id', getLogoutHandler);
 usersRouter.put('/edit', editUsersHandler);
-usersRouter.post('/register', postUsersHandler);
+usersRouter.post('/signup', postUsersHandler);
 usersRouter.delete('/', deleteUsersHandler);
 
 module.exports = usersRouter;

@@ -9,7 +9,7 @@ const postUsersController = async (userData) => {
         defaults: { ...userData, access: false },
     });
 
-    if (created) return 'New user added';
+    if (created) return 'New user added, proceed to login';
     else return 'Username or email already exists';
 }
 

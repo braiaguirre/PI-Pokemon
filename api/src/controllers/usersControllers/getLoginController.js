@@ -9,7 +9,7 @@ const getLoginController = async (userOrEmail, password) => {
     if (found && found.password === password) {
         found.access = true;
         await found.save();
-        return { access: true };
+        return true;
     } else return 'Incorrect user, email or password';
 }
 

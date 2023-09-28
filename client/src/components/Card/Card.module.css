@@ -1,9 +1,25 @@
 .container {
+    align-items: center;
     background-color: aquamarine;
+    border-radius: 10px;
     color: #000000;
     display: flex;
-    height: 500px;
+    flex-direction: column;
+    height: 400px;
     justify-content: center;
     text-align: center;
     width: 300px;
+}
+
+.container img {
+    background-color: #00000036;
+    border-radius: 50%;
+    height: 180px;
+    width: 180px;
+    padding: 20px;
+}
+
+.container h2 {
+    text-transform: uppercase;
+    margin: 0 0 20px 0;
 }
