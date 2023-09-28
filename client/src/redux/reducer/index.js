@@ -37,6 +37,11 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
+        case GET_POKEMON: 
+            return {
+                ...state,
+                pokemons: [payload]
+            }
         default: 
             return {
                 ...state

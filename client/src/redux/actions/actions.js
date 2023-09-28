@@ -17,5 +17,25 @@ import {
     GET_POKEMON,
     DELETE_POKEMON,
 } from '../actions/actions-types';
+import axios from 'axios';
 
-const URL = 'http://localhost:3001/';
+const URL = 'http://localhost:3001';
+
+export const getPokemonById = (id) => {
+    const endpoint = `${URL}/pokemons/${id}`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMON,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data.error
+            })
+        }
+    }
+}

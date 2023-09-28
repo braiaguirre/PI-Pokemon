@@ -2,8 +2,9 @@
 import './App.module.css';
 
 // DEPENDENCIES
+import { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector  } from 'react-redux';
 
 // VIEWS
 import Home from './views/Home/Home';
@@ -16,11 +17,21 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 // COMPONENTS
 import Navbar from './components/Navbar/Navbar';
 
+// ACTIONS
+import { getPokemonById } from './redux/actions/actions';
+
 const App = () => {
+  // HOOKS
+  const dispatch = useDispatch();
+
   // STATES
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
+
+  useEffect(() => {
+    dispatch(getPokemonById(2));
+  }, []);
 
   return (
     <>

@@ -1,6 +1,10 @@
 // STYLES
 import styles from './Navbar.module.css';
 
+// COMPONENTS
+import NavbarProfile from '../NavbarProfile/NavbarProfile';
+import NavbarSearch from '../NavbarSearch/NavbarSearch';
+
 const Navbar = () => {
     
     return (

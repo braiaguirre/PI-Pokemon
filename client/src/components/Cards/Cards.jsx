@@ -1,11 +1,14 @@
 // STYLES
 import styles from './Cards.module.css';
 
-const Cards = (pokemons) => {
+// COMPONENTS
+import Card from '../Card/Card';
+
+const Cards = ({ pokemons }) => {
     
     return (
         <div className={ styles.container }>
-            { pokemons.length && pokemons.map(pokemon => <Card pokemon={ pokemon } />) }
+            { pokemons.length && pokemons.map(pokemon => <Card pokemon={ pokemon } key={ pokemon.id } />) }
         </div>
     );
 }
