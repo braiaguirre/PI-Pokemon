@@ -76,7 +76,7 @@ export const getSignup = (signupData) => {
     }
 }
 
-export const setPopup = (title, message, type, callback) => {
+export const setPopup = ({ title, message, type, callback = {} }) => {
     return {
         type: SET_POPUP,
         payload: {

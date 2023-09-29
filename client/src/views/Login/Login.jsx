@@ -26,20 +26,23 @@ const Login = () => {
     // HANDLERS
     const loginHandler = () => dispatch(getLogin({ ...loginData }));
     const changeHandler = (e) => {
-        const key = e.target.name;
-        const value = e.target.value;
-        setLoginData({ ...loginData, [key]: value });
-        setLoginErrors(loginValidation({ ...loginData, [key]: value }));
+        setLoginData({ ...loginData, [e.target.name]: e.target.value });
+        setLoginErrors(loginValidation(loginData));
     }
     const submitHandler = (e) => {
         e.preventDefault();
         if (!loginErrors) loginHandler();
-        else dispatch(setPopup('Hey!', 'Both fields are required', 'alert'));
+        else dispatch(setPopup({
+            title: 'Hey!',
+            message: 'Both fields are required',
+            type: 'alert'
+        }));
     }
     const signupHandler = (e) => {
         e.preventDefault();
         navigate('/signup');
     }
+    
     return (
         <div className={ styles.container }>
             <form onSubmit={ submitHandler }>
