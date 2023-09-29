@@ -3,15 +3,15 @@ const { Op } = require('sequelize');
 const { User } = require('../../DB_connection');
 
 const postUsersController = async (userData) => {
-    const { user, email } = userData;
+    const { username, email } = userData;
+    console.log('controller', userData);
     const [userDb, created] = await User.findOrCreate({
-        where: { [Op.or]: [{ user }, { email } ] },
+        where: { [Op.or]: [{ username }, { email } ] },
         defaults: { ...userData, access: false },
     });
 
-    if (created) return 'New user added, proceed to login';
-    else return 'Username or email already exists';
+    if (!created) throw new Error('Username or email already registered');
+    return 'Signed up correctly, proceed to login';
 }
-
 
 module.exports = postUsersController;

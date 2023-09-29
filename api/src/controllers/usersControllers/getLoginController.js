@@ -4,7 +4,7 @@ const { User } = require('../../DB_connection');
 
 const getLoginController = async (userOrEmail, password) => {
     const found = await User.findOne({
-        where: { [Op.or]: [{ user: userOrEmail }, { email: userOrEmail }] }
+        where: { [Op.or]: [{ username: userOrEmail }, { email: userOrEmail }] }
     });
     if (found && found.password === password) {
         found.access = true;

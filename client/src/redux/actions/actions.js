@@ -58,10 +58,9 @@ export const getLogin = ({ userOrEmail, password }) => {
 
 export const getSignup = (signupData) => {
     const endpoint = `${ URL }/users/signup/`;
-
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(endpoint, signupData);
+            const { data } = await axios.post(endpoint, signupData);
             return dispatch({
                 type: SET_POPUP,
                 payload: data
@@ -69,7 +68,7 @@ export const getSignup = (signupData) => {
         } catch (err) {
             return dispatch({
                 type: SET_POPUP,
-                payload: err.response.data.error
+                payload: err.response.data
             })
         }
     }
