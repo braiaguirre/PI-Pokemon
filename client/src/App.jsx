@@ -18,9 +18,6 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 
-// ACTIONS
-import { getPokemonById } from './redux/actions/actions';
-
 const App = () => {
   // HOOKS
   const dispatch = useDispatch();
@@ -28,10 +25,6 @@ const App = () => {
   // STATES
   const access = useSelector(state => state.access);
   const popup = useSelector(state => state.popup);
-
-  useEffect(() => {
-    dispatch(getPokemonById(2));
-  }, []);
 
   return (
     <>

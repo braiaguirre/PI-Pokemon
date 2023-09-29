@@ -14,9 +14,17 @@ const Home = () => {
     const pokemons = useSelector(state => state.pokemons);
 
     return (
-        <div className={ styles.container }>
-            <Cards pokemons={ pokemons } />
-        </div>
+        <>
+            { !pokemons.length ? 
+                <div>
+                    <h2>Let's get your initial Pokemons!</h2>
+                </div>
+            :
+                <div className={ styles.container }>
+                    <Cards pokemons={ pokemons } />
+                </div>
+            }
+        </>
     );
 }
 

@@ -61,12 +61,10 @@ const Signup = () => {
     const getImageHandler = (e) => {
         e.preventDefault();
         dispatch(getImage(random()));
-        setSignupData({ ...signupData, image: image });
     }
 
     useEffect(() => {
-        dispatch(getImage(random()));
-        setSignupData({ ...signupData, image: image });
+        if (!image) dispatch(getImage(random())); // TODO: FIX
         return () => dispatch(clearImage());
     }, [])
 
