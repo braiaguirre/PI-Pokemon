@@ -12,6 +12,7 @@ import {
     
     GET_TYPES,
     GET_IMAGE,
+    CLEAR_IMAGE,
     GET_POKEMON,
     DELETE_POKEMON,
 } from '../actions/actions-types';
@@ -33,10 +34,10 @@ export const getPokemonById = (id) => {
             return dispatch({
                 type: SET_POPUP,
                 payload: err.response.data
-            })
-        }
-    }
-}
+            });
+        };
+    };
+};
 
 export const getLogin = ({ userOrEmail, password }) => {
     const endpoint = `${ URL }/users/login/?userOrEmail=${ userOrEmail }&password=${ password }`;
@@ -51,30 +52,51 @@ export const getLogin = ({ userOrEmail, password }) => {
             return dispatch({
                 type: SET_POPUP,
                 payload: err.response.data
-            })
-        }
-    }
-}
+            });
+        };
+    };
+};
 
-export const getSignup = (signupData) => {
-    const endpoint = `${ URL }/users/signup/`;
+export const getLogout = (id) => {      // TODO: IMPLEMENT REMEMBER ME OPTION
+    const endpoint = `${ URL }/users/logout`;
     return async (dispatch) => {
         try {
-            const { data } = await axios.post(endpoint, signupData);
+            const { data } = await axios.get(endpoint);
             return dispatch({
-                type: SET_POPUP,
+                type: GET_LOGIN,
                 payload: data
             });
         } catch (err) {
             return dispatch({
                 type: SET_POPUP,
                 payload: err.response.data
-            })
-        }
-    }
-}
+            });
+        };
+    };
+};
 
-export const setPopup = ({ title, message, type, callback = {} }) => {
+export const getSignup = (signupData, callback) => {
+    const endpoint = `${ URL }/users/signup/`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, signupData);
+            return dispatch({
+                type: SET_POPUP,
+                payload: {
+                    ...data,
+                    callback: callback
+                }
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_POPUP,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const setPopup = ({ title, message, type, callback = null }) => {
     return {
         type: SET_POPUP,
         payload: {
@@ -84,7 +106,7 @@ export const setPopup = ({ title, message, type, callback = {} }) => {
             callback: callback
         }
     };
-}
+};
 
 export const clearPopup = () => {
     return {
@@ -93,7 +115,33 @@ export const clearPopup = () => {
             title: '',
             message: '',
             type: '',
-            callback: {}
+            callback: null
         }
     };
-}
+};
+
+export const getImage = (id) => {
+    const endpoint = `${ URL }/pokemons/image/${ id }`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_IMAGE,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_POPUP,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const clearImage = () => {
+    return {
+        type: CLEAR_IMAGE,
+        payload: ''
+    };
+};

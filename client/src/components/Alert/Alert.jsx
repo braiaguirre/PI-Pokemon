@@ -12,10 +12,13 @@ const Alert = () => {
     const dispatch = useDispatch();
 
     // STATES
-    const { title, message } = useSelector(state => state.popup);
-
+    const { title, message, callback } = useSelector(state => state.popup);
     // HANDLERS
-    const acceptHandler = () => dispatch(clearPopup());
+    const acceptHandler = () => {
+        console.log(callback);
+        if (callback) callback.forEach(callback => dispatch(callback));
+        dispatch(clearPopup());
+    }
     
     return (
         <div className={ styles.container }>

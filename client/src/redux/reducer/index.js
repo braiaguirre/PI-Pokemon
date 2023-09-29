@@ -12,6 +12,7 @@ import {
     
     GET_TYPES,
     GET_IMAGE,
+    CLEAR_IMAGE,
     GET_POKEMON,
     DELETE_POKEMON,
 } from '../actions/actions-types';
@@ -26,7 +27,7 @@ const initialState = {
         title: '',
         message: '',
         type: '',
-        callback: {}
+        callback: null
     }
 }
 
@@ -44,6 +45,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 access: payload
             }
 
+        case GET_LOGOUT:
+            return {
+                ...state,
+                access: payload
+            }
+
         case GET_SIGNUP:
             return {
                 ...state,
@@ -51,15 +58,28 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case SET_POPUP:
+            console.log(payload);
             return {
                 ...state,
-                popup: payload
+                popup: { ...payload }
             }
 
         case CLEAR_POPUP:
             return {
                 ...state,
                 popup: payload
+            }
+
+        case GET_IMAGE:
+            return {
+                ...state,
+                image: payload
+            }
+        
+        case CLEAR_IMAGE:
+            return {
+                ...state,
+                image: payload
             }
 
         default: 

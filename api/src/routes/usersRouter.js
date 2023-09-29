@@ -13,7 +13,7 @@ const usersRouter = Router();
 
 // ROUTES
 usersRouter.get('/login', getLoginHandler);
-usersRouter.get('/logout/:id', getLogoutHandler);
+usersRouter.get('/logout', getLogoutHandler); // TODO: IMPLEMENT REMEMBER ME
 usersRouter.put('/edit', editUsersHandler);
 usersRouter.post('/signup', postUsersHandler);
 usersRouter.delete('/', deleteUsersHandler);

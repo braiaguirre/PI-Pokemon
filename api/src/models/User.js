@@ -6,7 +6,7 @@ module.exports = (sequelize) => {
             type: DataTypes.UUID,
             allowNull: false,
             primaryKey: true,
-            defaultValue: DataTypes.UUIDV4
+            defaultValue: DataTypes.UUIDV4  
         },
         username: {
             type: DataTypes.STRING,
@@ -24,10 +24,6 @@ module.exports = (sequelize) => {
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
-        },
-        access: {
-            type: DataTypes.BOOLEAN,
             allowNull: false
         }
     }, { timestamps: false} );

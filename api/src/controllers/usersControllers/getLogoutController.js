@@ -2,6 +2,10 @@
 const { User } = require('../../DB_connection');
 
 const getLogoutController = async (id) => {
+    return false;
+
+    // TODO: IMPLEMENT REMEMBER ME OPTION
+    
     const found = await User.findOne({
         where: { id }
     });
@@ -9,8 +13,8 @@ const getLogoutController = async (id) => {
     if (found) {
         found.access = false;
         await found.save();
-        return { access: false };
-    } else return 'Error logging out';
+        return false;
+    } else throw new Error('Error logging out');
 }
 
 

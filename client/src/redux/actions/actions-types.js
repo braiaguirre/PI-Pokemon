@@ -13,5 +13,6 @@ export const CLEAR_FILTER = 'CLEAR_FILTER';
 
 export const GET_TYPES = 'GET_TYPES';
 export const GET_IMAGE = 'GET_IMAGE';
+export const CLEAR_IMAGE = 'CLEAR_IMAGE';
 export const GET_POKEMON = 'GET_POKEMON';
 export const DELETE_POKEMON = 'DELETE_POKEMON';

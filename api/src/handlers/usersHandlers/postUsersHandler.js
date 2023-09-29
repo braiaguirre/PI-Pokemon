@@ -16,8 +16,8 @@ const postUsersHandler = async (req, res) => {
             title: 'Error',
             message: err.message,
             type: 'alert'
-        })
-    }
-}
+        });
+    };
+};
 
 module.exports = postUsersHandler;
