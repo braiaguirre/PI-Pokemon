@@ -20,7 +20,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     // STATES
-    const [loginData, setLoginData] = useState({ emailOrUser: '', password: '' });
+    const [loginData, setLoginData] = useState({ userOrEmail: '', password: '' });
     const [loginErrors, setLoginErrors] = useState(true);
 
     // HANDLERS
@@ -47,7 +47,7 @@ const Login = () => {
         <div className={ styles.container }>
             <form onSubmit={ submitHandler }>
                 <input
-                    name="emailOrUser"
+                    name="userOrEmail"
                     onChange={ changeHandler }
                     placeholder="Username or email" 
                 />

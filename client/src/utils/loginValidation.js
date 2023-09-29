@@ -1,6 +1,6 @@
 const loginValidation = (loginData) => {
-    const { emailOrUser, password } = loginData;
-    return !emailOrUser.length || !password.length ? true : false;
+    const { userOrEmail, password } = loginData;
+    return !userOrEmail.length || !password.length ? true : false;
 }
 
 export default loginValidation;

@@ -40,7 +40,6 @@ export const getPokemonById = (id) => {
 
 export const getLogin = ({ userOrEmail, password }) => {
     const endpoint = `${ URL }/users/login/?userOrEmail=${ userOrEmail }&password=${ password }`;
-    console.log(userOrEmail,password);
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
