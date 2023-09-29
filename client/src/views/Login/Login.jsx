@@ -9,6 +9,9 @@ import { useNavigate } from 'react-router-dom';
 // ACTIONS
 import { getLogin, setPopup } from '../../redux/actions/actions';
 
+// UTILS
+import loginValidation from '../../utils/loginValidation';
+
 const Login = () => {
     document.title = 'PokeHenry > Login';
 
@@ -18,7 +21,7 @@ const Login = () => {
 
     // STATES
     const [loginData, setLoginData] = useState({ emailOrUser: '', password: '' });
-    const [loginErrors, setLoginErrors] = useState({ });
+    const [loginErrors, setLoginErrors] = useState(true);
 
     // HANDLERS
     const loginHandler = () => dispatch(getLogin({ ...loginData }));
@@ -26,12 +29,12 @@ const Login = () => {
         const key = e.target.name;
         const value = e.target.value;
         setLoginData({ ...loginData, [key]: value });
-        setLoginErrors({ ...loginData, [key]: value });
+        setLoginErrors(loginValidation({ ...loginData, [key]: value }));
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        if (!Object.keys(loginErrors).length) loginHandler();
-        else dispatch(setPopup('Error', 'Incorrect username, email or password', 'accept'));
+        if (!loginErrors) loginHandler();
+        else dispatch(setPopup('Hey!', 'Both fields are required', 'alert'));
     }
     const signupHandler = (e) => {
         e.preventDefault();
