@@ -3,6 +3,7 @@ import styles from './Navbar.module.css';
 
 // DEPENDENCIES
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 // COMPONENTS
 import NavbarProfile from '../NavbarProfile/NavbarProfile';
@@ -14,15 +15,18 @@ import { getLogout } from '../../redux/actions/actions';
 const Navbar = () => {
     // HOOKS
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     // HANDLERS
+    const homeHandler = () => navigate('/');
+    const pokedexHandler = () => navigate('/pokedex');
     const logoutHandler = () => dispatch(getLogout());
 
     return (
         <div className={ styles.container }>
             <ul>
-                <li>Home</li>
-                <li>Pokedex</li>
+                <li onClick={ homeHandler }>Home</li>
+                <li onClick={ pokedexHandler}>Pokedex</li>
                 <li>Profile</li>
                 <li onClick={ logoutHandler }>Logout</li>
             </ul>

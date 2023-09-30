@@ -9,7 +9,7 @@ import MiniCards from '../MiniCard/MiniCard';
 import MiniCard from '../MiniCard/MiniCard';
 
 // ACTIONS
-import { getPokemonById, savePokemons } from '../../redux/actions/actions';
+import { getPokemonById, savePokemons, clearPopup } from '../../redux/actions/actions';
 
 // UTILS
 import random from '../../utils/random';
@@ -26,7 +26,10 @@ const GetPokemons = () => {
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(getPokemonById(random()));
-    const savePokemonsHandler = () => dispatch(savePokemons(pokemons, userId)); // TODO: IMPROVE
+    const savePokemonsHandler = () => {
+        dispatch(savePokemons(pokemons, userId)); // TODO: IMPROVE
+        dispatch(clearPopup());
+    }
 
     return (
         <>

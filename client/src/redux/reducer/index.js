@@ -27,7 +27,7 @@ const initialState = {
     pokemonsPokedex: [],
     image: '',
     userId: null,
-    access: false,
+    access: true,
     alert: {
         title: '',
         message: '',
