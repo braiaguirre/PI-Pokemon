@@ -19,6 +19,9 @@ import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons';
 
+// ACTIONS
+import {  } from './redux/actions/actions';
+
 const App = () => {
   // HOOKS
   const dispatch = useDispatch();
@@ -27,6 +30,12 @@ const App = () => {
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
+
+  // LOAD USER DATA
+  // useEffect(() => {
+  //   if (access) dispatch(loadData());
+  //   else dispatch(clearData());
+  // }, [access])
 
   return (
     <>

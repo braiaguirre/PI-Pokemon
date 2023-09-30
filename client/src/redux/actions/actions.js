@@ -17,6 +17,8 @@ import {
     CLEAR_IMAGE,
     GET_POKEMON,
     DELETE_POKEMON,
+    SAVE_POKEMONS,
+    
 } from '../actions/actions-types';
 import axios from 'axios';
 
@@ -33,6 +35,7 @@ export const getPokemonById = (id) => {
                 payload: data
             });
         } catch (err) {
+            console.log(err)
             return dispatch({
                 type: SET_ALERT,
                 payload: err.response.data
@@ -122,6 +125,24 @@ export const clearAlert = () => {
     };
 };
 
+export const setPopup = ({ type }) => {
+    return {
+        type: SET_POPUP,
+        payload: {
+            type: type
+        }
+    };
+};
+
+export const clearPopup = () => {
+    return {
+        type: CLEAR_POPUP,
+        payload: {
+            type: ''
+        }
+    };
+};
+
 export const getImage = (id) => {
     const endpoint = `${ URL }/pokemons/image/${ id }`;
 
@@ -147,3 +168,22 @@ export const clearImage = () => {
         payload: ''
     };
 };
+
+export const savePokemons = (pokemons) => {
+    const endpoint = `${ URL }/pokemons/`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, pokemons);
+            return dispatch({
+                type: GET_POKEMON,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+}

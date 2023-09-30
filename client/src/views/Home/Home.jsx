@@ -8,6 +8,9 @@ import { useNavigate } from 'react-router-dom';
 // COMPONENTS
 import Cards from '../../components/Cards/Cards';
 
+// ACTIONS
+import { setPopup } from '../../redux/actions/actions';
+
 const Home = () => {
     document.title = 'PokeHenry';
 

@@ -2,7 +2,10 @@
 const { User } = require('../../DB_connection');
 
 const getLogoutController = async (id) => {
-    return false;
+    return {
+        userId: null,
+        access: false
+    };
 
     // TODO: IMPLEMENT REMEMBER ME OPTION
     

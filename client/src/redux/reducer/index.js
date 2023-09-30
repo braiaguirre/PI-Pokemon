@@ -17,6 +17,8 @@ import {
     CLEAR_IMAGE,
     GET_POKEMON,
     DELETE_POKEMON,
+    SAVE_POKEMONS,
+
 } from '../actions/actions-types';
 
 const initialState = {
@@ -24,7 +26,8 @@ const initialState = {
     pokemonsFiltered: [],
     pokemonsPokedex: [],
     image: '',
-    access: false,
+    userId: null,
+    access: true,
     alert: {
         title: '',
         message: '',
@@ -33,7 +36,7 @@ const initialState = {
     },
     popup: {
         type: ''
-    }
+    },
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -41,19 +44,19 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_POKEMON: 
             return {
                 ...state,
-                pokemons: [payload]
+                pokemons: [ ...state.pokemons, payload ]
             }
-
+            
         case GET_LOGIN:
             return {
                 ...state,
-                access: payload
+                ...payload
             }
 
         case GET_LOGOUT:
             return {
                 ...state,
-                access: payload
+                ...payload
             }
 
         case GET_SIGNUP:
@@ -65,13 +68,25 @@ const reducer = (state = initialState, { type, payload }) => {
         case SET_ALERT:
             return {
                 ...state,
-                alert: { ...payload }
+                alert: payload
             }
 
         case CLEAR_ALERT:
             return {
                 ...state,
                 alert: payload
+            }
+
+        case SET_POPUP:
+            return {
+                ...state,
+                popup: payload
+            }
+
+        case CLEAR_POPUP:
+            return {
+                ...state,
+                popup: payload
             }
 
         case GET_IMAGE:
