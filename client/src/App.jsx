@@ -17,6 +17,7 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 // COMPONENTS
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
+import GetPokemons from './components/GetPokemons/GetPokemons';
 
 const App = () => {
   // HOOKS
@@ -24,13 +25,19 @@ const App = () => {
 
   // STATES
   const access = useSelector(state => state.access);
+  const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
 
   return (
     <>
-      { popup.type === 'alert' &&
+      { alert.type === 'ALERT' &&
         <div className={ styles.popupContainer }>
           <Alert />
+        </div>
+      }
+      { popup.type === 'GET_POKEMONS' && 
+        <div className={ styles.popupContainer }>
+          <GetPokemons />
         </div>
       }
       { !access ? 

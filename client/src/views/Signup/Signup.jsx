@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
-import { getSignup, getImage, clearImage, setPopup } from '../../redux/actions/actions';
+import { getSignup, getImage, clearImage, setAlert } from '../../redux/actions/actions';
 
 // UTILS
 import signupValidation from '../../utils/signupValidation';
@@ -47,15 +47,15 @@ const Signup = () => {
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        if (Object.keys(signupErrors).length) dispatch(setPopup({
+        if (Object.keys(signupErrors).length) dispatch(setAlert({
             title: 'Error',
             message: 'All fields are required',
-            type: 'alert'
+            type: 'ALERT'
         }));
-        else if (!image) dispatch(setPopup({
+        else if (!image) dispatch(setAlert({
             title: 'Error',
             message: 'Select a profile image',
-            type: 'alert'
+            type: 'ALERT'
         }))
         else signupHandler();
     }

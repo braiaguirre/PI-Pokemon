@@ -9,13 +9,13 @@ const postUsersHandler = async (req, res) => {
         res.status(200).json({
             title: 'Yeah!',
             message: response,
-            type: 'alert'
+            type: 'ALERT'
         });
     } catch (err) {
         res.status(404).json({ 
             title: 'Error',
             message: err.message,
-            type: 'alert'
+            type: 'ALERT'
         });
     };
 };

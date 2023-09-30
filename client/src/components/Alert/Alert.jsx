@@ -5,18 +5,18 @@ import styles from './Alert.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 
 // ACTIONS
-import { clearPopup } from '../../redux/actions/actions';
+import { clearAlert } from '../../redux/actions/actions';
 
 const Alert = () => {
     // HOOKS
     const dispatch = useDispatch();
 
     // STATES
-    const { title, message, callback } = useSelector(state => state.popup);
+    const { title, message, callback } = useSelector(state => state.alert);
     // HANDLERS
     const acceptHandler = () => {
         if (callback) callback.forEach(callback => dispatch(callback));
-        dispatch(clearPopup());
+        dispatch(clearAlert());
     }
     
     return (

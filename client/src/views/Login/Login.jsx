@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 // ACTIONS
-import { getLogin, setPopup } from '../../redux/actions/actions';
+import { getLogin, setAlert } from '../../redux/actions/actions';
 
 // UTILS
 import loginValidation from '../../utils/loginValidation';
@@ -32,10 +32,10 @@ const Login = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (!loginErrors) loginHandler();
-        else dispatch(setPopup({
+        else dispatch(setAlert({
             title: 'Hey!',
             message: 'Both fields are required',
-            type: 'alert'
+            type: 'ALERT'
         }));
     }
     const signupHandler = (e) => {

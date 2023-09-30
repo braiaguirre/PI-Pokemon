@@ -4,9 +4,11 @@ import {
     GET_SIGNUP,
     
     SET_POPUP,
+    SET_ALERT,
     SET_ORDER,
     SET_FILTER,
     CLEAR_POPUP,
+    CLEAR_ALERT,
     CLEAR_ORDER,
     CLEAR_FILTER,
     
@@ -32,7 +34,7 @@ export const getPokemonById = (id) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: err.response.data
             });
         };
@@ -50,7 +52,7 @@ export const getLogin = ({ userOrEmail, password }) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: err.response.data
             });
         };
@@ -68,7 +70,7 @@ export const getLogout = (id) => {      // TODO: IMPLEMENT REMEMBER ME OPTION
             });
         } catch (err) {
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: err.response.data
             });
         };
@@ -81,7 +83,7 @@ export const getSignup = (signupData, callback) => {
         try {
             const { data } = await axios.post(endpoint, signupData);
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: {
                     ...data,
                     callback: callback
@@ -89,16 +91,16 @@ export const getSignup = (signupData, callback) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: err.response.data
             });
         };
     };
 };
 
-export const setPopup = ({ title, message, type, callback = null }) => {
+export const setAlert = ({ title, message, type, callback = null }) => {
     return {
-        type: SET_POPUP,
+        type: SET_ALERT,
         payload: {
             title: title,
             message: message,
@@ -108,9 +110,9 @@ export const setPopup = ({ title, message, type, callback = null }) => {
     };
 };
 
-export const clearPopup = () => {
+export const clearAlert = () => {
     return {
-        type: CLEAR_POPUP,
+        type: CLEAR_ALERT,
         payload: {
             title: '',
             message: '',
@@ -132,7 +134,7 @@ export const getImage = (id) => {
             });
         } catch (err) {
             return dispatch({
-                type: SET_POPUP,
+                type: SET_ALERT,
                 payload: err.response.data
             });
         };
