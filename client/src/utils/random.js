@@ -1,3 +1,3 @@
-const random = () => ((Math.random() * 1292) + 1).toFixed();
+const random = () => ((Math.random() * 500)).toFixed();
 
 export default random;

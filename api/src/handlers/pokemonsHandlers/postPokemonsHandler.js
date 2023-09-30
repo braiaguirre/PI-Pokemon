@@ -1,10 +1,10 @@
 // DEPENDENCIES
-const postPokemonController = require('../../controllers/pokemonsControllers/postPokemonsController');
+const postPokemonsController = require('../../controllers/pokemonsControllers/postPokemonsController');
 
 const postPokemonsHandler = async (req, res) => {
     try {
-        const pokemon = req.body;
-        const response = await postPokemonController(pokemon);
+        const { pokemons, userId } = req.body;
+        const response = await postPokemonsController(pokemons, userId);
         res.status(200).json(response);
     } catch (err) {
         res.status(404).json({ 

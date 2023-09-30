@@ -1,14 +1,16 @@
 // DEPENDENCIES
 const { User, Pokemon, PokemonType } = require('../../DB_connection');
 
-const postPokemonController = async (pokemon, userId) => {
-    const [pokemonDb, created] = await Pokemon.findOrCreate({ 
-        where: { id: pokemon.id },
-        defaults: { ...pokemon }
+const postPokemonsController = async (pokemons, userId) => {
+    const userDb = await User.findOne({ where: { id: userId } });
+    pokemons.forEach(async pokemon => {
+        const [pokemonDb] = await Pokemon.findOrCreate({ 
+            where: { id: pokemon.id },
+            defaults: { ...pokemon }
+        });
+        userDb.addPokemon(pokemonDb);
     });
-    const userDb = await User.findOne({ where: { id } });
-    userDb.addPokemon(pokemonDb);
-    return pokemonDb;
+    return 'asd';
 }
 
-module.exports = postPokemonController;
+module.exports = postPokemonsController;

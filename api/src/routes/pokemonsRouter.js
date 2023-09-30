@@ -12,9 +12,9 @@ const postPokemonsHandler = require(URL + 'postPokemonsHandler');
 const pokemonsRouter = Router();
 
 // ROUTES
-pokemonsRouter.get('/', getPokemonsHandler);
 pokemonsRouter.get('/name', getPokemonsByNameHandler);
 pokemonsRouter.get('/:id', getPokemonsByIdHandler);
+pokemonsRouter.get('/', getPokemonsHandler);
 pokemonsRouter.get('/image/:id', getPokemonsImageHandler);
 pokemonsRouter.post('/', postPokemonsHandler);
 

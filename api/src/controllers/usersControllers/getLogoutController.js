@@ -4,7 +4,9 @@ const { User } = require('../../DB_connection');
 const getLogoutController = async (id) => {
     return {
         userId: null,
-        access: false
+        access: false,
+        pokemons: [],
+        pokemonsFiltered: []
     };
 
     // TODO: IMPLEMENT REMEMBER ME OPTION

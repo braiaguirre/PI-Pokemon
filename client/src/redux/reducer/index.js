@@ -27,7 +27,7 @@ const initialState = {
     pokemonsPokedex: [],
     image: '',
     userId: null,
-    access: true,
+    access: false,
     alert: {
         title: '',
         message: '',
@@ -42,10 +42,9 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_POKEMON: 
-            return {
-                ...state,
-                pokemons: [ ...state.pokemons, payload ]
-            }
+            return !state.pokemons.length
+            ? { ...state, pokemons: [payload] }
+            : { ...state, pokemons: [ ...state.pokemons, payload] }
             
         case GET_LOGIN:
             return {

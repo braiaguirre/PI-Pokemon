@@ -30,6 +30,7 @@ export const getPokemonById = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
+            console.log(data);
             return dispatch({
                 type: GET_POKEMON,
                 payload: data
@@ -169,16 +170,12 @@ export const clearImage = () => {
     };
 };
 
-export const savePokemons = (pokemons) => {
+export const savePokemons = (pokemons, userId) => {
     const endpoint = `${ URL }/pokemons/`;
-
     return async (dispatch) => {
         try {
-            const { data } = await axios.post(endpoint, pokemons);
-            return dispatch({
-                type: GET_POKEMON,
-                payload: data
-            });
+            const { data } = await axios.post(endpoint, { pokemons, userId });
+            return dispatch({});
         } catch (err) {
             return dispatch({
                 type: SET_ALERT,
