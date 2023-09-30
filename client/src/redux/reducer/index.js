@@ -58,7 +58,6 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case SET_POPUP:
-            console.log(payload);
             return {
                 ...state,
                 popup: { ...payload }

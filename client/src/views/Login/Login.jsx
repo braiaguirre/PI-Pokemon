@@ -57,8 +57,8 @@ const Login = () => {
                     onChange={ changeHandler }
                     placeholder="Password" 
                 />
-            <button onClick={ signupHandler }>Sign Up</button>
             <button>Log In</button>
+            <button onClick={ signupHandler }>Sign Up</button>
             </form>
         </div>
     );

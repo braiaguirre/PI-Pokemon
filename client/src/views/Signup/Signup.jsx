@@ -12,6 +12,7 @@ import { getSignup, getImage, clearImage, setPopup } from '../../redux/actions/a
 // UTILS
 import signupValidation from '../../utils/signupValidation';
 import random from '../../utils/random';
+import pokeball from '../../assets/pokeball.png';
 
 const Signup = () => {
     document.title = 'PokeHenry > Signup';
@@ -26,13 +27,13 @@ const Signup = () => {
         username: '', 
         email: '', 
         password: '', 
-        confirm: ''
+        confirm: '',
     });
     const [signupErrors, setSignupErrors] = useState({
         username: 'A-Z, a-z, 0-9 and dots only. Between 5 and 15 characters.', 
         email: 'Enter a valid email.', 
         password: 'A-Z, a-z, 0-9. Between 5 and 15 characters', 
-        confirm: 'Passwords does not match.'
+        confirm: 'Passwords does not match.',
     });
 
     // HANDLERS
@@ -42,17 +43,21 @@ const Signup = () => {
     const changeHandler = (e) => {
         const key = e.target.name;
         const value = e.target.value;
-        setSignupData({ ...signupData, [key]: value });
-        setSignupErrors(signupValidation({ ...signupData, [key]: value }));    
+        validationHandler(key, value);
     }
     const submitHandler = (e) => {
         e.preventDefault();
-        if (!Object.keys(signupErrors).length) signupHandler();
-        else dispatch(setPopup({
+        if (Object.keys(signupErrors).length) dispatch(setPopup({
             title: 'Error',
             message: 'All fields are required',
             type: 'alert'
         }));
+        else if (!image) dispatch(setPopup({
+            title: 'Error',
+            message: 'Select a profile image',
+            type: 'alert'
+        }))
+        else signupHandler();
     }
     const backHandler = (e) => {
         e.preventDefault();
@@ -61,10 +66,14 @@ const Signup = () => {
     const getImageHandler = (e) => {
         e.preventDefault();
         dispatch(getImage(random()));
+        validationHandler('image', image);
+    }
+    const validationHandler = (key, value) => {
+        setSignupData({ ...signupData, [key]: value });
+        setSignupErrors(signupValidation({ ...signupData, [key]: value }));   
     }
 
     useEffect(() => {
-        if (!image) dispatch(getImage(random())); // TODO: FIX
         return () => dispatch(clearImage());
     }, [])
 
@@ -95,11 +104,12 @@ const Signup = () => {
                 />
                 <button onClick={ getImageHandler }>Get random image</button>
                 <img
-                    src={ image }
+                    src={ image ? image : pokeball }
                     alt="Profile image"
                 />
-            <button onClick={ backHandler }>Back</button>
-            <button>Sign Up</button>
+            
+                <button>Sign Up</button>
+                <button onClick={ backHandler }>Back</button>
             </form>
         </div>
     );

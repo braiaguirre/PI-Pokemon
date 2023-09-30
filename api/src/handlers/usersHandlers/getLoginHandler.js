@@ -10,8 +10,7 @@ const getLoginHandler = async (req, res) => {
         res.status(404).json({ 
             title: 'Error',
             message: err.message,
-            type: 'alert',
-            callback: {}
+            type: 'alert'
         })
     }
 }

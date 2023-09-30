@@ -15,7 +15,6 @@ const Alert = () => {
     const { title, message, callback } = useSelector(state => state.popup);
     // HANDLERS
     const acceptHandler = () => {
-        console.log(callback);
         if (callback) callback.forEach(callback => dispatch(callback));
         dispatch(clearPopup());
     }
