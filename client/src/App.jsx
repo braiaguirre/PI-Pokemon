@@ -35,7 +35,10 @@ const App = () => {
 
   // LOAD INITIAL APP DATA
   useEffect(() => {
-    if (!pokedexRaw.length) dispatch(getPokedexRaw());
+    if (!pokedexRaw.length) {
+      dispatch(getPokedexRaw());
+      dispatch(getPokemonTypes());
+    }
     else if (!loading) dispatch(getPokedex(1));
     else setLoading(false);
     return () => {

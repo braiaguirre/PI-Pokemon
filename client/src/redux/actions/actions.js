@@ -271,3 +271,21 @@ export const clearPokemonDetail = () => {
         type: CLEAR_POKEMON_DETAIL
     });
 };
+
+export const getPokemonTypes = () => {
+    const endpoint = `${ URL }/pokemons/types${ id }`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMON_DETAIL,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};

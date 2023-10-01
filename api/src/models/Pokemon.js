@@ -53,10 +53,6 @@ module.exports = (sequelize) => {
             allowNull: false,
             defaultValue: false
         },
-        types: {
-            type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false
-        },
         abilities: {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false
