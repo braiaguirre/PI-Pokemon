@@ -16,6 +16,12 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    CLEAR_POKEDEX_RAW,
+    GET_POKEDEX_RAW,
+
+    GET_POKEDEX,
+    CLEAR_POKEDEX,
+
     DELETE_POKEMON,
     SAVE_POKEMONS,
     
@@ -30,13 +36,11 @@ export const getPokemonById = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
-            console.log(data);
             return dispatch({
                 type: GET_POKEMON,
                 payload: data
             });
         } catch (err) {
-            console.log(err)
             return dispatch({
                 type: SET_ALERT,
                 payload: err.response.data
@@ -44,6 +48,62 @@ export const getPokemonById = (id) => {
         };
     };
 };
+
+export const getPokedexRaw = () => {
+    const endpoint = `${ URL }/pokemons/`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEDEX_RAW,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const clearPokedexRaw = () => {
+    return ({
+        type: CLEAR_POKEDEX_RAW,
+        payload: {
+            pokedexRaw: []
+        }
+    });
+};
+
+export const getPokedex = (page) => {
+    const endpoint = `${ URL }/pokemons/page/${page}`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEDEX,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const clearPokedex = () => {
+    return ({
+        type: CLEAR_POKEDEX,
+        payload: {
+            pokedex: []
+        }
+    });
+}
 
 export const getLogin = ({ userOrEmail, password }) => {
     const endpoint = `${ URL }/users/login/?userOrEmail=${ userOrEmail }&password=${ password }`;

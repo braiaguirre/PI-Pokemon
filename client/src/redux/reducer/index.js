@@ -16,6 +16,10 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    CLEAR_POKEDEX_RAW,
+    GET_POKEDEX_RAW,
+    GET_POKEDEX,
+    CLEAR_POKEDEX,
     DELETE_POKEMON,
     SAVE_POKEMONS,
 
@@ -24,7 +28,8 @@ import {
 const initialState = {
     pokemons: [],
     pokemonsFiltered: [],
-    pokemonsPokedex: [],
+    pokedex: [],
+    pokedexRaw: [],
     image: '',
     userId: null,
     access: true,
@@ -37,6 +42,9 @@ const initialState = {
     popup: {
         type: ''
     },
+    config: {
+        page: 1
+    }
 }
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -45,7 +53,29 @@ const reducer = (state = initialState, { type, payload }) => {
             return !state.pokemons.length
             ? { ...state, pokemons: [payload] }
             : { ...state, pokemons: [ ...state.pokemons, payload] }
+        
+        case GET_POKEDEX_RAW:
+            return !state.pokedexRaw.length
+            ? { ...state, pokedexRaw: [...payload] }
+            : { ...state, pokedexRaw: [ ...state.pokedexRaw, ...payload] }
+
+        case CLEAR_POKEDEX_RAW:
+            return {
+                ...state,
+                ...payload
+            }
+
+        case GET_POKEDEX:
+            return {
+                ...state,
+                ...payload
+            }
             
+        case CLEAR_POKEDEX:
+            return {
+                ...state,
+                ...payload
+            }
         case GET_LOGIN:
             return {
                 ...state,

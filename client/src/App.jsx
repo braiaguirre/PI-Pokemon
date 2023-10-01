@@ -2,7 +2,7 @@
 import styles from './App.module.css';
 
 // DEPENDENCIES
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector  } from 'react-redux';
 
@@ -17,10 +17,9 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 // COMPONENTS
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
-import GetPokemons from './components/GetPokemons/GetPokemons';
 
 // ACTIONS
-import {  } from './redux/actions/actions';
+import { clearPokedex, getPokedexRaw, clearPokedexRaw } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS
@@ -30,12 +29,18 @@ const App = () => {
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
+  const pokedexRaw = useSelector(state => state.pokedexRaw);
+  const [loading, setLoading] = useState(false);
 
-  // LOAD USER DATA
-  // useEffect(() => {
-  //   if (access) dispatch(loadData());
-  //   else dispatch(clearData());
-  // }, [access])
+  // LOAD POKEDEX RAW DATA
+//   useEffect(() => {
+//     if (!pokedexRaw.length) dispatch(getPokedexRaw());
+//     else setLoading(false);
+//     return () => {
+//       clearPokedex();
+//       clearPokedexRaw();
+//     }
+// }, [pokedexRaw]);
 
   return (
     <>
@@ -46,7 +51,7 @@ const App = () => {
       }
       { popup.type === 'GET_POKEMONS' && 
         <div className={ styles.popupContainer }>
-          <GetPokemons />
+          <getPokedexRaw />
         </div>
       }
       { !access ? 
@@ -56,12 +61,18 @@ const App = () => {
         </Routes>
       :
         <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={ <Home /> } />
-            <Route path="/pokedex" element={ <Pokedex /> } />
-            <Route path="/detail/:id" element={ <Detail /> } />
-          </Routes>
+          { loading ? 
+            <h1>LOADING DATA</h1>
+          :
+            <>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={ <Home /> } />
+                <Route path="/pokedex" element={ <Pokedex /> } />
+                <Route path="/detail/:id" element={ <Detail /> } />
+              </Routes>
+            </>
+          }
         </>
       }
     </>
