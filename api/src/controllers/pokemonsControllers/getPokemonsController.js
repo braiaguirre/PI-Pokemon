@@ -6,6 +6,12 @@ const { Pokemons_Raw } = require('../../DB_connection');
 const URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 const getPokemonsController = async () => {
+
+    const found = await Pokemons_Raw.findAll({
+        order: ['id']
+    });
+    if (found.length) return found;
+
     let pokemonsRaw = [];
     
     // CHECKING NEXT PAGE

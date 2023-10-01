@@ -2,7 +2,7 @@
 import styles from './Pokedex.module.css';
 
 // DEPENDENCIES
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 // COMPONENTS
@@ -21,15 +21,13 @@ const Pokedex = () => {
     const pokemons = useSelector(state => state.pokedex);
     const { page } = useSelector(state => state.config);
 
-    // LOAD DATA
-    useEffect(() => {
-        dispatch(getPokedex(page));
-        return () => clearPokedex();
-    }, []);
+    // HANDLERS
+    const loadHandler = () => dispatch(getPokedex(page + 1));
 
     return (
         <div className={ styles.container }>
             <Cards pokemons={ pokemons } />
+            <button onClick={ loadHandler }>Load more!</button>
         </div>
     );
 }

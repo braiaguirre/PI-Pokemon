@@ -66,10 +66,9 @@ const reducer = (state = initialState, { type, payload }) => {
             }
 
         case GET_POKEDEX:
-            return {
-                ...state,
-                ...payload
-            }
+            return !state.pokedex.length
+            ? { ...state, pokedex: [ ...payload.pokemons ], config: { page: payload.page }  }
+            : { ...state, pokedex: [ ...state.pokedex, ...payload.pokemons], config: { page: payload.page } }
             
         case CLEAR_POKEDEX:
             return {

@@ -78,7 +78,7 @@ export const clearPokedexRaw = () => {
 };
 
 export const getPokedex = (page) => {
-    const endpoint = `${ URL }/pokemons/page/${page}`;
+    const endpoint = `${ URL }/pokedex/${page}`;
 
     return async (dispatch) => {
         try {
