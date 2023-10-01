@@ -25,6 +25,9 @@ import {
     DELETE_POKEMON,
     SAVE_POKEMONS,
     
+    GET_POKEMON_DETAIL,
+    CLEAR_POKEMON_DETAIL,
+    
 } from '../actions/actions-types';
 import axios from 'axios';
 
@@ -234,7 +237,7 @@ export const savePokemons = (pokemons, userId) => {
     const endpoint = `${ URL }/pokemons/`;
     return async (dispatch) => {
         try {
-            const { data } = await axios.post(endpoint, { pokemons, userId });
+            await axios.post(endpoint, { pokemons, userId });
             return dispatch({});
         } catch (err) {
             return dispatch({
@@ -243,4 +246,28 @@ export const savePokemons = (pokemons, userId) => {
             });
         };
     };
-}
+};
+
+export const getPokemonDetail = (id) => {
+    const endpoint = `${ URL }/pokemons/${ id }`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMON_DETAIL,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const clearPokemonDetail = () => {
+    return ({
+        type: CLEAR_POKEMON_DETAIL
+    });
+};

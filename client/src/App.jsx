@@ -17,6 +17,7 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 // COMPONENTS
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
+import GetPokemons from './components/GetPokemons/GetPokemons'
 
 // ACTIONS
 import { clearPokedex, getPokedexRaw, clearPokedexRaw, getPokedex } from './redux/actions/actions';
@@ -52,7 +53,7 @@ const App = () => {
       }
       { popup.type === 'GET_POKEMONS' && 
         <div className={ styles.popupContainer }>
-          <getPokedexRaw />
+          <GetPokemons />
         </div>
       }
       { !access ? 

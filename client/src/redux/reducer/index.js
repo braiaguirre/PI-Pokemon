@@ -23,6 +23,9 @@ import {
     DELETE_POKEMON,
     SAVE_POKEMONS,
 
+    GET_POKEMON_DETAIL,
+    CLEAR_POKEMON_DETAIL,
+
 } from '../actions/actions-types';
 
 const initialState = {
@@ -30,9 +33,10 @@ const initialState = {
     pokemonsFiltered: [],
     pokedex: [],
     pokedexRaw: [],
+    pokemonDetail: {},
     image: '',
     userId: null,
-    access: true,
+    access: false,
     alert: {
         title: '',
         message: '',
@@ -75,6 +79,19 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 ...payload
             }
+
+        case GET_POKEMON_DETAIL:
+            return {
+                ...state,
+                pokemonDetail: payload
+            }
+            
+        case CLEAR_POKEMON_DETAIL:
+            return {
+                ...state,
+                pokemonDetail: {}
+            }
+            
         case GET_LOGIN:
             return {
                 ...state,
