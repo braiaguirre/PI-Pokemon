@@ -7,7 +7,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 // ACTIONS
-import { filterPokemons, filterPokedex } from '../../redux/actions/actions.js'; // ! OLD
+import { filterPokemons, filterPokedex } from '../../redux/actions/actions.js';
+
+// UTILS
+import titleCase from '../../utils/titleCase';
 
 function Filters() {
 
@@ -43,16 +46,16 @@ function Filters() {
 
     return (
         <>
-            <div className={styles.filters}>
-                <select name="order" ref={orderRef} onChange={ changeHandler }>
+            <div className={ styles.filters }>
+                <select name="order" ref={ orderRef } onChange={ changeHandler }>
                     <option value="N">No order</option>
                     <option value="ASC">Ascending</option>
                     <option value="DESC">Descending</option>
                 </select>
-                <select name="type" ref={typeRef} onChange={ changeHandler }>
+                <select name="type" ref={ typeRef } onChange={ changeHandler }>
                     <option value="All">All types</option>
                     {types.map(type => 
-                        <option value={type.name} key={type.id}>{type.name}</option>
+                        <option value={ type.name } key={ type.id }>{ titleCase(type.name) }</option>
                     )}
                 </select>
                 <button onClick={resetHandler}>Reset filters</button>
