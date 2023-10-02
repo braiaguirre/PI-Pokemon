@@ -21,6 +21,7 @@ function Filters() {
     const orderRef = useRef();
 
     // STATES
+    const userId = useSelector(state => state.userId);
     const types = useSelector(state => state.pokemonTypes);
     const [filters, setFilters] = useState({
         order: 'N', 
@@ -30,12 +31,7 @@ function Filters() {
     // HANDLERS
     const changeHandler = (e) => {
         setFilters({ ...filters, [e.target.name]: e.target.value }); 
-        dispatchFilters();
-    }
-
-    const dispatchFilters = () => {
-        if (location === '/') dispatch(filterPokemons());
-        else dispatch(filterPokedex());
+        dispatch(filterPokemons({ ...filters, [e.target.name]: e.target.value, userId: userId }));
     }
 
     const resetHandler = () => {

@@ -3,11 +3,11 @@ const Router = require('express');
 
 // HANDLERS
 const URL = '../handlers/filtersHandlers/';
-const filterHandler = require(URL + 'filterHandler');
+const pokemonsFilterHandler = require(URL + 'pokemonsFilterHandler');
 
 const filtersRouter = Router();
 
 // ROUTES
-filtersRouter.post('/', filterHandler);
+filtersRouter.get('/pokemons', pokemonsFilterHandler);
 
 module.exports = filtersRouter;

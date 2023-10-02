@@ -112,6 +112,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 pokemonTypes: []
             }
             
+        case FILTER_POKEMONS:
+            return {
+                ...state,
+                pokemons: payload
+            }
+
         case GET_LOGIN:
             return {
                 ...state,
