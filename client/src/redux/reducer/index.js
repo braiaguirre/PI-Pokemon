@@ -29,6 +29,10 @@ import {
     GET_POKEMON_TYPES,
     CLEAR_POKEMON_TYPES,
 
+    
+    FILTER_POKEMONS,
+    FILTER_POKEDEX,
+
 } from '../actions/actions-types';
 
 const initialState = {

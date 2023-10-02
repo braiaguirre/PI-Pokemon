@@ -30,6 +30,9 @@ import {
 
     GET_POKEMON_TYPES,
     CLEAR_POKEMON_TYPES,
+
+    FILTER_POKEMONS,
+    FILTER_POKEDEX,
     
 } from '../actions/actions-types';
 import axios from 'axios';
@@ -280,6 +283,7 @@ export const getPokemonTypes = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
+            console.log(data);
             return dispatch({
                 type: GET_POKEMON_TYPES,
                 payload: data
@@ -297,4 +301,42 @@ export const clearPokemonTypes = () => {
     return ({
         type: CLEAR_POKEMON_TYPES,
     });
+};
+
+export const filterPokemons = (filtersData) => {
+    const { order, type } = filtersData;
+    const endpoint = `${ URL }/filters/pokemons/?order=${ order }&type=${ type }`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: FILTER_POKEMONS,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const filterPokedex = (filtersData) => {
+    const { order, type } = filtersData;
+    const endpoint = `${ URL }/filters/pokedex/?order=${ order }&type=${ type }`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: FILTER_POKEMONS,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
 };

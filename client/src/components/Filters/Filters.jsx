@@ -14,10 +14,11 @@ function Filters() {
     // HOOKS
     const dispatch = useDispatch();
     const location = useLocation();
-    const typeRef = orderRef = useRef();
+    const typeRef =  useRef();
+    const orderRef = useRef();
 
     // STATES
-    const types = useSelector(state => state.types);
+    const types = useSelector(state => state.pokemonTypes);
     const [filters, setFilters] = useState({
         order: 'N', 
         type: 'All'
@@ -45,10 +46,11 @@ function Filters() {
             <div className={styles.filters}>
                 <select name="order" ref={orderRef} onChange={ changeHandler }>
                     <option value="N">No order</option>
-                    <option value="A">Ascending</option>
-                    <option value="D">Descending</option>
+                    <option value="ASC">Ascending</option>
+                    <option value="DESC">Descending</option>
                 </select>
                 <select name="type" ref={typeRef} onChange={ changeHandler }>
+                    <option value="All">All types</option>
                     {types.map(type => 
                         <option value={type.name} key={type.id}>{type.name}</option>
                     )}

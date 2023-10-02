@@ -18,7 +18,7 @@ const getTypesController = async () => {
             where: { name: type.name }
         });
     });
-    return types.map(type => type.name);
+    return await Type.findAll();
 }
 
 

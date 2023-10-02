@@ -3,8 +3,8 @@ const filterController = require('../../controllers/filtersControllers/filterCon
 
 const filterHandler = async (req, res) => {
     try {
-        const { prop, filter, pokemons } = req.body;
-        const response = await filterController(prop, filter, pokemons);
+        const filtersData = req.query;
+        const response = await filterController(filtersData);
         res.status(200).json(response);
     } catch (err) {
         res.status(200).json({ error: err.message });
