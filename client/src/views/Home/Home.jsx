@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 // COMPONENTS
 import Cards from '../../components/Cards/Cards';
+import Filters from '../../components/Filters/Filters';
 
 // ACTIONS
 import { setPopup } from '../../redux/actions/actions';
@@ -33,6 +34,7 @@ const Home = () => {
                 </div>
             :
                 <div className={ styles.container }>
+                    <Filters />
                     <Cards pokemons={ pokemons } />
                 </div>
             }

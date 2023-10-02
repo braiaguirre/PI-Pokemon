@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const axios = require('axios');
 const filterPokemonData = require('../../utils/filterPokemonData');
-const { Pokemons_Raw } = require('../../DB_connection');
+const { Pokemon, Pokemons_Raw } = require('../../DB_connection');
 
 const getPokemonsByIdController = async (page) => {
 
@@ -14,6 +14,13 @@ const getPokemonsByIdController = async (page) => {
     
     let pokemons = await Promise.all(pokemonsRaw);
     pokemons = pokemons.map(pokemon => filterPokemonData(pokemon.data));
+    
+    pokemons.forEach(async pokemon => {
+        await Pokemon.findOrCreate({ 
+            where: { id: pokemon.id },
+            defaults: { ...pokemon }
+        });
+    });
     
     return {
         pokemons,
