@@ -7,6 +7,7 @@ const filterPokemonData = (data) => {
     const defense = data.stats.find(stat => stat.stat.name === 'defense').base_stat;
     const spDefense = data.stats.find(stat => stat.stat.name === 'special-defense').base_stat;
     const speed = data.stats.find(stat => stat.stat.name === 'speed').base_stat;
+    const types = data.types.map(ability => ability.type.name);
     const abilities = data.abilities.map(ability => ability.ability.name);
     const image = data.sprites.other.home.front_default;
 
@@ -22,6 +23,7 @@ const filterPokemonData = (data) => {
         speed: speed,
         height: data.height,
         weight: data.weight,
+        types: types,
         abilities: abilities,
         image: image
     }

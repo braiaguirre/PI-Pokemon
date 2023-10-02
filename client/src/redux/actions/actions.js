@@ -27,6 +27,9 @@ import {
     
     GET_POKEMON_DETAIL,
     CLEAR_POKEMON_DETAIL,
+
+    GET_POKEMON_TYPES,
+    CLEAR_POKEMON_TYPES,
     
 } from '../actions/actions-types';
 import axios from 'axios';
@@ -273,12 +276,12 @@ export const clearPokemonDetail = () => {
 };
 
 export const getPokemonTypes = () => {
-    const endpoint = `${ URL }/pokemons/types${ id }`;
+    const endpoint = `${ URL }/types/`;
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
             return dispatch({
-                type: GET_POKEMON_DETAIL,
+                type: GET_POKEMON_TYPES,
                 payload: data
             });
         } catch (err) {
@@ -288,4 +291,10 @@ export const getPokemonTypes = () => {
             });
         };
     };
+};
+
+export const clearPokemonTypes = () => {
+    return ({
+        type: CLEAR_POKEMON_TYPES,
+    });
 };

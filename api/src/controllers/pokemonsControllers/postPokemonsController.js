@@ -1,5 +1,5 @@
 // DEPENDENCIES
-const { User, Pokemon, PokemonType } = require('../../DB_connection');
+const { User, Pokemon, Type } = require('../../DB_connection');
 
 const postPokemonsController = async (pokemons, userId) => {
     const userDb = await User.findOne({ where: { id: userId } });
@@ -9,6 +9,15 @@ const postPokemonsController = async (pokemons, userId) => {
             defaults: { ...pokemon }
         });
         userDb.addPokemon(pokemonDb);
+
+        pokemon.types.forEach(async type => {
+            const typeDb = await Type.findOne({
+                where: { name: type }
+            });
+            pokemonDb.addType(typeDb);
+        });
+        
+        
     });
     return 'asd';
 }

@@ -20,7 +20,7 @@ import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
 
 // ACTIONS
-import { clearPokedex, getPokedexRaw, clearPokedexRaw, getPokedex } from './redux/actions/actions';
+import { clearPokedex, getPokemonTypes, getPokedexRaw, clearPokedexRaw, getPokedex } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS

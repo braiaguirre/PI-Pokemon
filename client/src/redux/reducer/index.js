@@ -25,6 +25,9 @@ import {
 
     GET_POKEMON_DETAIL,
     CLEAR_POKEMON_DETAIL,
+    
+    GET_POKEMON_TYPES,
+    CLEAR_POKEMON_TYPES,
 
 } from '../actions/actions-types';
 
@@ -34,6 +37,7 @@ const initialState = {
     pokedex: [],
     pokedexRaw: [],
     pokemonDetail: {},
+    pokemonTypes: [],
     image: '',
     userId: null,
     access: false,
@@ -90,6 +94,18 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 pokemonDetail: {}
+            }
+
+        case GET_POKEMON_TYPES:
+            return {
+                ...state,
+                pokemonTypes: [ ...payload ]
+            }
+        
+        case CLEAR_POKEMON_TYPES:
+            return {
+                ...state,
+                pokemonTypes: []
             }
             
         case GET_LOGIN:

@@ -5,7 +5,7 @@ const { DB_USER, DB_PASSWORD, DB_HOST, DB_PORT } = process.env;
 
 // MODELS
 const modelPokemon = require('./models/Pokemon');
-const modelPokemonType = require('./models/PokemonType');
+const modelType = require('./models/Type');
 const modelUser = require('./models/User');
 const modelPokemons_Raw = require('./models/Pokemons_Raw');
 
@@ -15,18 +15,18 @@ const sequelize = new Sequelize(
 );
 
 modelPokemon(sequelize);
-modelPokemonType(sequelize);
+modelType(sequelize);
 modelUser(sequelize);
 modelPokemons_Raw(sequelize);
 
 const { 
    Pokemon, 
-   PokemonType, 
+   Type, 
    User,
 } = sequelize.models;
 
-Pokemon.belongsToMany(PokemonType, {through: 'Pokemon_Types'});
-PokemonType.belongsToMany(Pokemon, {through: 'Pokemon_Types'});
+Pokemon.belongsToMany(Type, {through: 'Pokemon_Types'});
+Type.belongsToMany(Pokemon, {through: 'Pokemon_Types'});
 User.belongsToMany(Pokemon, {through: 'User_Pokemon'});
 Pokemon.belongsToMany(User, {through: 'User_Pokemon'});
 
