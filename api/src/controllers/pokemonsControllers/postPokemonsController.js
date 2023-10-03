@@ -19,7 +19,7 @@ const postPokemonsController = async (pokemons, userId) => {
         
         
     });
-    return 'asd';
+    return;
 }
 
 module.exports = postPokemonsController;

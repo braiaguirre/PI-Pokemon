@@ -14,52 +14,55 @@ module.exports = (sequelize) => {
         },
         xp: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         hp: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         attack: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         spAttack: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         defense: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         spDefense: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         speed: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         height: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         weight: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            defaultValue: 0
         },
         custom: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
             defaultValue: false
+        },
+        types: {
+            type: DataTypes.ARRAY(DataTypes.STRING),
+            defaultValue: []
         },
         abilities: {
             type: DataTypes.ARRAY(DataTypes.STRING),
-            allowNull: false
+            defaultValue: []
         },
         image: {
             type: DataTypes.STRING,
-            allowNull: false
+            defaultValue: ''
         }
     }, { timestamps: false} );
 };

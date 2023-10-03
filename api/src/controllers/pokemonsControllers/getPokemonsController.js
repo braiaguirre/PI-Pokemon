@@ -1,39 +1,29 @@
 // DEPENDENCIES
 const axios = require('axios');
 const filterPokemonData = require('../../utils/filterPokemonData');
-const { Pokemons_Raw } = require('../../DB_connection');
+const { Pokemon, Type } = require('../../DB_connection');
 
-const URL = 'https://pokeapi.co/api/v2/pokemon/';
+const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=100';
 
 const getPokemonsController = async () => {
-
-    const found = await Pokemons_Raw.findAll({
-        order: ['id']
-    });
+    const found = await Pokemon.findAll();
     if (found.length) return found;
 
-    let pokemonsRaw = [];
-    
-    // CHECKING NEXT PAGE
-    let current = URL;
-    while (current) {
-        const { data } = await axios.get(current);
-        pokemonsRaw.push(...data.results);
-        current = data.next;
-    };
-
-    return pokemonsRaw.map((pokemon, i) => {
-        const pokemonRaw = {
-            id: i + 1,
-            ...pokemon
-        };
-        Pokemons_Raw.findOrCreate({
-            where: { id: pokemonRaw.id },
-            defaults: { ...pokemonRaw }
+    const { data } = await axios.get(URL);
+    const promises = data.results.map(pokemon => axios.get(pokemon.url));
+    let pokemons = await Promise.all(promises);
+    pokemons = pokemons.map(pokemon => filterPokemonData(pokemon.data));
+    pokemons.forEach(async pokemon => {
+        const [pokemonDb] = await Pokemon.findOrCreate({ 
+            where: { id: pokemon.id },
+            defaults: { ...pokemon }
         });
-        return pokemonRaw;
-    });
-
+        pokemon.types.forEach(async type => {
+            const typeDb = await Type.findOne({ where: { name: type } });
+            await pokemonDb.addType(typeDb);
+        });
+    })
+    return pokemons;
 }
 
 module.exports = getPokemonsController;
