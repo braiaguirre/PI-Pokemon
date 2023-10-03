@@ -4,7 +4,6 @@ const { User } = require('../../DB_connection');
 
 const postUsersController = async (userData) => {
     const { username, email } = userData;
-    console.log('controller', userData);
     const [userDb, created] = await User.findOrCreate({
         where: { [Op.or]: [{ username }, { email } ] },
         defaults: { ...userData, access: false },

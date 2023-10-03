@@ -18,6 +18,7 @@ export const GET_POKEMON = 'GET_POKEMON';
 export const CLEAR_POKEDEX_RAW = 'GET_POKEDEX_RAW';
 export const GET_POKEDEX_RAW = 'GET_POKEDEX_RAW';
 export const GET_POKEDEX = 'GET_POKEDEX';
+export const GET_POKEMONS = 'GET_POKEMONS';
 export const CLEAR_POKEDEX = 'CLEAR_POKEDEX';
 export const DELETE_POKEMON = 'DELETE_POKEMON';
 export const SAVE_POKEMONS = 'SAVE_POKEMONS';

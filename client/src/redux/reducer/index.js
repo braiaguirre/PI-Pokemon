@@ -18,6 +18,7 @@ import {
     GET_POKEMON,
     CLEAR_POKEDEX_RAW,
     GET_POKEDEX_RAW,
+    GET_POKEMONS,
     GET_POKEDEX,
     CLEAR_POKEDEX,
     DELETE_POKEMON,
@@ -55,7 +56,8 @@ const initialState = {
         type: ''
     },
     config: {
-        page: 1
+        loading: true,
+        page: 1,
     }
 }
 
@@ -76,7 +78,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 ...payload
             }
-
+        case GET_POKEMONS:
+            console.log(payload);
+            return {
+                ...state,
+                ...payload
+            }
         case GET_POKEDEX:
             return !state.pokedex.length
             ? { ...state, pokedex: [ ...payload.pokemons ], config: { page: payload.page }  }

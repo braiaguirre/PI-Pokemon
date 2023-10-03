@@ -20,7 +20,7 @@ import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
 
 // ACTIONS
-import { clearPokedex, getPokemonTypes, getPokedexRaw, clearPokedexRaw, getPokedex } from './redux/actions/actions';
+import { clearPokedex, getPokemonTypes, getPokemons, clearPokedexRaw, getPokedex } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS
@@ -30,22 +30,18 @@ const App = () => {
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
-  const pokedexRaw = useSelector(state => state.pokedexRaw);
-  const [loading, setLoading] = useState(true);
+  const pokedex = useSelector(state => state.pokedex);
+  const loading = useSelector(state => state.config.loaded);
 
   // LOAD INITIAL APP DATA
   useEffect(() => {
-    if (!pokedexRaw.length) {
-      dispatch(getPokedexRaw());
       dispatch(getPokemonTypes());
-    }
-    else if (!loading) dispatch(getPokedex(1));
-    else setLoading(false);
+      dispatch(getPokemons());
     return () => {
       clearPokedex();
       clearPokedexRaw();
     }
-}, [pokedexRaw]);
+}, []);
 
   return (
     <>

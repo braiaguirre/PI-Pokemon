@@ -16,6 +16,7 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    GET_POKEMONS,
     CLEAR_POKEDEX_RAW,
     GET_POKEDEX_RAW,
 
@@ -49,6 +50,25 @@ export const getPokemonById = (id) => {
                 type: GET_POKEMON,
                 payload: data
             });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const getPokemons = () => {
+    const endpoint = `${ URL }/pokemons`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMONS,
+                payload: data
+            })
         } catch (err) {
             return dispatch({
                 type: SET_ALERT,
