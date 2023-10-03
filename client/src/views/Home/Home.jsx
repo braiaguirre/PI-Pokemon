@@ -27,17 +27,17 @@ const Home = () => {
 
     return (
         <>
-            { !pokemons.length ? 
+            {/* { !pokemons.length ? 
                 <div>
                     <h2>Let's get your initial Pokemons!</h2>
                     <button onClick={ getPokemonsHandler }>Go!</button>
                 </div>
-            :
+            : */}
                 <div className={ styles.container }>
                     <Filters />
                     <Cards pokemons={ pokemons } />
                 </div>
-            }
+            {/* } */}
         </>
     );
 }

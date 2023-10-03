@@ -8,7 +8,6 @@ const getLoginController = async (userOrEmail, password) => {
     });
     if (userDb && userDb.password === password) {
         const userDbPokemons = await userDb.getPokemons(); 
-        console.log(userDbPokemons);
         return {
             userId: userDb.id,
             access: true,
