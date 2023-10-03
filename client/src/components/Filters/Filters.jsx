@@ -18,14 +18,16 @@ function Filters() {
     const dispatch = useDispatch();
     const location = useLocation();
     const typeRef =  useRef();
+    const directionRef = useRef();
     const orderRef = useRef();
 
     // STATES
     const userId = useSelector(state => state.userId);
     const types = useSelector(state => state.pokemonTypes);
     const [filters, setFilters] = useState({
-        order: 'N', 
-        type: 'All'
+        order: '', 
+        direction: '',
+        type: ''
     });
 
     // HANDLERS
@@ -36,20 +38,36 @@ function Filters() {
 
     const resetHandler = () => {
         setFilters(initialfilters)
-        orderRef.current.value = 'N';
-        typeRef.current.value = 'All';
+        orderRef.current.value = '';
+        directionRef.current.value = '';
+        typeRef.current.value = '';
     }
 
     return (
         <>
             <div className={ styles.filters }>
+                <h3>Order by:</h3>
                 <select name="order" ref={ orderRef } onChange={ changeHandler }>
-                    <option value="N">No order</option>
+                    <option value="">No order</option>
+                    <option value="id">Id</option>
+                    <option value="xp">Xp</option>
+                    <option value="hp">Hp</option>
+                    <option value="attack">Attack</option>
+                    <option value="spAttack">Special Attack</option>
+                    <option value="defense">Defense</option>
+                    <option value="spDefense">Special Defense</option>
+                    <option value="speed">Speed</option>
+                    <option value="height">Height</option>
+                    <option value="weight">Weight</option>
+                </select>
+                <select name="direction" ref={ directionRef } onChange={ changeHandler }>
+                    <option value="">No direction</option>
                     <option value="ASC">Ascending</option>
                     <option value="DESC">Descending</option>
                 </select>
+                <h3>Filter by:</h3>
                 <select name="type" ref={ typeRef } onChange={ changeHandler }>
-                    <option value="All">All types</option>
+                    <option value="">All types</option>
                     {types.map(type => 
                         <option value={ type.name } key={ type.id }>{ titleCase(type.name) }</option>
                     )}

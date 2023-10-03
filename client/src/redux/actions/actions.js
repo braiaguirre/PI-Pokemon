@@ -304,8 +304,9 @@ export const clearPokemonTypes = () => {
 };
 
 export const filterPokemons = (filtersData) => {
-    const { order, type, userId } = filtersData;
-    const endpoint = `${ URL }/filters/pokemons/?userId=${ userId }&order=${ order }&type=${ type }`;
+    console.log(filtersData);
+    const { order, direction, type, userId } = filtersData;
+    const endpoint = `${ URL }/filters/pokemons/?userId=${ userId }&order=${ order }&direction=${ direction }&type=${ type }`;
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
