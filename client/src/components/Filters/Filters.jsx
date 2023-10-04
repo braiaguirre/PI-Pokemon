@@ -2,12 +2,12 @@
 import styles from './Filters.module.css';
 
 // DEPENDENCIES
-import { useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 // ACTIONS
-import { filterPokemons, filterPokedex } from '../../redux/actions/actions.js';
+import {setFilters, clearFilters, filterPokemons, filterPokedex } from '../../redux/actions/actions.js';
 
 // UTILS
 import titleCase from '../../utils/titleCase';
@@ -15,8 +15,8 @@ import titleCase from '../../utils/titleCase';
 function Filters() {
 
     // HOOKS
+    const { pathname } = useLocation();
     const dispatch = useDispatch();
-    const location = useLocation();
     const typeRef =  useRef();
     const directionRef = useRef();
     const orderRef = useRef();
@@ -24,31 +24,30 @@ function Filters() {
     // STATES
     const userId = useSelector(state => state.userId);
     const types = useSelector(state => state.pokemonTypes);
-    const [filters, setFilters] = useState({
-        order: '',  
-        direction: '',
-        type: ''
-    });
+    const filters = useSelector(state => state.config.filters)
 
     // HANDLERS
     const changeHandler = (e) => {
-        setFilters({ ...filters, [e.target.name]: e.target.value }); 
-        dispatch(filterPokemons({ ...filters, [e.target.name]: e.target.value, userId: userId }));
+        setFilters({ ...filters, [e.target.name]: e.target.value });
+        if (pathname === '/') dispatch(filterPokemons({ ...filters, userId: userId }));
+        else if (pathname === '/pokedex') dispatch(filterPokedex(filters));
     }
 
     const resetHandler = () => {
-        setFilters(initialfilters)
-        orderRef.current.value = '';
-        directionRef.current.value = '';
+        orderRef.current.value = 'id';
+        directionRef.current.value = 'ASC';
         typeRef.current.value = '';
     }
+
+    useEffect(() => {
+        return () => clearFilters();
+    })
 
     return (
         <>
             <div className={ styles.filters }>
                 <h3>Order by:</h3>
                 <select name="order" ref={ orderRef } onChange={ changeHandler }>
-                    <option value="">No order</option>
                     <option value="id">Id</option>
                     <option value="xp">Xp</option>
                     <option value="hp">Hp</option>
@@ -61,7 +60,6 @@ function Filters() {
                     <option value="weight">Weight</option>
                 </select>
                 <select name="direction" ref={ directionRef } onChange={ changeHandler }>
-                    <option value="">No direction</option>
                     <option value="ASC">Ascending</option>
                     <option value="DESC">Descending</option>
                 </select>

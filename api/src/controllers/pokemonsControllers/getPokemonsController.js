@@ -3,7 +3,7 @@ const axios = require('axios');
 const filterPokemonData = require('../../utils/filterPokemonData');
 const { Pokemon, Type } = require('../../DB_connection');
 
-const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+const URL = 'https://pokeapi.co/api/v2/pokemon/?limit=500';
 
 const getPokemonsController = async () => {
     let pokemons = await Pokemon.findAll();

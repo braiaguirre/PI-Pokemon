@@ -33,6 +33,9 @@ import {
     
     FILTER_POKEMONS,
     FILTER_POKEDEX,
+    
+    SET_FILTERS,
+    CLEAR_FILTERS
 
 } from '../actions/actions-types';
 
@@ -60,6 +63,11 @@ const initialState = {
     config: {
         loading: true,
         page: 1,
+        filters: {
+            order: 'id',
+            direction: 'ASC',
+            type: '',
+        }
     }
 }
 
@@ -93,7 +101,6 @@ const reducer = (state = initialState, { type, payload }) => {
             }    
             
         case CLEAR_POKEDEX:
-            console.log('prueba');
             return {
                 ...state,
                 ...payload
@@ -128,7 +135,21 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 pokemons: payload
             }
-
+        case FILTER_POKEDEX:
+            return {
+                ...state,
+                pokedex: payload
+            }
+        case SET_FILTERS:
+            return {
+                ...state,
+                config: { ...state.config, filters: { ...payload } }
+            }
+        case CLEAR_FILTERS:
+            return {
+                ...state,
+                config: { ...state.config, filters: { ...payload } }
+            }
         case GET_LOGIN:
             return {
                 ...state,
