@@ -37,9 +37,11 @@ import {
 } from '../actions/actions-types';
 
 const initialState = {
+    allPokemons: [],
     pokemons: [],
     pokemonsFiltered: [],
     pokedex: [],
+    pokedexPage: [],
     pokedexRaw: [],
     pokemonDetail: {},
     pokemonTypes: [],
@@ -84,11 +86,14 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...payload
             }
         case GET_POKEDEX:
-            return !state.pokedex.length
-            ? { ...state, pokedex: [ ...payload.pokemons ], config: { page: payload.page }  }
-            : { ...state, pokedex: [ ...state.pokedex, ...payload.pokemons], config: { page: payload.page } }
+            return {
+                ...state,
+                pokedexPage: payload.pokedexPage,
+                config: { ...state.config, page: payload.page}
+            }    
             
         case CLEAR_POKEDEX:
+            console.log('prueba');
             return {
                 ...state,
                 ...payload

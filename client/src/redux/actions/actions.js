@@ -106,12 +106,12 @@ export const clearPokedexRaw = () => {
     });
 };
 
-export const getPokedex = (page) => {
-    const endpoint = `${ URL }/pokedex/${page}`;
-
+export const getPokedex = (page, pokedex) => {
+    const endpoint = `${ URL }/pokedex/`;
+    
     return async (dispatch) => {
         try {
-            const { data } = await axios.get(endpoint);
+            const { data } = await axios.post(endpoint, { page, pokedex });
             return dispatch({
                 type: GET_POKEDEX,
                 payload: data
@@ -129,7 +129,7 @@ export const clearPokedex = () => {
     return ({
         type: CLEAR_POKEDEX,
         payload: {
-            pokedex: []
+            pokedexPage: []
         }
     });
 }
@@ -323,7 +323,6 @@ export const clearPokemonTypes = () => {
 };
 
 export const filterPokemons = (filtersData) => {
-    console.log(filtersData);
     const { order, direction, type, userId } = filtersData;
     const endpoint = `${ URL }/filters/pokemons/?userId=${ userId }&order=${ order }&direction=${ direction }&type=${ type }`;
     return async (dispatch) => {

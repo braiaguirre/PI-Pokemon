@@ -1,18 +1,9 @@
-// DEPENDENCIES
-const axios = require('axios');
-const filterPokemonData = require('../../utils/filterPokemonData');
-const { Pokemon } = require('../../DB_connection');
-
-const getPokedexController = async (page) => {
-
-    let pokemons = await Pokemon.findAll({
-        order: ['id'],
-        offset: page * 12 - 12,
-        limit: 12
-    });
-
+const getPokedexController = async (page, pokedex) => {
+    const min = (page * 12 - 12) > 0 ? (page * 12 - 12) : 0;
+    const max = (page * 12) < pokedex.length ? (page * 12) : pokedex.length - 1;
+    const pokedexPage = pokedex.slice(min, max);
     return {
-        pokemons,
+        pokedexPage,
         page
     };
 }

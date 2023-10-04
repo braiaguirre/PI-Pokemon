@@ -8,6 +8,6 @@ const getPokedexHandler = require(URL + 'getPokedexHandler');
 const pokedexRouter = Router();
 
 // ROUTES
-pokedexRouter.get('/:page', getPokedexHandler);
+pokedexRouter.post('/', getPokedexHandler);
 
 module.exports = pokedexRouter;
