@@ -25,8 +25,8 @@ const Pokedex = () => {
     const { page } = useSelector(state => state.config);
 
     // HANDLERS
-    const prevHandler = () => dispatch(getPokedex(page - 1, pokedex));
-    const nextHandler = () => dispatch(getPokedex(page + 1, pokedex));
+    const prevHandler = () => dispatch(getPokedex(page - 1, filters));
+    const nextHandler = () => dispatch(getPokedex(page + 1, filters));
 
     // LOAD DATA
     useEffect(() => {

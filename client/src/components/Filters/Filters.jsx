@@ -28,9 +28,9 @@ function Filters() {
 
     // HANDLERS
     const changeHandler = (e) => {
-        setFilters({ ...filters, [e.target.name]: e.target.value });
-        if (pathname === '/') dispatch(filterPokemons({ ...filters, userId: userId }));
-        else if (pathname === '/pokedex') dispatch(filterPokedex(filters));
+        dispatch(setFilters({ ...filters, [e.target.name]: e.target.value }));
+        if (pathname === '/') dispatch(filterPokemons({ ...filters, [e.target.name]: e.target.value, userId: userId }));
+        else if (pathname === '/pokedex') dispatch(filterPokedex({ ...filters, [e.target.name]: e.target.value }));
     }
 
     const resetHandler = () => {

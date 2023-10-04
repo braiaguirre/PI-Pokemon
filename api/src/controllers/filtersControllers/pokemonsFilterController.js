@@ -5,7 +5,7 @@ const queryBuilder = require('../../utils/queryBuilder');
 const pokemonsFilterController = async (filtersData) => {
     const { userId } = filtersData;
     const userDb = await User.findOne({ where: { id: userId } });
-    const query = queryBuilder(filtersData);
+    const query = queryBuilder(filtersData, Type);
     return await userDb.getPokemons({ ...query });
 }
 
