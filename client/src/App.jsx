@@ -30,7 +30,6 @@ const App = () => {
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
-  const pokedex = useSelector(state => state.pokedex);
   const loading = useSelector(state => state.config.loaded);
 
   // LOAD INITIAL APP DATA

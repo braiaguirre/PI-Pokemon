@@ -60,7 +60,7 @@ export const getPokemonById = (id) => {
 };
 
 export const getPokemons = () => {
-    const endpoint = `${ URL }/pokemons`;
+    const endpoint = `${ URL }/pokemons`;|
 
     return async (dispatch) => {
         try {

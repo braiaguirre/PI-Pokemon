@@ -25,7 +25,7 @@ function Filters() {
     const userId = useSelector(state => state.userId);
     const types = useSelector(state => state.pokemonTypes);
     const [filters, setFilters] = useState({
-        order: '', 
+        order: '',  
         direction: '',
         type: ''
     });
