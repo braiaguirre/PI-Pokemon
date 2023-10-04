@@ -8,7 +8,7 @@ const Cards = ({ pokemons }) => {
     
     return (
         <div className={ styles.container }>
-            { pokemons.length && pokemons.map(pokemon => <Card pokemon={ pokemon } key={ pokemon.id } />) }
+            { pokemons.length > 0 && pokemons.map(pokemon => <Card pokemon={ pokemon } key={ pokemon.id } />) }
         </div>
     );
 }

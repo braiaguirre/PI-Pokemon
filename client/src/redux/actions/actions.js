@@ -1,30 +1,20 @@
 import {
     GET_LOGIN,
     GET_LOGOUT,
-    GET_SIGNUP,
     
     SET_POPUP,
     SET_ALERT,
-    SET_ORDER,
-    SET_FILTER,
     CLEAR_POPUP,
     CLEAR_ALERT,
-    CLEAR_ORDER,
-    CLEAR_FILTER,
     
-    GET_TYPES,
     GET_IMAGE,
     CLEAR_IMAGE,
+
     GET_POKEMON,
-    GET_POKEMONS,
-    CLEAR_POKEDEX_RAW,
-    GET_POKEDEX_RAW,
-
+    
     GET_POKEDEX,
-    CLEAR_POKEDEX,
-
-    DELETE_POKEMON,
-    SAVE_POKEMONS,
+    GET_POKEDEX_PAGE,
+    CLEAR_POKEDEX_PAGE,
     
     GET_POKEMON_DETAIL,
     CLEAR_POKEMON_DETAIL,
@@ -62,14 +52,13 @@ export const getPokemonById = (id) => {
     };
 };
 
-export const getPokemons = () => {
+export const getPokedex = () => {
     const endpoint = `${ URL }/pokemons`;
-
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
             return dispatch({
-                type: GET_POKEMONS,
+                type: GET_POKEDEX,
                 payload: data
             })
         } catch (err) {
@@ -81,42 +70,13 @@ export const getPokemons = () => {
     };
 };
 
-export const getPokedexRaw = () => {
-    const endpoint = `${ URL }/pokemons/`;
-
-    return async (dispatch) => {
-        try {
-            const { data } = await axios.get(endpoint);
-            return dispatch({
-                type: GET_POKEDEX_RAW,
-                payload: data
-            });
-        } catch (err) {
-            return dispatch({
-                type: SET_ALERT,
-                payload: err.response.data
-            });
-        };
-    };
-};
-
-export const clearPokedexRaw = () => {
-    return ({
-        type: CLEAR_POKEDEX_RAW,
-        payload: {
-            pokedexRaw: []
-        }
-    });
-};
-
-export const getPokedex = (page, filters) => {
+export const getPokedexPage = (page, filters) => {
     const endpoint = `${ URL }/pokedex/`;
-    
     return async (dispatch) => {
         try {
             const { data } = await axios.post(endpoint, { page, filters });
             return dispatch({
-                type: GET_POKEDEX,
+                type: GET_POKEDEX_PAGE,
                 payload: data
             });
         } catch (err) {
@@ -128,9 +88,9 @@ export const getPokedex = (page, filters) => {
     };
 };
 
-export const clearPokedex = () => {
+export const clearPokedexPage = () => {
     return ({
-        type: CLEAR_POKEDEX,
+        type: CLEAR_POKEDEX_PAGE,
         payload: {
             pokedexPage: []
         }
@@ -161,7 +121,7 @@ export const getLogout = (id) => {      // TODO: IMPLEMENT REMEMBER ME OPTION
         try {
             const { data } = await axios.get(endpoint);
             return dispatch({
-                type: GET_LOGIN,
+                type: GET_LOGOUT,
                 payload: data
             });
         } catch (err) {

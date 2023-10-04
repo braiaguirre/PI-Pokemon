@@ -10,7 +10,7 @@ import Cards from '../../components/Cards/Cards';
 import Filters from '../../components/Filters/Filters';
 
 // ACTIONS
-import { getPokedex, clearPokedex } from '../../redux/actions/actions';
+import { getPokedexPage, clearPokedexPage } from '../../redux/actions/actions';
 
 const Pokedex = () => {
     document.title = 'PokeHenry > Pokedex';
@@ -25,13 +25,13 @@ const Pokedex = () => {
     const { page } = useSelector(state => state.config);
 
     // HANDLERS
-    const prevHandler = () => dispatch(getPokedex(page - 1, filters));
-    const nextHandler = () => dispatch(getPokedex(page + 1, filters));
+    const prevHandler = () => dispatch(getPokedexPage(page - 1, filters));
+    const nextHandler = () => dispatch(getPokedexPage(page + 1, filters));
 
     // LOAD DATA
     useEffect(() => {
-        dispatch(getPokedex(1, filters));
-        return () => clearPokedex();
+        dispatch(getPokedexPage(1, filters));
+        return () => clearPokedexPage();
     }, [pokedex])
 
     return (

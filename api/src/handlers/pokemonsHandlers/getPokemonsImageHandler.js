@@ -10,7 +10,7 @@ const getPokemonsImageHandler = async (req, res) => {
         res.status(404).json({ 
             title: 'Error',
             message: err.message,
-            type: 'alert'
+            type: 'ALERT'
         });
     };
 };

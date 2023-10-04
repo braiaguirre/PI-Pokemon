@@ -6,7 +6,11 @@ const getTypesHandler = async (req, res) => {
         const response = await getTypesController();
         res.status(200).json(response);
     } catch {
-        res.status(404).json({ error: error.message })
+        res.status(404).json({ 
+            title: 'Error',
+            message: err.message,
+            type: 'ALERT'
+        });
     }
 }
 

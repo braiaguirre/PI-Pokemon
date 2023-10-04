@@ -7,7 +7,7 @@ const getLoginController = async (userOrEmail, password) => {
         where: { [Op.or]: [{ username: userOrEmail }, { email: userOrEmail }] }
     });
     if (userDb && userDb.password === password) {
-        const userDbPokemons = await userDb.getPokemons(); 
+        const userDbPokemons = await userDb.getPokemons({ order: [['id', 'ASC']] }); 
         return {
             userId: userDb.id,
             access: true,

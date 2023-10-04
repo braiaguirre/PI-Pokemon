@@ -21,23 +21,24 @@ const Home = () => {
 
     // STATES
     const pokemons = useSelector(state => state.pokemons);
+    const pokemonsFiltered = useSelector(state => state.pokemonsFiltered);
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(setPopup({ type: 'GET_POKEMONS' }));
-
+    
     return (
         <>
-            {/* { !pokemons.length ? 
+            { !pokemons.length ? 
                 <div>
                     <h2>Let's get your initial Pokemons!</h2>
                     <button onClick={ getPokemonsHandler }>Go!</button>
                 </div>
-            : */}
+            :
                 <div className={ styles.container }>
                     <Filters />
-                    <Cards pokemons={ pokemons } />
+                    <Cards pokemons={ pokemonsFiltered } />
                 </div>
-            {/* } */}
+            }
         </>
     );
 }

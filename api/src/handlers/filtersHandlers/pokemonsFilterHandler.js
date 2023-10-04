@@ -7,7 +7,11 @@ const pokemonsFilterHandler = async (req, res) => {
         const response = await pokemonsFilterController(filtersData);
         res.status(200).json(response);
     } catch (err) {
-        res.status(200).json({ error: err.message });
+        res.status(404).json({ 
+            title: 'Error',
+            message: err.message,
+            type: 'ALERT'
+        });
     }
 }
 

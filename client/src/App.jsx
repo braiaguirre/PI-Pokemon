@@ -20,7 +20,7 @@ import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
 
 // ACTIONS
-import { clearPokedex, getPokemonTypes, getPokemons, clearPokedexRaw, getPokedex } from './redux/actions/actions';
+import { getPokemonTypes, getPokedex } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS
@@ -35,10 +35,8 @@ const App = () => {
   // LOAD INITIAL APP DATA
   useEffect(() => {
       dispatch(getPokemonTypes());
-      dispatch(getPokemons());
+      dispatch(getPokedex());
     return () => {
-      clearPokedex();
-      clearPokedexRaw();
     }
 }, []);
 

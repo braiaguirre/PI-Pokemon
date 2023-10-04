@@ -1,28 +1,20 @@
 import {
     GET_LOGIN,
     GET_LOGOUT,
-    GET_SIGNUP,
     
     SET_POPUP,
     SET_ALERT,
-    SET_ORDER,
-    SET_FILTER,
     CLEAR_POPUP,
     CLEAR_ALERT,
-    CLEAR_ORDER,
-    CLEAR_FILTER,
     
-    GET_TYPES,
     GET_IMAGE,
     CLEAR_IMAGE,
+
     GET_POKEMON,
-    CLEAR_POKEDEX_RAW,
-    GET_POKEDEX_RAW,
-    GET_POKEMONS,
+    
     GET_POKEDEX,
-    CLEAR_POKEDEX,
-    DELETE_POKEMON,
-    SAVE_POKEMONS,
+    GET_POKEDEX_PAGE,
+    CLEAR_POKEDEX_PAGE,
 
     GET_POKEMON_DETAIL,
     CLEAR_POKEMON_DETAIL,
@@ -40,25 +32,23 @@ import {
 } from '../actions/actions-types';
 
 const initialState = {
-    allPokemons: [],
-    pokemons: [],
-    pokemonsFiltered: [],
+    pokeball: [],
+    pokeballFiltered: [],
     pokedex: [],
     pokedexPage: [],
-    pokedexRaw: [],
     pokemonDetail: {},
     pokemonTypes: [],
     image: '',
     userId: null,
     access: false,
+    popup: {
+        type: ''
+    },
     alert: {
         title: '',
         message: '',
         type: '',
         callback: null
-    },
-    popup: {
-        type: ''
     },
     config: {
         loading: true,
@@ -74,33 +64,24 @@ const initialState = {
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
         case GET_POKEMON: 
-            return !state.pokemons.length
-            ? { ...state, pokemons: [payload] }
-            : { ...state, pokemons: [ ...state.pokemons, payload] }
+            return !state.pokeball.length
+            ? { ...state, pokeball: [payload] }
+            : { ...state, pokeball: [ ...state.pokeball, payload] }
         
-        case GET_POKEDEX_RAW:
-            return !state.pokedexRaw.length
-            ? { ...state, pokedexRaw: [...payload] }
-            : { ...state, pokedexRaw: [ ...state.pokedexRaw, ...payload] }
-
-        case CLEAR_POKEDEX_RAW:
+            case GET_POKEDEX:
             return {
                 ...state,
                 ...payload
             }
-        case GET_POKEMONS:
-            return {
-                ...state,
-                ...payload
-            }
-        case GET_POKEDEX:
+            
+        case GET_POKEDEX_PAGE:
             return {
                 ...state,
                 pokedexPage: payload.pokedexPage,
                 config: { ...state.config, page: payload.page}
             }    
             
-        case CLEAR_POKEDEX:
+        case CLEAR_POKEDEX_PAGE:
             return {
                 ...state,
                 ...payload
@@ -133,7 +114,7 @@ const reducer = (state = initialState, { type, payload }) => {
         case FILTER_POKEMONS:
             return {
                 ...state,
-                pokemons: payload
+                pokeballFiltered: payload,
             }
         case FILTER_POKEDEX:
             return {
@@ -160,12 +141,6 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 ...payload
-            }
-
-        case GET_SIGNUP:
-            return {
-                ...state,
-                popup: payload
             }
 
         case SET_ALERT:

@@ -29,19 +29,24 @@ function Filters() {
     // HANDLERS
     const changeHandler = (e) => {
         dispatch(setFilters({ ...filters, [e.target.name]: e.target.value }));
-        if (pathname === '/') dispatch(filterPokemons({ ...filters, [e.target.name]: e.target.value, userId: userId }));
-        else if (pathname === '/pokedex') dispatch(filterPokedex({ ...filters, [e.target.name]: e.target.value }));
-    }
+        dispatcher({ ...filters, [e.target.name]: e.target.value, userId: userId });
+    };
 
     const resetHandler = () => {
         orderRef.current.value = 'id';
         directionRef.current.value = 'ASC';
         typeRef.current.value = '';
+        dispatcher({ order: 'id', direction: 'ASC', type: '', userId: userId });
+    };
+
+    const dispatcher = (data) => {
+        if (pathname === '/') dispatch(filterPokemons(data));
+        else if (pathname === '/pokedex') dispatch(filterPokedex(data));
     }
 
     useEffect(() => {
         return () => clearFilters();
-    })
+    });
 
     return (
         <>
