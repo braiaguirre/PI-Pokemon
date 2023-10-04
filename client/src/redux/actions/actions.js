@@ -60,7 +60,7 @@ export const getPokemonById = (id) => {
 };
 
 export const getPokemons = () => {
-    const endpoint = `${ URL }/pokemons`;|
+    const endpoint = `${ URL }/pokemons`;
 
     return async (dispatch) => {
         try {
@@ -303,7 +303,6 @@ export const getPokemonTypes = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
-            console.log(data);
             return dispatch({
                 type: GET_POKEMON_TYPES,
                 payload: data

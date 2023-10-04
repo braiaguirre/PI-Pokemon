@@ -24,7 +24,6 @@ const getPokemonsController = async () => {
         })
     }
     return {
-        pokedex: pokemons,
         loading: false
     };
 }

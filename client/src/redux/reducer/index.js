@@ -79,7 +79,6 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...payload
             }
         case GET_POKEMONS:
-            console.log(payload);
             return {
                 ...state,
                 ...payload
