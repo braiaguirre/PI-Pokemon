@@ -36,8 +36,6 @@ const App = () => {
   useEffect(() => {
       dispatch(getPokemonTypes());
       dispatch(getPokedex());
-    return () => {
-    }
 }, []);
 
   return (

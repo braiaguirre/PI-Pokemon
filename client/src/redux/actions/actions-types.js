@@ -1,26 +1,19 @@
 export const GET_LOGIN = 'GET_LOGIN';
 export const GET_LOGOUT = 'GET_LOGOUT';
-
 export const SET_POPUP = 'SET_POPUP';
 export const SET_ALERT = 'SET_ALERT';
 export const CLEAR_POPUP = 'CLEAR_POPUP';
 export const CLEAR_ALERT = 'CLEAR_ALERT';
-
 export const GET_IMAGE = 'GET_IMAGE';
 export const CLEAR_IMAGE = 'CLEAR_IMAGE';
-
 export const GET_POKEMON = 'GET_POKEMON';
-
 export const GET_POKEDEX = 'GET_POKEDEX';
 export const GET_POKEDEX_PAGE = 'GET_POKEDEX_PAGE';
 export const CLEAR_POKEDEX_PAGE = 'CLEAR_POKEDEX_PAGE';
-
 export const GET_POKEMON_DETAIL = 'GET_POKEMON_DETAIL';
 export const CLEAR_POKEMON_DETAIL = 'CLEAR_POKEMON_DETAIL';
-
 export const GET_POKEMON_TYPES = 'GET_POKEMON_TYPES';
 export const CLEAR_POKEMON_TYPES = 'CLEAR_POKEMON_TYPES';
-
 export const SET_FILTERS = 'SET_FILTERS';
 export const CLEAR_FILTERS = 'CLEAR_FILTERS';
 export const FILTER_POKEMONS = 'FILTER_POKEMONS';

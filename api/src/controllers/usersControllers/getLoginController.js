@@ -11,8 +11,8 @@ const getLoginController = async (userOrEmail, password) => {
         return {
             userId: userDb.id,
             access: true,
-            pokemons: userDbPokemons,
-            pokemonsFiltered: userDbPokemons,
+            pokeball: userDbPokemons,
+            pokeballFiltered: userDbPokemons,
         };
     } else throw new Error('Incorrect user, email or password');
 }

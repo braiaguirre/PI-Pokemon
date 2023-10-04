@@ -20,8 +20,8 @@ const Home = () => {
     const navigate = useNavigate();
 
     // STATES
-    const pokemons = useSelector(state => state.pokemons);
-    const pokemonsFiltered = useSelector(state => state.pokemonsFiltered);
+    const pokemons = useSelector(state => state.pokeball);
+    const pokemonsFiltered = useSelector(state => state.pokeballFiltered);
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(setPopup({ type: 'GET_POKEMONS' }));

@@ -1,34 +1,24 @@
 import {
     GET_LOGIN,
     GET_LOGOUT,
-    
     SET_POPUP,
     SET_ALERT,
     CLEAR_POPUP,
     CLEAR_ALERT,
-    
     GET_IMAGE,
     CLEAR_IMAGE,
-
     GET_POKEMON,
-    
     GET_POKEDEX,
     GET_POKEDEX_PAGE,
     CLEAR_POKEDEX_PAGE,
-
     GET_POKEMON_DETAIL,
     CLEAR_POKEMON_DETAIL,
-    
     GET_POKEMON_TYPES,
     CLEAR_POKEMON_TYPES,
-
-    
     FILTER_POKEMONS,
     FILTER_POKEDEX,
-    
     SET_FILTERS,
     CLEAR_FILTERS
-
 } from '../actions/actions-types';
 
 const initialState = {
@@ -63,17 +53,18 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
+
         case GET_POKEMON: 
             return !state.pokeball.length
             ? { ...state, pokeball: [payload] }
             : { ...state, pokeball: [ ...state.pokeball, payload] }
         
-            case GET_POKEDEX:
+        case GET_POKEDEX:
             return {
                 ...state,
                 ...payload
             }
-            
+
         case GET_POKEDEX_PAGE:
             return {
                 ...state,

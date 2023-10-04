@@ -5,8 +5,10 @@ const getLogoutController = async (id) => {
     return {
         userId: null,
         access: false,
-        pokemons: [],
-        pokemonsFiltered: []
+        pokeball: [],
+        pokeballFiltered: [],
+        pokedex: [],
+        pokedexPage: []
     };
 
     // TODO: IMPLEMENT REMEMBER ME OPTION
