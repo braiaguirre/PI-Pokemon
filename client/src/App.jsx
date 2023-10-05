@@ -18,9 +18,10 @@ import Error404 from './views/Error404/Error404'; // TODO: FIX
 import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
+import CreatePokemon from './components/CreatePokemon/CreatePokemon'
 
 // ACTIONS
-import { getPokemonTypes, getPokedex } from './redux/actions/actions';
+import { getPokemonTypes, getPokedex, getPokemonAbilities } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS
@@ -34,8 +35,9 @@ const App = () => {
 
   // LOAD INITIAL APP DATA
   useEffect(() => {
-      dispatch(getPokemonTypes());
-      dispatch(getPokedex());
+    dispatch(getPokemonAbilities());
+    dispatch(getPokemonTypes());
+    dispatch(getPokedex());
 }, []);
 
   return (
@@ -48,6 +50,11 @@ const App = () => {
       { popup.type === 'GET_POKEMONS' && 
         <div className={ styles.popupContainer }>
           <GetPokemons />
+        </div>
+      }
+      { popup.type === 'CREATE_POKEMON' && 
+        <div className={ styles.popupContainer }>
+          <CreatePokemon />
         </div>
       }
       { !access ? 

@@ -1,8 +1,7 @@
 // DEPENDENCIES
 const { User, Pokemon, Type } = require('../../DB_connection');
 
-const postCustomPokemonsController = async (pokemon) => {
-    const userId = "317f21df-2838-4790-b9fb-ca639d218398"
+const postCustomPokemonsController = async (pokemon, userId) => {
     const userDb = await User.findOne({ where: { id: userId } });
     const pokemonDb = await Pokemon.create({ ...pokemon, custom: true });
     userDb.addPokemon(pokemonDb);

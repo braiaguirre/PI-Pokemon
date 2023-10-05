@@ -20,7 +20,7 @@ const Navbar = () => {
     // HANDLERS
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
-    const createhandler = () => dispatch(setPopup({ type: 'CREATE_CHARACTER' }))
+    const createhandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
     const logoutHandler = () => dispatch(getLogout());
 
     return (

@@ -8,6 +8,8 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    CREATE_POKEMON,
+    SAVE_POKEBALL,
     GET_POKEDEX,
     GET_POKEDEX_PAGE,
     CLEAR_POKEDEX_PAGE,
@@ -15,6 +17,8 @@ import {
     CLEAR_POKEMON_DETAIL,
     GET_POKEMON_TYPES,
     CLEAR_POKEMON_TYPES,
+    GET_POKEMON_ABILITIES,
+    CLEAR_POKEMON_ABILITIES,
     FILTER_POKEMONS,
     FILTER_POKEDEX,
     SET_FILTERS,
@@ -22,12 +26,14 @@ import {
 } from '../actions/actions-types';
 
 const initialState = {
+    pokemonsTemp: [],
     pokeball: [],
     pokeballFiltered: [],
     pokedex: [],
     pokedexPage: [],
     pokemonDetail: {},
     pokemonTypes: [],
+    pokemonAbilities: [],
     image: '',
     userId: null,
     access: false,
@@ -55,9 +61,24 @@ const reducer = (state = initialState, { type, payload }) => {
     switch (type) {
 
         case GET_POKEMON: 
-            return !state.pokeball.length
-            ? { ...state, pokeball: [payload] }
-            : { ...state, pokeball: [ ...state.pokeball, payload] }
+            return !state.pokemonsTemp.length
+            ? { ...state, pokemonsTemp: [payload] }
+            : { ...state, pokemonsTemp: [ ...state.pokemonsTemp, payload] }
+
+        case CREATE_POKEMON:
+            return {
+                ...state,
+                pokeball: [ ...state.pokeball, payload ],
+                pokeballFiltered: [ ...state.pokeballFiltered, payload ],
+                pokedex: [ ...state.pokedex, payload ]
+            }
+
+        case SAVE_POKEBALL:
+            return {
+                ...state,
+                pokeball: payload,
+                pokeballFiltered: payload,
+            }
         
         case GET_POKEDEX:
             return {
@@ -100,6 +121,18 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 pokemonTypes: []
+            }
+            
+        case GET_POKEMON_ABILITIES:
+            return {
+                ...state,
+                pokemonAbilities: [ ...payload ]
+            }
+        
+        case CLEAR_POKEMON_ABILITIES:
+            return {
+                ...state,
+                pokemonAbilities: []
             }
             
         case FILTER_POKEMONS:

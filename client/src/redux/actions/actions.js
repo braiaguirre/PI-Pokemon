@@ -8,6 +8,8 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    CREATE_POKEMON,
+    SAVE_POKEBALL,
     GET_POKEDEX,
     GET_POKEDEX_PAGE,
     CLEAR_POKEDEX_PAGE,
@@ -15,6 +17,8 @@ import {
     CLEAR_POKEMON_DETAIL,
     GET_POKEMON_TYPES,
     CLEAR_POKEMON_TYPES,
+    GET_POKEMON_ABILITIES,
+    CLEAR_POKEMON_ABILITIES,
     FILTER_POKEMONS,
     FILTER_POKEDEX,
     SET_FILTERS,
@@ -32,6 +36,25 @@ export const getPokemonById = (id) => {
             const { data } = await axios.get(endpoint);
             return dispatch({
                 type: GET_POKEMON,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const createPokemon = (pokemon, userId) => {
+    const endpoint = `${ URL }/pokemons/custom/`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, { pokemon, userId });
+            return dispatch({
+                type: CREATE_POKEMON,
                 payload: data
             });
         } catch (err) {
@@ -217,8 +240,11 @@ export const savePokemons = (pokemons, userId) => {
     const endpoint = `${ URL }/pokemons/`;
     return async (dispatch) => {
         try {
-            await axios.post(endpoint, { pokemons, userId });
-            return dispatch({});
+            const { data } = await axios.post(endpoint, { pokemons, userId });
+            return dispatch({
+                type: SAVE_POKEBALL,
+                payload: data
+            });
         } catch (err) {
             return dispatch({
                 type: SET_ALERT,
@@ -273,6 +299,30 @@ export const getPokemonTypes = () => {
 export const clearPokemonTypes = () => {
     return ({
         type: CLEAR_POKEMON_TYPES,
+    });
+};
+
+export const getPokemonAbilities = () => {
+    const endpoint = `${ URL }/abilities/`;
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMON_ABILITIES,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const clearPokemonAbilities = () => {
+    return ({
+        type: CLEAR_POKEMON_ABILITIES,
     });
 };
 

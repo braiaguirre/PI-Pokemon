@@ -20,7 +20,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     // STATES
-    const pokemons = useSelector(state => state.pokeball);
+    const pokeball = useSelector(state => state.pokeball);
     const pokemonsFiltered = useSelector(state => state.pokeballFiltered);
 
     // HANDLERS
@@ -28,7 +28,7 @@ const Home = () => {
     
     return (
         <>
-            { !pokemons.length ? 
+            { !pokeball.length ? 
                 <div>
                     <h2>Let's get your initial Pokemons!</h2>
                     <button onClick={ getPokemonsHandler }>Go!</button>

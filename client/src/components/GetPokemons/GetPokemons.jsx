@@ -23,12 +23,12 @@ const GetPokemons = () => {
 
     // STATES
     const userId = useSelector(state => state.userId);
-    const pokemons = useSelector(state => state.pokemons);
+    const pokemonsTemp = useSelector(state => state.pokemonsTemp);
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(getPokemonById(random()));
     const savePokemonsHandler = () => {
-        dispatch(savePokemons(pokemons, userId));
+        dispatch(savePokemons(pokemonsTemp, userId));
         dispatch(clearPopup());
     }
 
@@ -40,12 +40,12 @@ const GetPokemons = () => {
                 <button onClick={ getPokemonsHandler }>Get random Pokemon</button>
                 <button onClick={ savePokemonsHandler }>Save</button>
                 <div className={ styles.cardsContainer }>
-                    <img src={ pokemons[0] ? pokemons[0].image : pokeball} />
-                    <img src={ pokemons[1] ? pokemons[1].image : pokeball} />
-                    <img src={ pokemons[2] ? pokemons[2].image : pokeball} />
-                    <img src={ pokemons[3] ? pokemons[3].image : pokeball} />
-                    <img src={ pokemons[4] ? pokemons[4].image : pokeball} />
-                    <img src={ pokemons[5] ? pokemons[5].image : pokeball} />
+                    <img src={ pokemonsTemp[0] ? pokemonsTemp[0].image : pokeball} />
+                    <img src={ pokemonsTemp[1] ? pokemonsTemp[1].image : pokeball} />
+                    <img src={ pokemonsTemp[2] ? pokemonsTemp[2].image : pokeball} />
+                    <img src={ pokemonsTemp[3] ? pokemonsTemp[3].image : pokeball} />
+                    <img src={ pokemonsTemp[4] ? pokemonsTemp[4].image : pokeball} />
+                    <img src={ pokemonsTemp[5] ? pokemonsTemp[5].image : pokeball} />
                 </div>
             </div>
         </>

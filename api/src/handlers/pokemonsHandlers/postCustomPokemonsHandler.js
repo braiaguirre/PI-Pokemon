@@ -3,8 +3,9 @@ const postCustomPokemonsController = require('../../controllers/pokemonsControll
 
 const postCustomPokemonsHandler = async (req, res) => {
     try {
-        const  pokemon  = req.body;
-        const response = await postCustomPokemonsController(pokemon);
+        const  { pokemon, userId }  = req.body;
+        console.log(pokemon, userId);
+        const response = await postCustomPokemonsController(pokemon, userId);
         res.status(200).json(response);
     } catch (err) {
         res.status(404).json({ 
