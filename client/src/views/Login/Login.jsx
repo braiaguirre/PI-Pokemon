@@ -44,23 +44,21 @@ const Login = () => {
     }
     
     return (
-        <div className={ styles.container }>
-            <form onSubmit={ submitHandler }>
-                <input
-                    name="userOrEmail"
-                    onChange={ changeHandler }
-                    placeholder="Username or email" 
-                />
-                <input
-                    name="password"
-                    type="password"
-                    onChange={ changeHandler }
-                    placeholder="Password" 
-                />
+        <form className={ styles.container } onSubmit={ submitHandler }>
+            <input
+                name="userOrEmail"
+                onChange={ changeHandler }
+                placeholder="Username or email" 
+            />
+            <input
+                name="password"
+                type="password"
+                onChange={ changeHandler }
+                placeholder="Password" 
+            />
             <button>Log In</button>
             <button onClick={ signupHandler }>Sign Up</button>
-            </form>
-        </div>
+        </form>
     );
 }
 
