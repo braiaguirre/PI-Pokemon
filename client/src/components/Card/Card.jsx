@@ -16,8 +16,28 @@ const Card = ({ pokemon }) => {
 
     return (
         <div className={ styles.container }>
-            <h2>{ name }</h2>
             <img onClick={ detailHandler } src={ image } />
+            <div className={ styles.title }>
+                <h2>{ name }</h2>
+                <h4 className={`${styles.bubble} ${styles.id}`}>#{ id }</h4>
+            </div>
+            <div className={ styles.types }>
+                { types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`}>{ type }</h4> ) }
+            </div>
+            <div className={ styles.footer }>
+                <div className={ styles.col }>
+                    <h2>{ hp }</h2>
+                    <h4>HP</h4>
+                </div>
+                <div className={ styles.col }>
+                    <h2>{ attack }</h2>
+                    <h4>ATT</h4>
+                </div>
+                <div className={ styles.col }>
+                    <h2>{ defense }</h2>
+                    <h4>DEF</h4>
+                </div>
+            </div>
         </div>
     );
 }
