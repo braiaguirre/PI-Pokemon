@@ -50,32 +50,38 @@ function Filters() {
 
     return (
         <>
-            <div className={ styles.filters }>
-                <h3>Order by:</h3>
-                <select name="order" ref={ orderRef } onChange={ changeHandler }>
-                    <option value="id">Id</option>
-                    <option value="xp">Xp</option>
-                    <option value="hp">Hp</option>
-                    <option value="attack">Attack</option>
-                    <option value="spAttack">Special Attack</option>
-                    <option value="defense">Defense</option>
-                    <option value="spDefense">Special Defense</option>
-                    <option value="speed">Speed</option>
-                    <option value="height">Height</option>
-                    <option value="weight">Weight</option>
-                </select>
-                <select name="direction" ref={ directionRef } onChange={ changeHandler }>
-                    <option value="ASC">Ascending</option>
-                    <option value="DESC">Descending</option>
-                </select>
-                <h3>Filter by:</h3>
-                <select name="type" ref={ typeRef } onChange={ changeHandler }>
-                    <option value="">All types</option>
-                    {types.map(type => 
-                        <option value={ type.name } key={ type.id }>{ titleCase(type.name) }</option>
-                    )}
-                </select>
-                <button onClick={resetHandler}>Reset filters</button>
+            <div className={ styles.container }>
+                <div className={ styles.col }>
+                    <h3>Order by:</h3>
+                    <select name="order" ref={ orderRef } onChange={ changeHandler }>
+                        <option value="id">Id</option>
+                        <option value="xp">Xp</option>
+                        <option value="hp">Hp</option>
+                        <option value="attack">Attack</option>
+                        <option value="spAttack">Special Attack</option>
+                        <option value="defense">Defense</option>
+                        <option value="spDefense">Special Defense</option>
+                        <option value="speed">Speed</option>
+                        <option value="height">Height</option>
+                        <option value="weight">Weight</option>
+                    </select>
+                    <select name="direction" ref={ directionRef } onChange={ changeHandler }>
+                        <option value="ASC">Ascending</option>
+                        <option value="DESC">Descending</option>
+                    </select>
+                </div>
+                <div className={ styles.col }>
+                    <h3>Filter by:</h3>
+                    <select name="type" ref={ typeRef } onChange={ changeHandler }>
+                        <option value="">All types</option>
+                        {types.map(type => 
+                            <option value={ type.name } key={ type.id }>{ titleCase(type.name) }</option>
+                        )}
+                    </select>
+                </div>
+                <div className={ styles.col }>
+                    <button onClick={resetHandler}>Reset filters</button>
+                </div>
             </div>
         </>
     )

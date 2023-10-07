@@ -38,8 +38,10 @@ const Pokedex = () => {
         <div className={ styles.container }>
             <Filters />
             <Cards pokemons={ pokedexPage } />
-            <button onClick={ prevHandler }>Previous!</button>
-            <button onClick={ nextHandler }>Next!</button>
+            <div className={ styles.navigation }>
+                <button onClick={ prevHandler }>Previous!</button>
+                <button onClick={ nextHandler }>Next!</button>
+            </div>
         </div>
     );
 }
