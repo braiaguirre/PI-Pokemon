@@ -99,54 +99,98 @@ const CreatePokemon = () => {
     return (
         <>
             <div className={ styles.container }>
-                <h2>Let's get your initial Pokemons!</h2>
-                <p>These will be your six starting Pokemons.</p>
+                <div className={ styles.title }>
+                    <h2>Create custom Pokemon</h2>
+                    <h4>Fill de info</h4>
+                </div>
                 <form onSubmit={ submitHandler }>
-                    <input name="name" onChange={ changeHandler } placeholder="name" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.name ? 'close' : 'done'}</span>
-                    <input name="xp" onChange={ changeHandler } placeholder="xp" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.xp ? 'close' : 'done'}</span>
-                    <input name="hp" onChange={ changeHandler } placeholder="hp" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.hp ? 'close' : 'done'}</span>
-                    <input name="attack" onChange={ changeHandler } placeholder="attack" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.attack ? 'close' : 'done'}</span>
-                    <input name="spAttack" onChange={ changeHandler } placeholder="spAttack" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.spAttack ? 'close' : 'done'}</span>
-                    <input name="defense" onChange={ changeHandler } placeholder="defense" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.defense ? 'close' : 'done'}</span>
-                    <input name="spDefense" onChange={ changeHandler } placeholder="spDefense" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.spDefense ? 'close' : 'done'}</span>
-                    <input name="speed" onChange={ changeHandler } placeholder="speed" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.speed ? 'close' : 'done'}</span>
-                    <input name="height" onChange={ changeHandler } placeholder="height" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.height ? 'close' : 'done'}</span>
-                    <input name="weight" onChange={ changeHandler } placeholder="weight" /> 
-                    <span className="material-symbols-outlined" width="20px">{errors.weight ? 'close' : 'done'}</span>
-                    <select name="ability1" onChange={ changeHandler }>
-                        <option name="">Select ability 1</option>
-                        { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name)}</option>) }
-                    </select>
-                    <span className="material-symbols-outlined" width="20px">{errors.ability1 ? 'close' : 'done'}</span>
-                    <select name="ability2" onChange={changeHandler}>
-                        <option name="">Select ability 2</option>
-                        { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
-                    </select>
-                    <span className="material-symbols-outlined" width="20px">{errors.ability2 ? 'close' : 'done'}</span>
-                    <select name="type1" onChange={changeHandler}>1
-                        <option name="">Select type 1</option>
-                        { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
-                    </select>
-                    <span className="material-symbols-outlined" width="20px">{errors.type1 ? 'close' : 'done'}</span>
-                    <select name="type2" onChange={changeHandler}>
-                        <option name="">Select type 2</option>
-                        { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
-                    </select>
-                    <span className="material-symbols-outlined" width="20px">{errors.type2 ? 'close' : 'done'}</span>
-                    <img src={ image ? image : pokeball } />
-                    <span className="material-symbols-outlined" width="20px">{!image ? 'close' : 'done'}</span>
-                    <button onClick={ imageHandler }>Get random image</button>
-                    <button onClick={ closeHandler }>Close</button>
-                    <button>Create</button>
+                    <div className={ styles.form }>
+                        <div className={ styles.col }>
+                            <div className={ styles.row }>
+                                <input name="name" onChange={ changeHandler } placeholder="Name" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.name ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="xp" onChange={ changeHandler } placeholder="XP" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.xp ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="hp" onChange={ changeHandler } placeholder="HP" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.hp ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="attack" onChange={ changeHandler } placeholder="Attack" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.attack ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="spAttack" onChange={ changeHandler } placeholder="Special Attack" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.spAttack ? 'close' : 'done'}</span>
+                            </div>
+                        </div>
+                        <div className={ styles.col }>
+                            <div className={ styles.row }>
+                                <input name="defense" onChange={ changeHandler } placeholder="Defense" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.defense ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="spDefense" onChange={ changeHandler } placeholder="Special Defense" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.spDefense ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="speed" onChange={ changeHandler } placeholder="Speed" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.speed ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="height" onChange={ changeHandler } placeholder="Height" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.height ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <input name="weight" onChange={ changeHandler } placeholder="Weight" /> 
+                                <span className="material-symbols-outlined" width="20px">{errors.weight ? 'close' : 'done'}</span>
+                            </div>
+                        </div>
+                        <div className={ styles.col }>
+                            <div className={ styles.row }>
+                                <select name="ability1" onChange={ changeHandler }>
+                                    <option name="">Select ability 1</option>
+                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name)}</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.ability1 ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <select name="ability2" onChange={changeHandler}>
+                                    <option name="">Select ability 2</option>
+                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.ability2 ? 'close' : 'done'}</span>
+                            </div>
+                                <div className={ styles.row }>
+                                <select name="type1" onChange={changeHandler}>1
+                                    <option name="">Select type 1</option>
+                                    { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.type1 ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <select name="type2" onChange={changeHandler}>
+                                    <option name="">Select type 2</option>
+                                    { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.type2 ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <button className={ styles.imageBtn } onClick={ imageHandler }>Get image</button>
+                                <span className="material-symbols-outlined" width="20px">{!image ? 'close' : 'done'}</span>
+                            </div>
+                        </div>
+                        <div className={ styles.col }>
+                            <img src={ image ? image : pokeball } />
+                        </div>
+                    </div>
+                    <div className={ styles.buttons }>
+                        <button onClick={ closeHandler }>Close</button>
+                        <button>Create</button>
+                    </div>
                 </form>
             </div>
         </>

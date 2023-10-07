@@ -20,12 +20,14 @@
     height: 150px;
     width: 150px;
     padding: 20px;
+    cursor: pointer;
     margin: 20px;
 }
 
 .container h2 {
     text-transform: uppercase;
     margin: 5px;
+    cursor: pointer;
 }
 
 .footer {

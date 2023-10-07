@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 
 // DEPENDENCIES
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 // COMPONENTS
 import NavbarProfile from '../NavbarProfile/NavbarProfile';
@@ -16,6 +16,7 @@ const Navbar = () => {
     // HOOKS
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const { pathname } = useLocation();
 
     // HANDLERS
     const homeHandler = () => navigate(`/`);
@@ -27,8 +28,8 @@ const Navbar = () => {
         <div className={ styles.container }>
             <div className={ styles.left }>
                 <ul>
-                    <li onClick={ homeHandler } name="">Home</li>
-                    <li onClick={ pokedexHandler} name="pokedex">Open Pokedex</li>
+                    <li onClick={ homeHandler } className={ pathname === '/' ? `${ styles.active }` : '' } name="">Home</li>
+                    <li onClick={ pokedexHandler} className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">Open Pokedex</li>
                     <li onClick={ createhandler}>Create Pokemon</li>
                 </ul>
             </div>
