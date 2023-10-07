@@ -1,0 +1,156 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 50px;
+    text-align: center;
+}
+
+.container h2 {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.container img {
+    box-shadow: 2px 2px 5px 1px #0000005b;
+    background-color: #ffffff;
+    border-radius: 50%;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+}
+
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #ececec;
+    padding-top: 7px;
+    margin: 10px;
+}
+
+.footer h4 {
+    color: #7e7e7e;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 15px 0 15px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.types {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.bubble {
+    padding: 6px 15px;
+    text-transform: uppercase;
+    border: 1px solid #cacaca;
+    font-size: 12px;
+    color: #ffffff;
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.id {
+    background-color: #ffffff;
+    color: #888888;
+}
+
+.normal {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.fighting {
+    background-color: #CC0000;
+}
+
+.flying {
+    background-color: #3dafb9;
+}
+
+.poison {
+    background-color: #3b0e0e;
+}
+
+.ground {
+    background-color: #635130;
+}
+
+.rock {
+    background-color: #585858;
+}
+
+.bug {
+    background-color: #245c3d;
+}
+
+.ghost {
+    background-color: #e9e9e9;
+    color: #000000;
+}
+
+.steel {
+    background-color: #888888;
+}
+
+.psychic {
+    background-color: #a424a8;
+}
+
+.ice {
+    background-color: #7bdef0;
+    color: #000000;
+}
+
+.fire {
+    background-color: #d30f0f;
+}
+
+.water {
+    background-color: #40ebdc;
+    color: #000000;
+}
+
+.grass {
+    background-color: #297a2e;
+}
+
+.electric {
+    background-color: #FFDE00;
+    color: #000000;
+}
+
+.dragon {
+    background-color: #850303;
+}
+
+.dark {
+    background-color: #000000;
+}
+
+.fairy {
+    background-color: #cf6cae;
+}
+
+.shadow {
+    background-color: #000000;
+}
+
+.unknown {
+    background-color: #5e5e5e;
+}

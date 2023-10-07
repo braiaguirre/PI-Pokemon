@@ -28,8 +28,8 @@ const Navbar = () => {
             <div className={ styles.left }>
                 <ul>
                     <li onClick={ homeHandler } name="">Home</li>
-                    <li onClick={ pokedexHandler} name="pokedex">Pokedex</li>
-                    <li onClick={ createhandler}>Create</li>
+                    <li onClick={ pokedexHandler} name="pokedex">Open Pokedex</li>
+                    <li onClick={ createhandler}>Create Pokemon</li>
                 </ul>
             </div>
             
