@@ -11,11 +11,13 @@
 
 body {
   font-family: "Gabarito", cursive;
-  background-color: #b3a02536;
+  background-color: #ffdd0021;
   font-weight: 800;
   color: #6e6e6e;
   display: flex;
   margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 input {

@@ -25,13 +25,20 @@ const Navbar = () => {
 
     return (
         <div className={ styles.container }>
-            <ul>
-                <li onClick={ homeHandler } name="">Home</li>
-                <li onClick={ pokedexHandler} name="pokedex">Pokedex</li>
-                <li onClick={ createhandler}>Create</li>
-                <li>Profile</li>
-                <li onClick={ logoutHandler }>Logout</li>
-            </ul>
+            <div className={ styles.left }>
+                <ul>
+                    <li onClick={ homeHandler } name="">Home</li>
+                    <li onClick={ pokedexHandler} name="pokedex">Pokedex</li>
+                    <li onClick={ createhandler}>Create</li>
+                </ul>
+            </div>
+            
+            <div className={ styles.right }>
+                <ul>
+                    <li>Profile</li>
+                    <li onClick={ logoutHandler }>Logout</li>
+                </ul>
+            </div>
         </div>
     );
 }

@@ -52,7 +52,7 @@ function Filters() {
         <>
             <div className={ styles.container }>
                 <div className={ styles.col }>
-                    <h3>Order by:</h3>
+                    <h4>Order by:</h4>
                     <select name="order" ref={ orderRef } onChange={ changeHandler }>
                         <option value="id">Id</option>
                         <option value="xp">Xp</option>
@@ -71,7 +71,7 @@ function Filters() {
                     </select>
                 </div>
                 <div className={ styles.col }>
-                    <h3>Filter by:</h3>
+                    <h4>Filter by:</h4>
                     <select name="type" ref={ typeRef } onChange={ changeHandler }>
                         <option value="">All types</option>
                         {types.map(type => 
