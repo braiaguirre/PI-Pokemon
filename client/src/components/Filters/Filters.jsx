@@ -85,7 +85,7 @@ function Filters() {
                 </div>
                 <div className={ styles.col }>
                     <button onClick={ resetHandler }>Reset filters</button>
-                    <button onClick={ nameSearchHandler }>Name Search</button>
+                    { pathname === '/pokedex' && <button onClick={ nameSearchHandler }>Name Search</button> }
                 </div>
             </div>
         </>

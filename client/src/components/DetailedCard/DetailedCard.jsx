@@ -2,15 +2,15 @@
 import styles from './DetailedCard.module.css';
 
 const DetailedCard = ({ pokemon }) => {
-    const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
     
+    const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
     return (
         <div className={ styles.container }>
             <div className={ styles.col }>
                 <img src={ image } />
                 <h2>{ name }</h2>
                 <div className={ styles.types }>
-                    { types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`}>{ type }</h4> ) }
+                    { types && types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`}>{ type }</h4> ) }
                 </div>
             </div>
             <div className={ styles.col }>

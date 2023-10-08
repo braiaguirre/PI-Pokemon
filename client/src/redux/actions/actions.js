@@ -276,6 +276,7 @@ export const savePokemons = (pokemons, userId) => {
 
 export const getPokemonDetail = (id) => {
     const endpoint = `${ URL }/pokemons/${ id }`;
+    
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);

@@ -25,7 +25,7 @@ const Pokedex = () => {
     const { page } = useSelector(state => state.config);
 
     // UTILS
-    const maxPage = Math.ceil(pokedex.length / 12);
+    const maxPage = Math.ceil(pokedex.length / 10);
 
     // HANDLERS
     const firstHandler = () => dispatch(getPokedexPage(1, filters));

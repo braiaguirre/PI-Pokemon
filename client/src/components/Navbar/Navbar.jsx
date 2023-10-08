@@ -36,7 +36,6 @@ const Navbar = () => {
             
             <div className={ styles.right }>
                 <ul>
-                    <li>Profile</li>
                     <li onClick={ logoutHandler }>Logout</li>
                 </ul>
             </div>

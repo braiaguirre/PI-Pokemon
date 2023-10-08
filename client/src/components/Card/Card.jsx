@@ -12,7 +12,7 @@ const Card = ({ pokemon }) => {
     const navigate = useNavigate();
 
     // HANDLERS
-    const detailHandler = () => navigate(`/detail/${id}`)
+    const detailHandler = () => navigate(`/detail/${id}`);
 
     return (
         <div className={ styles.container }>
