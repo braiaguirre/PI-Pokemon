@@ -2,12 +2,14 @@
     align-items: center;
     justify-content: space-between;
     background-color: #ffffff;
-    color: #000000;
+    color: #797979;
     display: flex;
     height: 50px;
     padding: 10px 100px;
     text-transform: uppercase;
     box-shadow: 0 2px 5px 2px #00000033;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 li {
@@ -24,6 +26,6 @@ li:hover {
 }
 
 .active {
-    color: #CC0000;
-
+    color: #000000;
+    font-weight: 800;
 }
