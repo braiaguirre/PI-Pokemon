@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 // ACTIONS
-import {setFilters, clearFilters, filterPokemons, filterPokedex } from '../../redux/actions/actions.js';
+import {setFilters, clearFilters, filterPokemons, filterPokedex, setPopup } from '../../redux/actions/actions.js';
 
 // UTILS
 import titleCase from '../../utils/titleCase';
@@ -38,6 +38,10 @@ function Filters() {
         typeRef.current.value = '';
         dispatcher({ order: 'id', direction: 'ASC', type: '', userId: userId });
     };
+
+    const nameSearchHandler = () => {
+        dispatch(setPopup({ type: 'NAME_SEARCH' }));
+    }
 
     const dispatcher = (data) => {
         if (pathname === '/') dispatch(filterPokemons(data));
@@ -80,7 +84,8 @@ function Filters() {
                     </select>
                 </div>
                 <div className={ styles.col }>
-                    <button onClick={resetHandler}>Reset filters</button>
+                    <button onClick={ resetHandler }>Reset filters</button>
+                    <button onClick={ nameSearchHandler }>Name Search</button>
                 </div>
             </div>
         </>

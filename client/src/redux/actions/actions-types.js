@@ -7,6 +7,7 @@ export const CLEAR_ALERT = 'CLEAR_ALERT';
 export const GET_IMAGE = 'GET_IMAGE';
 export const CLEAR_IMAGE = 'CLEAR_IMAGE';
 export const GET_POKEMON = 'GET_POKEMON';
+export const GET_POKEMON_BY_NAME = 'GET_POKEMON_BY_NAME';
 export const CREATE_POKEMON = 'CREATE_POKEMON';
 export const SAVE_POKEBALL = 'SAVE_POKEBALL';
 export const GET_POKEDEX = 'GET_POKEDEX';

@@ -1,5 +1,6 @@
 // STYLES
 import styles from './Signup.module.css';
+import loader from '../../utils/loader.module.css'
 
 // DEPENDENCIES
 import { useEffect, useState } from 'react';
@@ -79,37 +80,40 @@ const Signup = () => {
 
     return (
         <div className={ styles.container }>
+            <h2>Sign Up</h2>
             <form onSubmit={ submitHandler }>
-                <input
-                    name="username"
-                    onChange={ changeHandler }
-                    placeholder="Username" 
-                />
-                <input
-                    name="email"
-                    onChange={ changeHandler }
-                    placeholder="Email" 
-                />
-                <input
-                    name="password"
-                    type="password"
-                    onChange={ changeHandler }
-                    placeholder="Password" 
-                />
-                <input
-                    name="confirm"
-                    type="password"
-                    onChange={ changeHandler }
-                    placeholder="Confirm password" 
-                />
-                <button onClick={ getImageHandler }>Get random image</button>
-                <img
-                    src={ image ? image : pokeball }
-                    alt="Profile image"
-                />
-            
-                <button>Sign Up</button>
-                <button onClick={ backHandler }>Back</button>
+                <div className={ styles.fields }>
+                    <input
+                        name="username"
+                        onChange={ changeHandler }
+                        placeholder="Username" 
+                    />
+                    <input
+                        name="email"
+                        onChange={ changeHandler }
+                        placeholder="Email" 
+                    />
+                    <input
+                        name="password"
+                        type="password"
+                        onChange={ changeHandler }
+                        placeholder="Password" 
+                    />
+                    <input
+                        name="confirm"
+                        type="password"
+                        onChange={ changeHandler }
+                        placeholder="Confirm password" 
+                    />
+                    <div className={ styles.imageContainer }>
+                        { image ? <img src={ image } /> : <div className={ loader.loader }></div> }
+                    </div>
+                    <button onClick={ getImageHandler }>Random image</button>
+                </div>
+                <div className={styles.buttons}>
+                    <button onClick={ backHandler }>Back</button>
+                    <button>Sign Up</button>
+                </div>
             </form>
         </div>
     );

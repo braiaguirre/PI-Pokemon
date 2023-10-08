@@ -8,6 +8,7 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    GET_POKEMON_BY_NAME,
     CREATE_POKEMON,
     SAVE_POKEBALL,
     GET_POKEDEX,
@@ -64,6 +65,12 @@ const reducer = (state = initialState, { type, payload }) => {
             return !state.pokemonsTemp.length
             ? { ...state, pokemonsTemp: [payload] }
             : { ...state, pokemonsTemp: [ ...state.pokemonsTemp, payload] }
+
+        case GET_POKEMON_BY_NAME:
+            return {
+                ...state,
+                pokemonDetail: payload
+            }
 
         case CREATE_POKEMON:
             return {

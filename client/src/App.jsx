@@ -19,6 +19,7 @@ import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
 import CreatePokemon from './components/CreatePokemon/CreatePokemon'
+import NameSearch from './components/NameSearch/NameSearch'
 
 // ACTIONS
 import { getPokemonTypes, getPokedex, getPokemonAbilities } from './redux/actions/actions';
@@ -42,19 +43,24 @@ const App = () => {
 
   return (
     <>
-      { alert.type === 'ALERT' &&
-        <div className={ styles.popupContainer }>
-          <Alert />
-        </div>
-      }
       { popup.type === 'GET_POKEMONS' && 
         <div className={ styles.popupContainer }>
           <GetPokemons />
         </div>
       }
+      { popup.type === 'NAME_SEARCH' && 
+        <div className={ styles.popupContainer }>
+          <NameSearch />
+        </div>
+      }
       { popup.type === 'CREATE_POKEMON' && 
         <div className={ styles.popupContainer }>
           <CreatePokemon />
+        </div>
+      }
+      { alert.type === 'ALERT' &&
+        <div className={ styles.popupContainer }>
+          <Alert />
         </div>
       }
       { !access ? 

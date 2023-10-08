@@ -11,6 +11,7 @@ import { getLogin, setAlert } from '../../redux/actions/actions';
 
 // UTILS
 import loginValidation from '../../utils/loginValidation';
+import logo from '../../assets/logo.png'
 
 const Login = () => {
     document.title = 'PokeHenry > Login';
@@ -45,19 +46,24 @@ const Login = () => {
     
     return (
         <form className={ styles.container } onSubmit={ submitHandler }>
-            <input
-                name="userOrEmail"
-                onChange={ changeHandler }
-                placeholder="Username or email" 
-            />
-            <input
-                name="password"
-                type="password"
-                onChange={ changeHandler }
-                placeholder="Password" 
-            />
-            <button>Log In</button>
-            <button onClick={ signupHandler }>Sign Up</button>
+            <img src={ logo }/>
+            <div className={ styles.fields }>
+                <input
+                    name="userOrEmail"
+                    onChange={ changeHandler }
+                    placeholder="Username or email" 
+                />
+                <input
+                    name="password"
+                    type="password"
+                    onChange={ changeHandler }
+                    placeholder="Password" 
+                />
+            </div>
+            <div className={ styles.buttons }>
+                <button onClick={ signupHandler }>Sign Up</button>
+                <button>Log In</button>
+            </div>
         </form>
     );
 }

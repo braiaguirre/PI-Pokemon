@@ -8,6 +8,7 @@ import {
     GET_IMAGE,
     CLEAR_IMAGE,
     GET_POKEMON,
+    GET_POKEMON_BY_NAME,
     CREATE_POKEMON,
     SAVE_POKEBALL,
     GET_POKEDEX,
@@ -36,6 +37,25 @@ export const getPokemonById = (id) => {
             const { data } = await axios.get(endpoint);
             return dispatch({
                 type: GET_POKEMON,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const getPokemonByName = (name) => {
+    const endpoint = `${ URL }/pokemons/name?name=${ name }`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.get(endpoint);
+            return dispatch({
+                type: GET_POKEMON_BY_NAME,
                 payload: data
             });
         } catch (err) {
