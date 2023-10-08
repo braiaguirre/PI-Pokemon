@@ -1,6 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     text-align: center;
     background-color: #ffffff;
@@ -10,8 +11,8 @@
 }
 
 .container img {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
 }
 
 .container h2 {
@@ -45,4 +46,15 @@
 .imageBtn {
     width: 150px;
     background-color: #ffffff;
+}
+
+.imageContainer {
+    box-shadow: 2px 2px 5px 1px #0000005b;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
 }

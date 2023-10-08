@@ -1,12 +1,13 @@
 // STYLES
 import styles from './CreatePokemon.module.css';
+import loader from '../../utils/loader.module.css'
 
 // DEPENDENCIES
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 // ACTIONS
-import { createPokemon, setAlert, clearPopup, getImage } from '../../redux/actions/actions';
+import { createPokemon, setAlert, clearPopup, getImage, clearImage } from '../../redux/actions/actions';
 
 // UTILS
 import random from '../../utils/random';
@@ -66,6 +67,7 @@ const CreatePokemon = () => {
     }
     const closeHandler = (e) => {
         e.preventDefault();
+        dispatch(clearImage());
         dispatch(clearPopup());
     }
     const changeHandler = (e) => {
@@ -151,32 +153,32 @@ const CreatePokemon = () => {
                         </div>
                         <div className={ styles.col }>
                             <div className={ styles.row }>
-                                <select name="ability1" onChange={ changeHandler }>
-                                    <option name="">Select ability 1</option>
-                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name)}</option>) }
-                                </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.ability1 ? 'close' : 'done'}</span>
-                            </div>
-                            <div className={ styles.row }>
-                                <select name="ability2" onChange={changeHandler}>
-                                    <option name="">Select ability 2</option>
-                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
-                                </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.ability2 ? 'close' : 'done'}</span>
-                            </div>
-                                <div className={ styles.row }>
                                 <select name="type1" onChange={changeHandler}>1
-                                    <option name="">Select type 1</option>
+                                    <option name="">Type 1</option>
                                     { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
                                 </select>
                                 <span className="material-symbols-outlined" width="20px">{errors.type1 ? 'close' : 'done'}</span>
                             </div>
                             <div className={ styles.row }>
                                 <select name="type2" onChange={changeHandler}>
-                                    <option name="">Select type 2</option>
+                                    <option name="">Type 2</option>
                                     { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
                                 </select>
                                 <span className="material-symbols-outlined" width="20px">{errors.type2 ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <select name="ability1" onChange={ changeHandler }>
+                                    <option name="">Ability 1</option>
+                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name)}</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.ability1 ? 'close' : 'done'}</span>
+                            </div>
+                            <div className={ styles.row }>
+                                <select name="ability2" onChange={changeHandler}>
+                                    <option name="">Ability 2</option>
+                                    { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
+                                </select>
+                                <span className="material-symbols-outlined" width="20px">{errors.ability2 ? 'close' : 'done'}</span>
                             </div>
                             <div className={ styles.row }>
                                 <button className={ styles.imageBtn } onClick={ imageHandler }>Get image</button>
@@ -184,7 +186,9 @@ const CreatePokemon = () => {
                             </div>
                         </div>
                         <div className={ styles.col }>
-                            <img src={ image ? image : pokeball } />
+                            <div className= { styles.imageContainer }>
+                                { image ? <img src={ image } /> : <div className={ loader.loader }></div> }
+                            </div>
                         </div>
                     </div>
                     <div className={ styles.buttons }>

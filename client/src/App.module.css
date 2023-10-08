@@ -4,7 +4,7 @@
 
 body {
   font-family: "Gabarito", cursive;
-  /* background-color: #ffdd0015; */
+  background-color: #ffdd0015;
   font-weight: 800;
   color: #6e6e6e;
   display: flex;
@@ -17,7 +17,7 @@ body {
 
 body::after {
   content: "";
-  background: url('./assets/background.jpg');
+  /* background: url('./assets/background.jpg'); */
   opacity: 0.1;
   top: 0;
   left: 0;

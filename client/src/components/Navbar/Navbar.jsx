@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className={ styles.container }>
             <div className={ styles.left }>
                 <ul>
-                    <li onClick={ homeHandler } className={ pathname === '/' ? `${ styles.active }` : '' } name="">Home</li>
+                    <li onClick={ homeHandler } className={ pathname === '/' ? `${ styles.active }` : '' } name="">My Pokeball</li>
                     <li onClick={ pokedexHandler} className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">Open Pokedex</li>
                     <li onClick={ createhandler}>Create Pokemon</li>
                 </ul>
