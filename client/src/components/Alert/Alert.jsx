@@ -22,7 +22,7 @@ const Alert = () => {
     return (
         <div className={ styles.container }>
             <h2>{ title }</h2>
-            <p>{ message }</p>
+            <h4>{ message }</h4>
             <button onClick={ acceptHandler }>Accept</button>
         </div>
     );

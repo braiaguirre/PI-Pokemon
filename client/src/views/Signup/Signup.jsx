@@ -49,12 +49,12 @@ const Signup = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (Object.keys(signupErrors).length) dispatch(setAlert({
-            title: 'Error',
+            title: 'Hey!',
             message: 'All fields are required',
             type: 'ALERT'
         }));
         else if (!image) dispatch(setAlert({
-            title: 'Error',
+            title: 'Hey!',
             message: 'Select a profile image',
             type: 'ALERT'
         }))

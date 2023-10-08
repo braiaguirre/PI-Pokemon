@@ -59,7 +59,7 @@ const App = () => {
         </div>
       }
       { alert.type === 'ALERT' &&
-        <div className={ styles.popupContainer }>
+        <div className={ styles.alertPopupContainer }>
           <Alert />
         </div>
       }
