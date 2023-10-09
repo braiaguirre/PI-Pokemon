@@ -5,7 +5,7 @@ const getTypesHandler = async (req, res) => {
     try {
         const response = await getTypesController();
         res.status(200).json(response);
-    } catch {
+    } catch (err) {
         res.status(404).json({ 
             title: 'Error',
             message: err.message,

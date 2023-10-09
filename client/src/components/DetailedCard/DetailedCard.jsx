@@ -1,11 +1,23 @@
 // STYLES
 import styles from './DetailedCard.module.css';
 
+// DEPENDENCIES
+import { useNavigate } from 'react-router-dom';
+
 const DetailedCard = ({ pokemon }) => {
+
+    // HOOKS
+    const navigate = useNavigate();
+
+    // HANDLERS
+    const pokeballHandler = () => navigate('/');
+    const pokedexHandler = () => navigate('/pokedex');
     
     const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
     return (
-        <div className={ styles.container }>
+        <>
+            <h2>Pokemon Details</h2>
+            <div className={ styles.container }>
             <div className={ styles.col1 }>
                 <img src={ image } />
                 <div className={ styles.row }>
@@ -52,51 +64,12 @@ const DetailedCard = ({ pokemon }) => {
                     <h4><b>WEIGHT:</b> { weight }kg.</h4>
                 </div>
             </div>
-
-                        
-            {/* <div className={ styles.row }>
-                <div className={ styles.item }>
-                    <h2>{ hp }</h2>
-                    <h4>HP</h4>
-                </div>
-                <div className={ styles.item }>
-                    <h2>{ attack }</h2>
-                    <h4>ATTACK</h4>
-                </div>
-                <div className={ styles.item }>
-                    <h2>{ defense }</h2>
-                    <h4>DEFENSE</h4>
-                </div>
-            </div>
-            <div className={ styles.row }>
-                <div className={ styles.item }>
-                    <h2>{ spAttack }</h2>
-                    <h4>SP ATTACK</h4>
-                </div>
-                <div className={ styles.item }>
-                    <h2>{ xp }</h2>
-                    <h4>XP</h4>
-                </div>
-                <div className={ styles.item }>
-                    <h2>{ spDefense }</h2>
-                    <h4>SP DEFENSE</h4>
-                </div>
-            </div>
-            <div className={ styles.row }>
-                <div className={ styles.item }>
-                    <h2>{ speed }</h2>
-                    <h4>SPEED</h4>
-                </div>
-                <div className={ styles.citeml }>
-                    <h2>{ height }</h2>
-                    <h4>HEIGHT</h4>
-                </div>
-                <div className={ styles.item }>
-                    <h2>{ weight }</h2>
-                    <h4>WEIGHT</h4>
-                </div>
-            </div> */}
         </div>
+        <div>
+            <button onClick={ pokeballHandler }>Pokeball</button>
+            <button onClick={ pokedexHandler }>Pokedex</button>
+        </div>
+        </>
     );
 }
 

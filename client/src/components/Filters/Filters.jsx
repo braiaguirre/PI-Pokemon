@@ -36,6 +36,7 @@ function Filters() {
         orderRef.current.value = 'id';
         directionRef.current.value = 'ASC';
         typeRef.current.value = '';
+        dispatch(setFilters({ order: 'id', direction: 'ASC', type: '', userId: userId }));
         dispatcher({ order: 'id', direction: 'ASC', type: '', userId: userId });
     };
 

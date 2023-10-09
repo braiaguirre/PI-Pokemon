@@ -1,4 +1,5 @@
 const queryBuilder = (filtersData, Type) => {
+    console.log(filtersData);
     const { order, direction, type, page } = filtersData;
     let query = {};
     if (type) query = { ...query, include: [{ model: Type, where: { name: type } }] };
