@@ -19,6 +19,7 @@ import Alert from './components/Alert/Alert';
 import Navbar from './components/Navbar/Navbar';
 import GetPokemons from './components/GetPokemons/GetPokemons'
 import CreatePokemon from './components/CreatePokemon/CreatePokemon'
+import ProfilePopup from './components/ProfilePopup/ProfilePopup'
 import NameSearch from './components/NameSearch/NameSearch'
 
 // ACTIONS
@@ -43,19 +44,11 @@ const App = () => {
 
   return (
     <>
-      { popup.type === 'GET_POKEMONS' && 
+      { popup.type !== '' && 
         <div className={ styles.popupContainer }>
-          <GetPokemons />
-        </div>
-      }
-      { popup.type === 'NAME_SEARCH' && 
-        <div className={ styles.popupContainer }>
-          <NameSearch />
-        </div>
-      }
-      { popup.type === 'CREATE_POKEMON' && 
-        <div className={ styles.popupContainer }>
-          <CreatePokemon />
+          { popup.type === 'NAME_SEARCH' && <NameSearch /> }
+          { popup.type === 'CREATE_POKEMON' && <CreatePokemon /> }
+          { popup.type === 'PROFILE' && <div className={ styles.profilePopup }><ProfilePopup /></div> }
         </div>
       }
       { alert.type === 'ALERT' &&

@@ -29,3 +29,24 @@ li:hover {
     color: #000000;
     font-weight: 800;
 }
+
+.profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile img {
+    width: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    border: 3px solid #000000;
+    transition: 200ms;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.profile img:hover {
+    background-color: #ffdd0054;
+    transition: 200ms;
+}

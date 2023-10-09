@@ -2,11 +2,11 @@
 import styles from './Navbar.module.css';
 
 // DEPENDENCIES
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // COMPONENTS
-import NavbarProfile from '../NavbarProfile/NavbarProfile';
+import NavbarProfile from '../ProfilePopup/ProfilePopup';
 import NavbarSearch from '../NavbarSearch/NavbarSearch';
 
 // ACTIONS
@@ -18,12 +18,19 @@ const Navbar = () => {
     const navigate = useNavigate();
     const { pathname } = useLocation();
 
+    // STATES
+    const userPicture = useSelector(state => state.config.userPicture);
+    const username = useSelector(state => state.config.username);
+
     // HANDLERS
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
     const createhandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
     const logoutHandler = () => {
         dispatch(getLogout());
+    }
+    const profileHandler = () => {
+        setPopup({ type: 'PROFILE '})
     }
 
     return (
@@ -37,9 +44,10 @@ const Navbar = () => {
             </div>
             
             <div className={ styles.right }>
-                <ul>
-                    <li onClick={ logoutHandler }>Logout</li>
-                </ul>
+                <div className={ styles.profile }>
+                        <h3>{ username }</h3>
+                        <img src={ userPicture } onClick={ profileHandler } />
+                    </div>
             </div>
         </div>
     );

@@ -51,6 +51,8 @@ const initialState = {
         loading: true,
         page: 1,
         level: 0,
+        username: '',
+        userPicture: '',
         filters: {
             order: 'id',
             direction: 'ASC',
@@ -171,7 +173,12 @@ const reducer = (state = initialState, { type, payload }) => {
                 access: payload.access,
                 pokeball: payload.pokeball,
                 pokeballFiltered: payload.pokeballFiltered,
-                config: { ...state.config, level: payload.level }
+                config: { 
+                    ...state.config, 
+                    level: payload.level, 
+                    username: payload.username,
+                    userPicture: payload.userPicture 
+                }
             }
 
         case GET_LOGOUT:
