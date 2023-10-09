@@ -90,8 +90,8 @@ const CreatePokemon = () => {
         }
         dispatch(createPokemon({
             ...pokemon, 
-            abilities: pokemon.ability2 ? [pokemon.ability1, pokemon.ability2] : [pokemon.ability1],
-            types: pokemon.type2 ? [pokemon.type1, pokemon.type2] : [pokemon.type1],
+            abilities: pokemon.ability2 ? [pokemon.ability1.toLowerCase(), pokemon.ability2.toLowerCase()] : [pokemon.ability1.toLowerCase()],
+            types: pokemon.type2 ? [pokemon.type1.toLowerCase(), pokemon.type2.toLowerCase()] : [pokemon.type1.toLowerCase()],
             image: image,
             id: pokedex.length + 1,
         },
