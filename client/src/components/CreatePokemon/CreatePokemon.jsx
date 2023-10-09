@@ -12,6 +12,8 @@ import { createPokemon, setAlert, clearPopup, getImage, clearImage } from '../..
 // UTILS
 import random from '../../utils/random';
 import pokeball from '../../assets/pokeball.png';
+import okPNG from '../../assets/ok.png';
+import errorPNG from '../../assets/error.png';
 import titleCase from '../../utils/titleCase';
 import createValidation from '../../utils/createValidation';
 
@@ -111,79 +113,79 @@ const CreatePokemon = () => {
                         <div className={ styles.col }>
                             <div className={ styles.row }>
                                 <input name="name" onChange={ changeHandler } placeholder="Name" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.name ? 'close' : 'done'}</span>
+                                { errors.name ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="xp" onChange={ changeHandler } placeholder="XP" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.xp ? 'close' : 'done'}</span>
+                                { errors.xp ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="hp" onChange={ changeHandler } placeholder="HP" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.hp ? 'close' : 'done'}</span>
+                                { errors.hp ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="attack" onChange={ changeHandler } placeholder="Attack" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.attack ? 'close' : 'done'}</span>
+                                { errors.attack ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="spAttack" onChange={ changeHandler } placeholder="Special Attack" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.spAttack ? 'close' : 'done'}</span>
+                                { errors.spAttack ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                         </div>
                         <div className={ styles.col }>
                             <div className={ styles.row }>
                                 <input name="defense" onChange={ changeHandler } placeholder="Defense" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.defense ? 'close' : 'done'}</span>
+                                { errors.defense ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="spDefense" onChange={ changeHandler } placeholder="Special Defense" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.spDefense ? 'close' : 'done'}</span>
+                                { errors.spDefense ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="speed" onChange={ changeHandler } placeholder="Speed" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.speed ? 'close' : 'done'}</span>
+                                { errors.speed ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="height" onChange={ changeHandler } placeholder="Height" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.height ? 'close' : 'done'}</span>
+                                { errors.height ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <input name="weight" onChange={ changeHandler } placeholder="Weight" /> 
-                                <span className="material-symbols-outlined" width="20px">{errors.weight ? 'close' : 'done'}</span>
+                                { errors.weight ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                         </div>
                         <div className={ styles.col }>
                             <div className={ styles.row }>
                                 <select name="type1" onChange={changeHandler}>1
-                                    <option name="">Type 1</option>
+                                    <option name="">Type</option>
                                     { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
                                 </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.type1 ? 'close' : 'done'}</span>
+                                { errors.type1 ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <select name="type2" onChange={changeHandler}>
-                                    <option name="">Type 2</option>
+                                    <option name="">Type (optional)</option>
                                     { types.map(type => <option name={ type.name } key={ type.id }>{ titleCase(type.name) }</option>) }
                                 </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.type2 ? 'close' : 'done'}</span>
+                                { errors.type2 ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <select name="ability1" onChange={ changeHandler }>
-                                    <option name="">Ability 1</option>
+                                    <option name="">Ability</option>
                                     { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name)}</option>) }
                                 </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.ability1 ? 'close' : 'done'}</span>
+                                { errors.ability1 ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <select name="ability2" onChange={changeHandler}>
-                                    <option name="">Ability 2</option>
+                                    <option name="">Ability (optional)</option>
                                     { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
                                 </select>
-                                <span className="material-symbols-outlined" width="20px">{errors.ability2 ? 'close' : 'done'}</span>
+                                { errors.ability2 ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                             <div className={ styles.row }>
                                 <button className={ styles.imageBtn } onClick={ imageHandler }>Get image</button>
-                                <span className="material-symbols-outlined" width="20px">{!image ? 'close' : 'done'}</span>
+                                { !image ? <img src={ errorPNG } /> : <img src={ okPNG } /> }
                             </div>
                         </div>
                         <div className={ styles.col }>

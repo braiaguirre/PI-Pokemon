@@ -6,7 +6,6 @@ const { Pokemon } = require('../../DB_connection');
 const URL = 'https://pokeapi.co/api/v2/pokemon';
 
 const getPokemonsByIdController = async (id) => {
-    console.log(id);
     const pokemonDb = await Pokemon.findOne({ where: { id } });
     if (!pokemonDb) {
         const { data } = await axios.get(`${URL}/${id}`);

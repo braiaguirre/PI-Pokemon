@@ -9,7 +9,7 @@ const getPokemonsByNameHandler = async (req, res) => {
     } catch (err) {
         res.status(404).json({ 
             title: 'Error',
-            message: err.message,
+            message: 'No Pokemon found, please enter the exact name.',
             type: 'ALERT'
         });
     }

@@ -10,11 +10,6 @@
     padding: 50px;
 }
 
-.container img {
-    width: 180px;
-    height: 180px;
-}
-
 .container h2 {
     text-transform: uppercase;
 }
@@ -55,6 +50,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 180px;
+    height: 180px;
+}
+
+.imageContainer img {
     width: 180px;
     height: 180px;
 }

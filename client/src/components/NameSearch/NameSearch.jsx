@@ -58,6 +58,7 @@ const NameSearch = () => {
             <div className={ styles.container }>
                 <div className={ styles.title }>
                     <h2>Search Pokemon by name</h2>
+                    <h4>Click on image to view details</h4>
                 </div>
                 <form onSubmit={ submitHandler }>
                     <div className={ styles.fields }>
