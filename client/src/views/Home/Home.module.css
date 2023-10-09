@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.init {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 30vh;
+  }
+
+  .init h2 {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }

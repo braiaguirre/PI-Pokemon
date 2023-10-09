@@ -11,6 +11,7 @@ const getLoginController = async (userOrEmail, password) => {
         return {
             userId: userDb.id,
             access: true,
+            level: userDb.level,
             pokeball: userDbPokemons,
             pokeballFiltered: userDbPokemons,
         };

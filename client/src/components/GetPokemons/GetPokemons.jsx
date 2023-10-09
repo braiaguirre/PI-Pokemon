@@ -1,5 +1,6 @@
 // STYLES
 import styles from './GetPokemons.module.css';
+import loader from '../../utils/loader.module.css'
 
 // DEPENDENCIES
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +15,7 @@ import { getPokemonById, savePokemons, clearPopup, setAlert } from '../../redux/
 // UTILS
 import random from '../../utils/random';
 import pokeball from '../../assets/pokeball.png';
+import titleCase from '../../utils/titleCase';
 
 const GetPokemons = () => {
     document.title = 'PokeHenry';
@@ -43,22 +45,125 @@ const GetPokemons = () => {
         <>
             <div className={ styles.container }>
                 <h2>Let's get your initial Pokemons!</h2>
-                <p>These will be your eight starting Pokemons.</p>
+                <h4>These will be your eight starting Pokemons. Once you level up, you can get more.</h4>
+                <div className={ styles.cardsContainer }>
+                    <div className={ styles.col }>
+                        { pokemonsTemp[0] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[0].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[0].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 1</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[1] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[1].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[1].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 2</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[2] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[2].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[2].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 3</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[3] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[3].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[3].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 4</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[4] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[4].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[4].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 5</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[5] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[5].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[5].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 1</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[6] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[6].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[6].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 1</h4>
+                            </>
+                        }
+                    </div>
+
+                    <div className={ styles.col }>
+                        { pokemonsTemp[7] ?
+                            <>
+                                <div className= { styles.imageContainer }><img src={ pokemonsTemp[7].image} /></div>
+                                <h4>{ titleCase(pokemonsTemp[7].name) }</h4>
+                            </>
+                        :
+                            <>
+                                <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
+                                <h4>Slot 1</h4>
+                            </>
+                        }
+                    </div>
+                </div>
                 { pokemonsTemp.length < 8 ? 
                     <button onClick={ getPokemonsHandler }>Get random Pokemon</button> 
                 :
                     <button onClick={ savePokemonsHandler }>Save</button>
                 }
-                <div className={ styles.cardsContainer }>
-                    <img src={ pokemonsTemp[0] ? pokemonsTemp[0].image : pokeball} />
-                    <img src={ pokemonsTemp[1] ? pokemonsTemp[1].image : pokeball} />
-                    <img src={ pokemonsTemp[2] ? pokemonsTemp[2].image : pokeball} />
-                    <img src={ pokemonsTemp[3] ? pokemonsTemp[3].image : pokeball} />
-                    <img src={ pokemonsTemp[4] ? pokemonsTemp[4].image : pokeball} />
-                    <img src={ pokemonsTemp[5] ? pokemonsTemp[5].image : pokeball} />
-                    <img src={ pokemonsTemp[6] ? pokemonsTemp[6].image : pokeball} />
-                    <img src={ pokemonsTemp[7] ? pokemonsTemp[7].image : pokeball} />
-                </div>
             </div>
         </>
     );

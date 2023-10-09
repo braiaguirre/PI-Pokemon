@@ -25,6 +25,10 @@ module.exports = (sequelize) => {
         image: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        level: {
+            type: DataTypes.INTEGER,
+            defaultValue: 1
         }
     }, { timestamps: false} );
 };

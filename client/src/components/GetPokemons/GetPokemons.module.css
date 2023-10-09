@@ -1,8 +1,40 @@
-.cardsContainer {
+.container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 8px;
+    padding: 50px;
 }
 
-.cardsContainer img {
-    height: 100px;
-    width: 100px;
+.cardsContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 50px;
+}
+
+.cardsContainer .col {
+    display: flex;
+    flex-direction: column;
+    margin: 0 10px;
+}
+
+.imageContainer {
+    box-shadow: 2px 2px 5px 1px #0000005b;
+    border-radius: 50%;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 12px;
+}
+
+.imageContainer img {
+    width: 80px;
+    height: 80px;
 }

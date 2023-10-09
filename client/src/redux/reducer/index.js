@@ -50,6 +50,7 @@ const initialState = {
     config: {
         loading: true,
         page: 1,
+        level: 0,
         filters: {
             order: 'id',
             direction: 'ASC',
@@ -166,7 +167,11 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_LOGIN:
             return {
                 ...state,
-                ...payload
+                userId: payload.userId,
+                access: payload.access,
+                pokeball: payload.pokeball,
+                pokeballFiltered: payload.pokeballFiltered,
+                config: { ...state.config, level: payload.level }
             }
 
         case GET_LOGOUT:

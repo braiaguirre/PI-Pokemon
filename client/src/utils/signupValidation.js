@@ -11,7 +11,7 @@ const signupValidation = (signupData) => {
     if (!passwordRegex.test(password)) errors.password = 'At least 1 number. Between 5 and 15 characters';
     if (confirm !== password) errors.confirmPassword = 'Passwords does not match.';
     if (!confirm.length) errors.confirmPassword = 'Passwords does not match.';
-    console.log(errors);
+
     return errors;
 }
 
