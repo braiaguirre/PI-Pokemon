@@ -25,10 +25,10 @@ const DetailedCard = ({ pokemon }) => {
                     <h4 className={`${styles.bubble} ${styles.id}`}>#{ id }</h4>
                 </div>
                 <div className={ styles.row }>
-                    { types && types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`}>{ type }</h4> ) }
+                    { types && types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`} key={ type.id }>{ type }</h4> ) }
                 </div>
                 <div className={ styles.row }>
-                    { abilities && abilities.map(abilities => <h4 className={`${styles.bubble} ${styles.id}`}>{ abilities }</h4> ) }
+                    { abilities && abilities.map(abilities => <h4 className={`${styles.bubble} ${styles.id}`} key={ abilities.id }>{ abilities }</h4> ) }
                 </div>
             </div>
 

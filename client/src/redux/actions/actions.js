@@ -91,6 +91,7 @@ export const getPokedex = () => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
+            console.log(data);
             return dispatch({
                 type: GET_POKEDEX,
                 payload: data

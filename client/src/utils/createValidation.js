@@ -44,9 +44,9 @@ const createValidation = (pokemon) => {
     if (height > 0 && height < 300) errors.height = false;
     if (weight > 0 && weight < 300) errors.weight = false;
     if (type1) errors.type1 = false;
-    if (type2 && type1 !== type2) errors.type2 = false
+    if (type1 !== type2) errors.type2 = false
     if (ability1) errors.ability1 = false;
-    if (ability2 && ability1 !== ability2) errors.ability2 = false;
+    if (ability1 !== ability2) errors.ability2 = false;
     
     return errors;
 }

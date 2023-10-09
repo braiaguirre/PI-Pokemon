@@ -12,9 +12,8 @@ const postPokemonsController = async (pokemons, userId) => {
         await userDb.addPokemon(pokemonDb);
     });
     setTimeout(() => {}, 5000);
-    const userDbPokemons = await userDb.getPokemons({ order: [['id', 'ASC']] }); // TODO: FIX
-    console.log(userDb);
-    return userDbPokemons;
+    // const userDbPokemons = await userDb.getPokemons({ order: [['id', 'ASC']] });
+    return pokemons.sort((a, b) => a.id - b.id);
 }
 
 module.exports = postPokemonsController;

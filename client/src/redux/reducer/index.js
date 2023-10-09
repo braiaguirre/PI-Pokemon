@@ -90,7 +90,8 @@ const reducer = (state = initialState, { type, payload }) => {
         case GET_POKEDEX:
             return {
                 ...state,
-                ...payload
+                pokedex: payload.pokedex,
+                config: { ...state.config, loading: payload.loading}
             }
 
         case GET_POKEDEX_PAGE:

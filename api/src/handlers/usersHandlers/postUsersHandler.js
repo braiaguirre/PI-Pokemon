@@ -7,7 +7,7 @@ const postUsersHandler = async (req, res) => {
         const userData = req.body;
         const response = await postUsersController(userData);
         res.status(200).json({
-            title: 'Yeah!',
+            title: 'Great!',
             message: response,
             type: 'ALERT'
         });

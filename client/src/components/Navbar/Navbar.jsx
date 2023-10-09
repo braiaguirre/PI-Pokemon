@@ -22,7 +22,9 @@ const Navbar = () => {
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
     const createhandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
-    const logoutHandler = () => dispatch(getLogout());
+    const logoutHandler = () => {
+        dispatch(getLogout());
+    }
 
     return (
         <div className={ styles.container }>

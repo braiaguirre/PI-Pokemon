@@ -88,13 +88,14 @@ const CreatePokemon = () => {
         }
         dispatch(createPokemon({
             ...pokemon, 
-            abilities: [pokemon.ability1, pokemon.ability2 ? pokemon.ability2 : null], 
-            types: [pokemon.type1, pokemon.type2 ? pokemon.type2 : null], 
+            abilities: pokemon.ability2 ? [pokemon.ability1, pokemon.ability2] : [pokemon.ability1],
+            types: pokemon.type2 ? [pokemon.type1, pokemon.type2] : [pokemon.type1],
             image: image,
             id: pokedex.length + 1,
         },
             userId
         ));
+        dispatch(clearImage());
         dispatch(clearPopup());
     }
 

@@ -13,7 +13,7 @@ import Filters from '../../components/Filters/Filters';
 import { setPopup } from '../../redux/actions/actions';
 
 const Home = () => {
-    document.title = 'PokeHenry';
+    document.title = 'PokeHenry > Pokeball';
 
     // HOOKS
     const dispatch = useDispatch();
@@ -28,17 +28,19 @@ const Home = () => {
     
     return (
         <>
-            { !pokeball.length ? 
-                <div>
-                    <h2>Let's get your initial Pokemons!</h2>
-                    <button onClick={ getPokemonsHandler }>Go!</button>
-                </div>
-            :
                 <div className={ styles.container }>
-                    <Filters />
-                    <Cards pokemons={ pokemonsFiltered } />
+                { !pokeball.length ? 
+                    <div>
+                        <h2>Let's get your initial Pokemons!</h2>
+                        <button onClick={ getPokemonsHandler }>Go!</button>
+                    </div>
+                :
+                    <div>
+                        <Filters />
+                        <Cards pokemons={ pokemonsFiltered } />
+                    </div> 
+                }
                 </div>
-            }
         </>
     );
 }
