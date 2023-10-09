@@ -126,7 +126,7 @@ const GetPokemons = () => {
                         :
                             <>
                                 <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
-                                <h4>Slot 1</h4>
+                                <h4>Slot 6</h4>
                             </>
                         }
                     </div>
@@ -140,7 +140,7 @@ const GetPokemons = () => {
                         :
                             <>
                                 <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
-                                <h4>Slot 1</h4>
+                                <h4>Slot 7</h4>
                             </>
                         }
                     </div>
@@ -154,7 +154,7 @@ const GetPokemons = () => {
                         :
                             <>
                                 <div className= { styles.imageContainer }><div className={ loader.loader }></div></div>
-                                <h4>Slot 1</h4>
+                                <h4>Slot 8</h4>
                             </>
                         }
                     </div>

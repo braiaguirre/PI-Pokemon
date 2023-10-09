@@ -5,7 +5,7 @@
     color: #797979;
     display: flex;
     height: 50px;
-    padding: 10px 100px;
+    padding: 10px 8%;
     text-transform: uppercase;
     box-shadow: 0 2px 5px 2px #00000033;
     font-weight: 600;
@@ -34,6 +34,11 @@ li:hover {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.profile h3 {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .profile img {

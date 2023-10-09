@@ -5,10 +5,6 @@ import styles from './Navbar.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-// COMPONENTS
-import NavbarProfile from '../ProfilePopup/ProfilePopup';
-import NavbarSearch from '../NavbarSearch/NavbarSearch';
-
 // ACTIONS
 import { getLogout, setPopup } from '../../redux/actions/actions';
 

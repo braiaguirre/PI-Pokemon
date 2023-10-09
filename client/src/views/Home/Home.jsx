@@ -31,7 +31,7 @@ const Home = () => {
                 <div className={ styles.container }>
                 { !pokeball.length ? 
                     <div className={ styles.init }>
-                        <h2>Let's get your initial Pokemons!</h2>
+                        <h2>Let's get your initial Pokemons</h2>
                         <button onClick={ getPokemonsHandler }>Go!</button>
                     </div>
                 :
