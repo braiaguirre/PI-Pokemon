@@ -10,19 +10,25 @@
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 1980px;
+    width: 84vw;
     bottom: 0;
     left: 0;
     height: 50px;
     padding: 10px 8%;
 }
 
+ul {
+    display: flex;
+}
+
 li {
     cursor: pointer;
-    display: inline;
-    padding: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
     margin-right: 15px;
     transition: 200ms;
+    border-bottom: 1px solid #ffffff;
 }
 
 li:hover {
@@ -33,30 +39,4 @@ li:hover {
 .active {
     color: #000000;
     font-weight: 800;
-}
-
-.profile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.profile h3 {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.profile img {
-    width: 30px;
-    padding: 5px;
-    border-radius: 50%;
-    border: 3px solid #000000;
-    transition: 200ms;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.profile img:hover {
-    background-color: #ffdd0054;
-    transition: 200ms;
 }

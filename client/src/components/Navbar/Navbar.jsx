@@ -21,25 +21,15 @@ const Navbar = () => {
     // HANDLERS
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
-    const createhandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
     const profileHandler = () => dispatch(setPopup({ type: 'PROFILE'}));
 
     return (
         <div className={ styles.container }>
-            <div className={ styles.left }>
-                <ul>
-                    <li onClick={ homeHandler } className={ pathname === '/' ? `${ styles.active }` : '' } name="">My Pokeball</li>
-                    <li onClick={ pokedexHandler} className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">Open Pokedex</li>
-                    <li onClick={ createhandler}>Create Pokemon</li>
-                </ul>
-            </div>
-            
-            <div className={ styles.right }>
-                <div className={ styles.profile }>
-                        <h3>{ username }</h3>
-                        <img src={ userPicture } onClick={ profileHandler } />
-                    </div>
-            </div>
+            <ul>
+                <li onClick={ homeHandler } className={ pathname === '/' ? `${ styles.active }` : '' } name="">My Pokeball</li>
+                <li onClick={ pokedexHandler} className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">Open Pokedex</li>
+                <li onClick={ profileHandler }>Accout</li>
+            </ul>
         </div>
     );
 }
