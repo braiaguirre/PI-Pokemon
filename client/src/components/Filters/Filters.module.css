@@ -1,6 +1,5 @@
 .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 20px 7.5% 20px 8.5%;
@@ -14,4 +13,8 @@
 
 .col h2 {
     color: #000000;
+}
+
+.createButton {
+    margin: 0 20px 0 20px;
 }

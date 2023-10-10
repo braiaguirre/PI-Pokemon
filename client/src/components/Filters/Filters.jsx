@@ -55,11 +55,17 @@ function Filters() {
         <>
             <div className={ styles.container }>
                 <div className={ styles.col }>
-                    { pathname === '/' ? 
-                        <h2>My Pokeball</h2>
+                    { pathname === '/' ?
+                        <div className={ styles.row }>
+                            <h2>Pokeball</h2>
+                            <h4>Your Pokemons.</h4>
+                        </div> 
                     : 
-                        <h2>Pokedex</h2> }
-                    <div className={ styles.col }>
+                        <div className={ styles.row }>
+                            <h2>Pokedex</h2> 
+                            <h4>All Pokemons.</h4> 
+                        </div> }
+                    <div className={ `${styles.col} ${styles.createButton}` }>
                         <button onClick={ createHandler }>Create Pokemon</button>
                     </div>
                 </div>

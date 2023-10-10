@@ -25,8 +25,8 @@ li {
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 5px;
-    margin-right: 15px;
+    padding: 10px 15px;
+    margin: 0 20px;
     transition: 200ms;
     border-bottom: 1px solid #ffffff;
 }
@@ -39,4 +39,9 @@ li:hover {
 .active {
     color: #000000;
     font-weight: 800;
+}
+
+.container img {
+    width: 18px;
+    margin-right: 6px;
 }
