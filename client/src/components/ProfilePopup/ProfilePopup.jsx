@@ -2,17 +2,30 @@
 import styles from './ProfilePopup.module.css';
 
 // DEPENDENCIES
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+// ACTIONS
+import { getLogout, clearPopup } from '../../redux/actions/actions';
 
 const ProfilePopup = () => {
 
-    // STATES
-    const { userPicture } = useSelector(state => state.config);
+    // HOOKS
+    const dispatch = useDispatch(); 
     
+    // STATES
+    const { level } = useSelector(state => state.config);
+    
+    // HANDLERS
+    const logoutHandler = () => dispatch(getLogout());
+    const closeHandler = () => dispatch(clearPopup());
+
     return (
         <div className={ styles.container }>
-            <h1>hola</h1>
-            asdasd
+            <div>
+                <h4>Level: { level }</h4>
+            </div>
+            <button onClick={ logoutHandler }>Logout</button>
+            <button onClick={ closeHandler }>Close</button>
         </div>
     );
 }
