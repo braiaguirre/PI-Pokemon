@@ -33,7 +33,7 @@ const createValidation = (pokemon) => {
         ability2: true
     }
 
-    if (name) errors.name = false;
+    if (name.length > 0 && name.length < 11) errors.name = false;
     if (xp > 0 && xp < 100) errors.xp = false;
     if (hp > 0 && hp < 100) errors.hp = false;
     if (attack > 0 && attack < 100) errors.attack = false;

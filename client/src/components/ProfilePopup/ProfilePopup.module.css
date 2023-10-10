@@ -1,0 +1,7 @@
+.container {
+    width: 150px;
+    position: absolute;
+    top: 90px;
+    right: 50px;
+    background-color: #ffffff;
+}

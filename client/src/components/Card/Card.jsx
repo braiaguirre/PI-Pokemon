@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Card = ({ pokemon }) => {
     // PROPS
     const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
-    console.log(name, types);
+    
     // HOOKS
     const navigate = useNavigate();
 

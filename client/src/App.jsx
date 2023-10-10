@@ -49,9 +49,13 @@ const App = () => {
           { popup.type === 'GET_POKEMONS' && <GetPokemons /> }
           { popup.type === 'NAME_SEARCH' && <NameSearch /> }
           { popup.type === 'CREATE_POKEMON' && <CreatePokemon /> }
-          { popup.type === 'PROFILE' && <div className={ styles.profilePopup }><ProfilePopup /></div> }
         </div>
       }
+      { popup.type === 'PROFILE' && 
+          <div className={ styles.profilePopup }>
+            <ProfilePopup />
+          </div>
+        } 
       { alert.type === 'ALERT' &&
         <div className={ styles.alertPopupContainer }>
           <Alert />

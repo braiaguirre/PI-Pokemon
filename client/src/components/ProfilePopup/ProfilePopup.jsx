@@ -11,7 +11,8 @@ const ProfilePopup = () => {
     
     return (
         <div className={ styles.container }>
-            
+            <h1>hola</h1>
+            asdasd
         </div>
     );
 }

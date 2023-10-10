@@ -26,7 +26,7 @@ const Navbar = () => {
         dispatch(getLogout());
     }
     const profileHandler = () => {
-        setPopup({ type: 'PROFILE '})
+        dispatch(setPopup({ type: 'PROFILE'}));
     }
 
     return (
