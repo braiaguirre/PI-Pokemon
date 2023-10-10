@@ -22,12 +22,7 @@ const Navbar = () => {
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
     const createhandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
-    const logoutHandler = () => {
-        dispatch(getLogout());
-    }
-    const profileHandler = () => {
-        dispatch(setPopup({ type: 'PROFILE'}));
-    }
+    const profileHandler = () => dispatch(setPopup({ type: 'PROFILE'}));
 
     return (
         <div className={ styles.container }>

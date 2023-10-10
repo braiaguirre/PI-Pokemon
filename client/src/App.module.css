@@ -13,10 +13,10 @@ body {
   border: 0;
   width: 100%;
 }
-
+/* 
 body::after {
   content: "";
-  /* background: url('./assets/background.jpg'); */
+  background: url('./assets/background.jpg');
   opacity: 0.1;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@ body::after {
   right: 0;
   position: fixed;
   z-index: -1;
-}
+} */
 
 input {
   border: 1px solid #c9c9c9;
