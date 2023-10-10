@@ -2,6 +2,7 @@
 import styles from './Home.module.css';
 
 // DEPENDENCIES
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +11,7 @@ import Cards from '../../components/Cards/Cards';
 import Filters from '../../components/Filters/Filters';
 
 // ACTIONS
-import { setPopup } from '../../redux/actions/actions';
+import { filterPokemons, setPopup } from '../../redux/actions/actions';
 
 const Home = () => {
     document.title = 'PokeHenry > Pokeball';
@@ -20,11 +21,17 @@ const Home = () => {
     const navigate = useNavigate();
 
     // STATES
+    const userId = useSelector(state => state.userId);
     const pokeball = useSelector(state => state.pokeball);
     const pokemonsFiltered = useSelector(state => state.pokeballFiltered);
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(setPopup({ type: 'GET_POKEMONS' }));
+
+    // LOAD DATA
+    useEffect(() => {
+        dispatch(filterPokemons({ order: 'id', direction: 'ASC', type: '', userId: userId }));
+    }, [])
     
     return (
         <>
