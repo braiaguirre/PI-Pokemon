@@ -8,7 +8,6 @@
 
 body {
   font-family: "Gabarito", cursive;
-  background-color: #ffdd0009;
   font-weight: 800;
   color: #6e6e6e;
   display: flex;
@@ -17,19 +16,12 @@ body {
   padding: 0;
   border: 0;
   width: 100%;
+  
+  background-image:  linear-gradient(135deg, #ffdd000e 25%, transparent 25%), linear-gradient(225deg, #ffdd000e 25%, transparent 25%), linear-gradient(45deg, #ffdd000e 25%, transparent 25%), linear-gradient(315deg, #ffdd000e 25%, transparent 25%);
+  background-position:  39px 0, 39px 0, 0 0, 0 0;
+  background-size: 78px 78px;
+  background-repeat: repeat;
 }
-/* 
-body::after {
-  content: "";
-  background: url('./assets/background.jpg');
-  opacity: 0.1;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: fixed;
-  z-index: -1;
-} */
 
 input {
   border: 1px solid #c9c9c9;
@@ -68,7 +60,7 @@ button {
   background-color: #FFDE00;
   border: 1px solid #c9c9c9;
   border-radius: 8px;
-  color: #6e6e6e;
+  color: #474747;
   cursor: pointer;
   font-family: inherit;
   font-size: 14px;
