@@ -73,6 +73,7 @@ const App = () => {
                 <Route path="/" element={ <Home /> } />
                 <Route path="/pokedex" element={ <Pokedex /> } />
                 <Route path="/detail/:id" element={ <Detail /> } />
+                <Route path="*" element={ <Error404 /> } />
               </Routes>
             </>
           }

@@ -6,7 +6,7 @@ const Error404 = () => {
     
     return (
         <div className={ styles.container }>
-            
+            <h2>Nothing over here...</h2>
         </div>
     );
 }

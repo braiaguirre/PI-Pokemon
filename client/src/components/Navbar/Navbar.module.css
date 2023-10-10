@@ -28,12 +28,12 @@ li {
     padding: 10px 15px;
     margin: 0 20px;
     transition: 200ms;
-    border-bottom: 1px solid #ffffff;
+    transform: scale(0.95);
 }
 
 li:hover {
-    border-bottom: 1px solid #000000;
     transition: 200ms;
+    transform: scale(1.05);
 }
 
 .active {
