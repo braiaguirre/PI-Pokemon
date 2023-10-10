@@ -105,8 +105,8 @@ const CreatePokemon = () => {
         <>
             <div className={ styles.container }>
                 <div className={ styles.title }>
-                    <h2>Create custom Pokemon</h2>
-                    <h4>Fill de info</h4>
+                    <h2>Create custom Pokémon</h2>
+                    <h4>Fill de info. All fields are required.</h4>
                 </div>
                 <form onSubmit={ submitHandler }>
                     <div className={ styles.form }>

@@ -58,15 +58,15 @@ function Filters() {
                     { pathname === '/' ?
                         <div className={ styles.row }>
                             <h2>Pokeball</h2>
-                            <h4>Your Pokemons.</h4>
+                            <h4>Your Pokémons.</h4>
                         </div> 
                     : 
                         <div className={ styles.row }>
                             <h2>Pokedex</h2> 
-                            <h4>All Pokemons.</h4> 
+                            <h4>All Pokémons.</h4> 
                         </div> }
                     <div className={ `${styles.col} ${styles.createButton}` }>
-                        <button onClick={ createHandler }>Create Pokemon</button>
+                        <button onClick={ createHandler }>Create Pokémon</button>
                     </div>
                 </div>
                 <div className={ styles.col }>

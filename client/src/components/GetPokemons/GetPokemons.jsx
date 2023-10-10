@@ -32,7 +32,7 @@ const GetPokemons = () => {
         if (pokemonsTemp.length < 8) dispatch(getPokemonById(random()));
         else dispatch(setAlert({
             title: 'Hey!',
-            message: 'Already got your Pokemons',
+            message: 'Already got your Pokémons',
             type: 'ALERT'
         }));
     }
@@ -44,8 +44,8 @@ const GetPokemons = () => {
     return (
         <>
             <div className={ styles.container }>
-                <h2>Let's get your initial Pokemons!</h2>
-                <h4>These will be your eight starting Pokemons. Once you level up, you can get more.</h4>
+                <h2>Let's get your initial Pokémons!</h2>
+                <h4>These will be your eight starting Pokémons. Once you level up, you can get more.</h4>
                 <div className={ styles.cardsContainer }>
                     <div className={ styles.col }>
                         { pokemonsTemp[0] ?
@@ -160,7 +160,7 @@ const GetPokemons = () => {
                     </div>
                 </div>
                 { pokemonsTemp.length < 8 ? 
-                    <button onClick={ getPokemonsHandler }>Get random Pokemon</button> 
+                    <button onClick={ getPokemonsHandler }>Get Random</button> 
                 :
                     <button onClick={ savePokemonsHandler }>Save</button>
                 }

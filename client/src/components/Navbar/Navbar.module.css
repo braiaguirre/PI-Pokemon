@@ -3,6 +3,7 @@
     color: #797979;
     text-transform: uppercase;
     box-shadow: 0 2px 5px 2px #0000003a;
+    border-top: 2px solid #00000041;
     font-weight: 600;
     font-size: 16px;
 
@@ -13,7 +14,6 @@
     width: 84vw;
     bottom: 0;
     left: 0;
-    height: 50px;
     padding: 10px 8%;
 }
 

@@ -22,12 +22,24 @@
     padding: 20px;
     cursor: pointer;
     margin: 20px;
+    transition: 200ms;
+}
+
+.container img:hover {
+    opacity: 0.5;
+    transition: 200ms;
 }
 
 .container h2 {
     text-transform: uppercase;
     margin: 5px;
     cursor: pointer;
+    transition: 200ms;
+}
+
+.container h2:hover {
+    opacity: 0.7;
+    transition: 200ms;
 }
 
 .footer {

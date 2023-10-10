@@ -50,12 +50,12 @@ const Signup = () => {
         e.preventDefault();
         if (Object.keys(signupErrors).length) dispatch(setAlert({
             title: 'Hey!',
-            message: 'All fields are required',
+            message: 'All fields are required.',
             type: 'ALERT'
         }));
         else if (!image) dispatch(setAlert({
             title: 'Hey!',
-            message: 'Select a profile image',
+            message: 'Select a profile image.',
             type: 'ALERT'
         }))
         else signupHandler();

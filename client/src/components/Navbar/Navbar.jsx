@@ -38,7 +38,7 @@ const Navbar = () => {
                 </li>
                 <li onClick={ pokedexHandler } className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">
                     <img src={ pokedex } />
-                    Open Pokedex
+                    Pokedex
                 </li>
                 <li onClick={ profileHandler } className={ popup.type === 'PROFILE' ? `${ styles.active }` : '' }>
                     <img src={ account } />

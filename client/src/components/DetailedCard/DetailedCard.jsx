@@ -16,7 +16,7 @@ const DetailedCard = ({ pokemon }) => {
     const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
     return (
         <>
-            <h2>Pokemon Details</h2>
+            <h2>Pokémon Details</h2>
             <div className={ styles.container }>
             <div className={ styles.col1 }>
                 <img src={ image } />
