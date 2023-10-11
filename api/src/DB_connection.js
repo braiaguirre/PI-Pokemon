@@ -8,7 +8,6 @@ const modelPokemon = require('./models/Pokemon');
 const modelType = require('./models/Type');
 const modelAbility = require('./models/Ability');
 const modelUser = require('./models/User');
-const modelPokemons_Raw = require('./models/Pokemons_Raw');
 
 const sequelize = new Sequelize(
    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/pokemon`,
@@ -19,7 +18,6 @@ modelPokemon(sequelize);
 modelType(sequelize);
 modelAbility(sequelize);
 modelUser(sequelize);
-modelPokemons_Raw(sequelize);
 
 const { 
    Pokemon, 

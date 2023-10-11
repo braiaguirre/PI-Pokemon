@@ -28,10 +28,7 @@ const Pokedex = () => {
     const maxPage = Math.ceil(pokedex.length / 10);
 
     // HANDLERS
-    const firstHandler = () => dispatch(getPokedexPage(1, filters));
-    const prevHandler = () => dispatch(getPokedexPage(page - 1, filters));
-    const nextHandler = () => dispatch(getPokedexPage(page + 1, filters));
-    const lastHandler = () => dispatch(getPokedexPage(maxPage, filters));
+    const pageHandler = (page) => dispatch(getPokedexPage(page, filters));
 
     // LOAD DATA
     useEffect(() => {
@@ -44,10 +41,13 @@ const Pokedex = () => {
             <Filters />
             <Cards pokemons={ pokedexPage } />
             <div className={ styles.navigation }>
-                { page > 1 && <button onClick={ firstHandler }>First</button> }
-                { page > 1 && <button onClick={ prevHandler }>Previous</button> }
-                { page < maxPage && <button onClick={ nextHandler }>Next</button> }
-                { page < maxPage && <button onClick={ lastHandler }>Last</button> }
+                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? '' : () => pageHandler(1) }>First</button>
+                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? '' : () => pageHandler(page - 1) }>Prev</button>
+                
+                <button className={ styles.active }>{ page }</button>
+
+                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? '' : () => pageHandler(page + 1) }>Next</button>
+                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? '' : () => pageHandler(maxPage) }>Last</button>
             </div>
         </div>
     );

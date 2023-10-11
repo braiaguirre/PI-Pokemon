@@ -37,7 +37,7 @@ const initialState = {
     pokemonAbilities: [],
     image: '',
     userId: null,
-    access: true,
+    access: false,
     popup: {
         type: ''
     },
