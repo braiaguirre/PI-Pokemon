@@ -81,6 +81,16 @@
     margin-bottom: 15px;
 }
 
+.warning {
+    background-color: #FF0000;
+    color: #ffffff;
+}
+
+.warning:hover {
+    background-color: #CC0000;
+    color: #ffffff;
+}
+
 .bubble {
     padding: 6px 15px;
     text-transform: uppercase;

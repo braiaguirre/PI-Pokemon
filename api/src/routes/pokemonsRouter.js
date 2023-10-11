@@ -9,6 +9,7 @@ const getPokemonsImageHandler = require(URL + 'getPokemonsImageHandler');
 const getPokemonsByNameHandler = require(URL + 'getPokemonsByNameHandler');
 const postPokemonsHandler = require(URL + 'postPokemonsHandler');
 const postCustomPokemonsHandler = require(URL + 'postCustomPokemonsHandler');
+const deleteCustomPokemonsHandler = require(URL + 'deleteCustomPokemonsHandler');
 
 const pokemonsRouter = Router();
 
@@ -19,5 +20,6 @@ pokemonsRouter.get('/', getPokemonsHandler);
 pokemonsRouter.get('/image/:id', getPokemonsImageHandler);
 pokemonsRouter.post('/', postPokemonsHandler);
 pokemonsRouter.post('/custom', postCustomPokemonsHandler);
+pokemonsRouter.post('/custom/delete/', deleteCustomPokemonsHandler);
 
 module.exports = pokemonsRouter;

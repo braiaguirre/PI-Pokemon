@@ -2,16 +2,32 @@
 import styles from './DetailedCard.module.css';
 
 // DEPENDENCIES
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+// ACTIONS
+import { deletePokemon, setAlert } from '../../redux/actions/actions';
 
 const DetailedCard = ({ pokemon }) => {
 
     // HOOKS
+    const dispatch = useDispatch();
     const navigate = useNavigate();
+    
+    // STATES
+    const userId = useSelector(state => state.userId);
 
     // HANDLERS
     const pokeballHandler = () => navigate('/');
     const pokedexHandler = () => navigate('/pokedex');
+    const deleteHandler = () => {
+        dispatch(setAlert({
+            title: 'HEY!',
+            message: 'Are you sure you want to delete this custom Pokémon? This action can not be undone.',
+            type: 'ALERT',
+            callback: [() => dispatch(deletePokemon(id, userId)), () => navigate('/')]
+        }))
+    }
     
     const { id, name, xp, hp, attack, spAttack, defense, spDefense, speed, height, weight, custom, types, abilities, image } = pokemon;
     return (
@@ -25,10 +41,10 @@ const DetailedCard = ({ pokemon }) => {
                     <h4 className={`${styles.bubble} ${styles.id}`}>#{ id }</h4>
                 </div>
                 <div className={ styles.row }>
-                    { types && types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`} key={ type.id }>{ type }</h4> ) }
+                    { types && types.map(type => <h4 className={`${styles.bubble} ${styles[type]}`} key={ `type${type.id}` }>{ type }</h4> ) }
                 </div>
                 <div className={ styles.row }>
-                    { abilities && abilities.map(abilities => <h4 className={`${styles.bubble} ${styles.id}`} key={ abilities.id }>{ abilities }</h4> ) }
+                    { abilities && abilities.map(abilities => <h4 className={`${styles.bubble} ${styles.id}`} key={ `ability${abilities.id}` }>{ abilities }</h4> ) }
                 </div>
             </div>
 
@@ -66,6 +82,7 @@ const DetailedCard = ({ pokemon }) => {
             </div>
         </div>
         <div>
+            { custom && <button className={ styles.warning } onClick={ deleteHandler }>Delete</button> }
             <button onClick={ pokeballHandler }>Pokeball</button>
             <button onClick={ pokedexHandler }>Pokedex</button>
         </div>

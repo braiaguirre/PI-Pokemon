@@ -178,7 +178,7 @@ const CreatePokemon = () => {
                             </div>
                             <div className={ styles.row }>
                                 <select name="ability2" onChange={changeHandler}>
-                                    <option name="">Ability (optional)</option>
+                                    <option name="" value="x">Ability (optional)</option>
                                     { abilities.map(ability => <option name={ ability.name } key={ ability.id }>{ titleCase(ability.name) }</option>) }
                                 </select>
                                 { errors.ability2 ? <img src={ errorPNG } /> : <img src={ okPNG } /> }

@@ -9,6 +9,7 @@ import {
     CLEAR_IMAGE,
     GET_POKEMON,
     GET_POKEMON_BY_NAME,
+    DELETE_POKEMON,
     CREATE_POKEMON,
     SAVE_POKEBALL,
     GET_POKEDEX,
@@ -75,6 +76,25 @@ export const createPokemon = (pokemon, userId) => {
             const { data } = await axios.post(endpoint, { pokemon, userId });
             return dispatch({
                 type: CREATE_POKEMON,
+                payload: data
+            });
+        } catch (err) {
+            return dispatch({
+                type: SET_ALERT,
+                payload: err.response.data
+            });
+        };
+    };
+};
+
+export const deletePokemon = (id, userId) => {
+    const endpoint = `${ URL }/pokemons/custom/delete`;
+
+    return async (dispatch) => {
+        try {
+            const { data } = await axios.post(endpoint, { id, userId });
+            return dispatch({
+                type: DELETE_POKEMON,
                 payload: data
             });
         } catch (err) {

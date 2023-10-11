@@ -13,11 +13,15 @@
 }
 
 .container h2,
-.container h4,
-.container button {
+.container h4 {
     margin: 10px;
 }
 
 .container h2 {
     text-transform: uppercase;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 10px;
 }

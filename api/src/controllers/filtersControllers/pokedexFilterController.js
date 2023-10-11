@@ -4,7 +4,6 @@ const queryBuilder = require('../../utils/queryBuilder');
 
 const pokedexFilterController = async (filters) => {
     const query = queryBuilder(filters, Type);
-    console.log(filters);
     return await Pokemon.findAll({ ...query });
 }
 

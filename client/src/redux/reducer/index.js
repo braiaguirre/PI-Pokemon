@@ -9,6 +9,7 @@ import {
     CLEAR_IMAGE,
     GET_POKEMON,
     GET_POKEMON_BY_NAME,
+    DELETE_POKEMON,
     CREATE_POKEMON,
     SAVE_POKEBALL,
     GET_POKEDEX,
@@ -81,6 +82,14 @@ const reducer = (state = initialState, { type, payload }) => {
                 pokeball: [ ...state.pokeball, payload ],
                 pokeballFiltered: [ ...state.pokeballFiltered, payload ],
                 pokedex: [ ...state.pokedex, payload ]
+            }
+
+        case DELETE_POKEMON:
+            return {
+                ...state,
+                pokeball: [ ...payload.pokeball ],
+                pokeballFiltered: [ ...payload.pokeball ],
+                pokedex: [ ...payload.pokedex ]
             }
 
         case SAVE_POKEBALL:
