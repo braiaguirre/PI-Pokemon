@@ -28,7 +28,7 @@ const Pokedex = () => {
     const maxPage = Math.ceil(pokedex.length / 10);
 
     // HANDLERS
-    const pageHandler = (page) => dispatch(getPokedexPage(page, filters));
+    const pageHandler = (page) => dispatch(getPokedexPage(page, pokedexFilters));
 
     // LOAD DATA
     useEffect(() => {

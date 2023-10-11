@@ -33,11 +33,12 @@ const NameSearch = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         if (name.length) {
+            dispatch(clearPokemonDetail());
             dispatch(getPokemonByName(name.toLowerCase()));
         }
         else dispatch(setAlert({
             title: 'Oops!',
-            message: 'Insert Pokémon name',
+            message: 'Insert Pokémon name.',
             type: 'ALERT'
         }));
     }
@@ -48,7 +49,7 @@ const NameSearch = () => {
         }
         else dispatch(setAlert({
             title: 'Oops!',
-            message: 'Insert Pokémon name',
+            message: 'Insert Pokémon name.',
             type: 'ALERT'
         })); 
     }
@@ -58,7 +59,7 @@ const NameSearch = () => {
             <div className={ styles.container }>
                 <div className={ styles.title }>
                     <h2>Search Pokémon by name</h2>
-                    <h4>Click on image to view details</h4>
+                    <h4>Click on image to view details.</h4>
                 </div>
                 <form onSubmit={ submitHandler }>
                     <div className={ styles.fields }>

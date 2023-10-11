@@ -6,11 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 // ACTIONS
-import { getLogout, setPopup } from '../../redux/actions/actions';
+import { setAlert, setPopup } from '../../redux/actions/actions';
 
 // ICONS
 import pokeball from '../../assets/navbar_pokeball.png';
 import pokedex from '../../assets/navbar_pokedex.png';
+import battle from '../../assets/navbar_battle.png';
 import account from '../../assets/navbar_account.png';
 
 const Navbar = () => {
@@ -28,6 +29,11 @@ const Navbar = () => {
     const homeHandler = () => navigate(`/`);
     const pokedexHandler = () => navigate(`/pokedex`);
     const profileHandler = () => dispatch(setPopup({ type: 'PROFILE'}));
+    const battleHandler = () => dispatch(setAlert({
+        title: 'Join Premium',
+        message: 'Buy the full version for only $5/month.',
+        type: 'ALERT'
+    }));
 
     return (
         <div className={ styles.container }>
@@ -39,6 +45,10 @@ const Navbar = () => {
                 <li onClick={ pokedexHandler } className={ pathname === '/pokedex' ? `${ styles.active }` : '' } name="pokedex">
                     <img src={ pokedex } />
                     Pokedex
+                </li>
+                <li onClick={ battleHandler } className={ pathname === '/battle' ? `${ styles.active }` : '' } name="battle">
+                    <img src={ battle } />
+                    Battle Arena
                 </li>
                 <li onClick={ profileHandler } className={ popup.type === 'PROFILE' ? `${ styles.active }` : '' }>
                     <img src={ account } />
