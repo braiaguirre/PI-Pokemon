@@ -20,6 +20,7 @@ function Filters({ filters }) {
     const typeRef =  useRef();
     const directionRef = useRef();
     const orderRef = useRef();
+    const originRef = useRef();
 
     // STATES
     const userId = useSelector(state => state.userId);
@@ -28,29 +29,21 @@ function Filters({ filters }) {
     // HANDLERS
     const createHandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
     const nameSearchHandler = () => dispatch(setPopup({ type: 'NAME_SEARCH' }));
-    const changeHandler = (e) => dispatcher({ ...filters, [e.target.name]: e.target.value, userId: userId });
+    const changeHandler = (e) => dispatcher({ ...filters, [e.target.name]: e.target.value }, userId);
     const resetHandler = () => {
         orderRef.current.value = 'id';
         directionRef.current.value = 'ASC';
         typeRef.current.value = '';
-        dispatcher({ order: 'id', direction: 'ASC', type: '', userId: userId });
+        originRef.current.value = '';
+        dispatcher({ order: 'id', direction: 'ASC', type: '', origin: ''}, userId);
     };
-    const dispatcher = (data) => {
-        console.log(data);
+    const dispatcher = (data, userId) => {
         if (pathname === '/') {
-            dispatch(setPokeballFilters({
-                order: data.order,
-                direction: data.direction,
-                type: data.type
-            }));
-            dispatch(filterPokemons(data));
+            dispatch(setPokeballFilters(data));
+            dispatch(filterPokemons({ ...data, userId: userId }));
         }
         else if (pathname === '/pokedex') {
-            dispatch(setPokedexFilters({
-                order: data.order,
-                direction: data.direction,
-                type: data.type
-            }));
+            dispatch(setPokedexFilters(data));
             dispatch(filterPokedex(data));
         }
     }
@@ -59,6 +52,7 @@ function Filters({ filters }) {
         orderRef.current.value = filters.order;
         directionRef.current.value = filters.direction;
         typeRef.current.value = filters.type;
+        originRef.current.value = filters.origin;
     })
 
     return (
@@ -102,10 +96,18 @@ function Filters({ filters }) {
                     <div className={ styles.col }>
                         <h4>Filter by:</h4>
                         <select name="type" ref={ typeRef } onChange={ changeHandler }>
-                            <option value="">All types</option>
+                            <option value="">Show all</option>
                             {types.map(type => 
                                 <option value={ type.name } key={ type.id }>{ titleCase(type.name) }</option>
                             )}
+                        </select>
+                    </div>
+                    <div className={ styles.col }>
+                        <h4>Origin:</h4>
+                        <select name="origin" ref={ originRef } onChange={ changeHandler }>
+                            <option value="">Show all</option>
+                            <option value="custom">Custom</option>
+                            <option value="pokemon">Pokémon</option>
                         </select>
                     </div>
                     <div className={ styles.col }>

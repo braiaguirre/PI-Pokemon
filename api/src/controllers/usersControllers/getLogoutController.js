@@ -3,15 +3,48 @@ const { User } = require('../../DB_connection');
 
 const getLogoutController = async (id) => {
     return {
-        userId: null,
-        access: false,
+        pokemonsTemp: [],
         pokeball: [],
         pokeballFiltered: [],
         pokedex: [],
-        pokedexPage: []
+        pokedexPage: [],
+        pokemonDetail: {},
+        pokemonTypes: [],
+        pokemonAbilities: [],
+        image: '',
+        userId: null,
+        access: false,
+        popup: {
+            type: ''
+        },
+        alert: {
+            title: '',
+            message: '',
+            type: '',
+            callback: null
+        },
+        config: {
+            loading: true,
+            page: 1,
+            level: 0,
+            username: '',
+            userPicture: '',
+            pokeballFilters: {
+                order: 'id',
+                direction: 'ASC',
+                type: '',
+                origin: ''
+            },
+            pokedexFilters: {
+                order: 'id',
+                direction: 'ASC',
+                type: '',
+                origin: ''
+            },
+        }
     };
 
-    // TODO: IMPLEMENT REMEMBER ME OPTION
+    // TODO: REMEMBER ME OPTION
     
     const found = await User.findOne({
         where: { id }

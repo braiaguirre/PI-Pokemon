@@ -22,8 +22,8 @@ const DetailedCard = ({ pokemon }) => {
     const pokedexHandler = () => navigate('/pokedex');
     const deleteHandler = () => {
         dispatch(setAlert({
-            title: 'HEY!',
-            message: 'Are you sure you want to delete this custom Pokémon? This action can not be undone.',
+            title: 'Wait!',
+            message: 'This action can\'t be undone. Are you sure?',
             type: 'ALERT',
             callback: [() => dispatch(deletePokemon(id, userId)), () => navigate('/')]
         }))
@@ -82,9 +82,9 @@ const DetailedCard = ({ pokemon }) => {
             </div>
         </div>
         <div>
-            { custom && <button className={ styles.warning } onClick={ deleteHandler }>Delete</button> }
             <button onClick={ pokeballHandler }>Pokeball</button>
             <button onClick={ pokedexHandler }>Pokedex</button>
+            { custom && <button className={ styles.warning } onClick={ deleteHandler }>Delete</button> }
         </div>
         </>
     );

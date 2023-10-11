@@ -15,10 +15,10 @@ const Card = ({ pokemon }) => {
     const detailHandler = () => navigate(`/detail/${id}`);
 
     return (
-        <div className={ styles.container }>
-            <img onClick={ detailHandler } src={ image } />
+        <div className={ styles.container } onClick={ detailHandler }>
+            <img src={ image } />
             <div className={ styles.title }>
-                <h2 onClick={ detailHandler }>{ name }</h2>
+                <h2>{ name }</h2>
                 <h4 className={`${styles.bubble} ${styles.id}`}>#{ id }</h4>
             </div>
             <div className={ styles.types }>

@@ -59,11 +59,13 @@ const initialState = {
             order: 'id',
             direction: 'ASC',
             type: '',
+            origin: ''
         },
         pokedexFilters: {
             order: 'id',
             direction: 'ASC',
             type: '',
+            origin: ''
         },
     }
 }

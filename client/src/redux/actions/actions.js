@@ -369,8 +369,8 @@ export const clearPokemonAbilities = () => {
 };
 
 export const filterPokemons = (filtersData) => {
-    const { order, direction, type, userId } = filtersData;
-    const endpoint = `${ URL }/filters/pokemons/?userId=${ userId }&order=${ order }&direction=${ direction }&type=${ type }`;
+    const { order, direction, type, origin, userId } = filtersData;
+    const endpoint = `${ URL }/filters/pokemons/?userId=${ userId }&order=${ order }&direction=${ direction }&type=${ type }&origin=${ origin }`;
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
@@ -388,8 +388,8 @@ export const filterPokemons = (filtersData) => {
 };
 
 export const filterPokedex = (filtersData) => {
-    const { order, direction, type } = filtersData;
-    const endpoint = `${ URL }/filters/pokedex/?order=${ order }&direction=${ direction }&type=${ type }`;
+    const { order, direction, type, origin } = filtersData;
+    const endpoint = `${ URL }/filters/pokedex/?order=${ order }&direction=${ direction }&type=${ type }&origin=${ origin }`;
     return async (dispatch) => {
         try {
             const { data } = await axios.get(endpoint);
@@ -430,7 +430,8 @@ export const clearFilters = () => {
         payload: {
             order: 'id',
             direction: 'ASC',
-            type: ''
+            type: '',
+            origin: ''
         }
     };   
 }

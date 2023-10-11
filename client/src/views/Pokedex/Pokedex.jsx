@@ -41,13 +41,13 @@ const Pokedex = () => {
             <Filters filters={ pokedexFilters } />
             <Cards pokemons={ pokedexPage } />
             <div className={ styles.navigation }>
-                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? '' : () => pageHandler(1) }>First</button>
-                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? '' : () => pageHandler(page - 1) }>Prev</button>
+                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? () => {}  : () => pageHandler(1) }>First</button>
+                <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? () => {}  : () => pageHandler(page - 1) }>Prev</button>
                 
                 <button className={ styles.active }>{ page }</button>
 
-                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? '' : () => pageHandler(page + 1) }>Next</button>
-                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? '' : () => pageHandler(maxPage) }>Last</button>
+                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? () => {}  : () => pageHandler(page + 1) }>Next</button>
+                <button className={ page === maxPage ? styles.active : '' } onClick={ page === maxPage ? () => {} : () => pageHandler(maxPage) }>Last</button>
             </div>
         </div>
     );

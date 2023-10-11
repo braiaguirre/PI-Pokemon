@@ -32,7 +32,7 @@ const Home = () => {
     // LOAD DATA
     useEffect(() => {
         dispatch(filterPokemons({ ...pokeballFilters, userId: userId }));
-    }, [])
+    }, [pokeball])
     
     return (
         <>
