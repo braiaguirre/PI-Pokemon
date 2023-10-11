@@ -4,10 +4,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    width: 150px;
     background-color: #ffffff;
     border-radius: 8px;
     padding: 50px;
+    position: relative;
 }
 
 .container div:not(.buttons) {
