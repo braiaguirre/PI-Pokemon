@@ -2,7 +2,7 @@
 const { User, Pokemon } = require('../../DB_connection');
 
 const deleteCustomPokemonsController = async (id, userId) => {
-    console.log(id,userId);
+    
     const userDb = await User.findOne({ where: { id: userId } });
     await Pokemon.destroy( { where: { id } } );
 

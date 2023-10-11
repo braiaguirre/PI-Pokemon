@@ -7,13 +7,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 // ACTIONS
-import {setFilters, clearFilters, filterPokemons, filterPokedex, setPopup } from '../../redux/actions/actions.js';
+import { setPokeballFilters, setPokedexFilters, filterPokemons, filterPokedex, setPopup } from '../../redux/actions/actions.js';
 
 // UTILS
 import titleCase from '../../utils/titleCase';
 
-function Filters() {
-
+function Filters({ filters }) {
+    
     // HOOKS
     const { pathname } = useLocation();
     const dispatch = useDispatch();
@@ -24,32 +24,36 @@ function Filters() {
     // STATES
     const userId = useSelector(state => state.userId);
     const types = useSelector(state => state.pokemonTypes);
-    const filters = useSelector(state => state.config.filters)
 
     // HANDLERS
     const createHandler = () => dispatch(setPopup({ type: 'CREATE_POKEMON' }))
-    const changeHandler = (e) => {
-        dispatch(setFilters({ ...filters, [e.target.name]: e.target.value }));
-        dispatcher({ ...filters, [e.target.name]: e.target.value, userId: userId });
-    };
+    const nameSearchHandler = () => dispatch(setPopup({ type: 'NAME_SEARCH' }));
+    const changeHandler = (e) => dispatcher({ ...filters, [e.target.name]: e.target.value, userId: userId });
     const resetHandler = () => {
         orderRef.current.value = 'id';
         directionRef.current.value = 'ASC';
         typeRef.current.value = '';
-        dispatch(setFilters({ order: 'id', direction: 'ASC', type: '', userId: userId }));
         dispatcher({ order: 'id', direction: 'ASC', type: '', userId: userId });
     };
-    const nameSearchHandler = () => {
-        dispatch(setPopup({ type: 'NAME_SEARCH' }));
-    }
     const dispatcher = (data) => {
-        if (pathname === '/') dispatch(filterPokemons(data));
-        else if (pathname === '/pokedex') dispatch(filterPokedex(data));
+        console.log(data);
+        if (pathname === '/') {
+            dispatch(setPokeballFilters({
+                order: data.order,
+                direction: data.direction,
+                type: data.type
+            }));
+            dispatch(filterPokemons(data));
+        }
+        else if (pathname === '/pokedex') {
+            dispatch(setPokedexFilters({
+                order: data.order,
+                direction: data.direction,
+                type: data.type
+            }));
+            dispatch(filterPokedex(data));
+        }
     }
-
-    useEffect(() => {
-        return () => clearFilters();
-    });
 
     return (
         <>

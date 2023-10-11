@@ -21,7 +21,7 @@ const Pokedex = () => {
     // STATES
     const pokedex = useSelector(state => state.pokedex);
     const pokedexPage = useSelector(state => state.pokedexPage);
-    const filters = useSelector(state => state.config.filters)
+    const pokedexFilters = useSelector(state => state.config.pokedexFilters)
     const { page } = useSelector(state => state.config);
 
     // UTILS
@@ -32,13 +32,13 @@ const Pokedex = () => {
 
     // LOAD DATA
     useEffect(() => {
-        dispatch(getPokedexPage(1, filters));
+        dispatch(getPokedexPage(1, pokedexFilters));
         return () => clearPokedexPage();
     }, [pokedex])
 
     return (
         <div className={ styles.container }>
-            <Filters />
+            <Filters filters={ pokedexFilters } />
             <Cards pokemons={ pokedexPage } />
             <div className={ styles.navigation }>
                 <button className={ page === 1 ? styles.active : '' } onClick={ page === 1 ? '' : () => pageHandler(1) }>First</button>

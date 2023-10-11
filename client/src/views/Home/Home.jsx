@@ -24,13 +24,14 @@ const Home = () => {
     const userId = useSelector(state => state.userId);
     const pokeball = useSelector(state => state.pokeball);
     const pokemonsFiltered = useSelector(state => state.pokeballFiltered);
+    const pokeballFilters = useSelector(state => state.config.pokeballFilters)
 
     // HANDLERS
     const getPokemonsHandler = () => dispatch(setPopup({ type: 'GET_POKEMONS' }));
 
     // LOAD DATA
     useEffect(() => {
-        dispatch(filterPokemons({ order: 'id', direction: 'ASC', type: '', userId: userId }));
+        dispatch(filterPokemons({ ...pokeballFilters, userId: userId }));
     }, [])
     
     return (
@@ -43,7 +44,7 @@ const Home = () => {
                     </div>
                 :
                     <div>
-                        <Filters />
+                        <Filters filters={ pokeballFilters } />
                         <Cards pokemons={ pokemonsFiltered } />
                     </div> 
                 }

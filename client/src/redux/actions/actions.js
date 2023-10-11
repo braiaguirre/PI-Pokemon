@@ -23,7 +23,8 @@ import {
     CLEAR_POKEMON_ABILITIES,
     FILTER_POKEMONS,
     FILTER_POKEDEX,
-    SET_FILTERS,
+    SET_POKEBALL_FILTERS,
+    SET_POKEDEX_FILTERS,
     CLEAR_FILTERS
 } from '../actions/actions-types';
 import axios from 'axios';
@@ -405,9 +406,18 @@ export const filterPokedex = (filtersData) => {
     };
 };
 
-export const setFilters = (filters) => {
+export const setPokeballFilters = (filters) => {
     return {
-        type: SET_FILTERS,
+        type: SET_POKEBALL_FILTERS,
+        payload: {
+            ...filters
+        }
+    };   
+}
+
+export const setPokedexFilters = (filters) => {
+    return {
+        type: SET_POKEDEX_FILTERS,
         payload: {
             ...filters
         }

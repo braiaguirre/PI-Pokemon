@@ -23,7 +23,7 @@ import ProfilePopup from './components/ProfilePopup/ProfilePopup'
 import NameSearch from './components/NameSearch/NameSearch'
 
 // ACTIONS
-import { getPokemonTypes, getPokedex, getPokemonAbilities } from './redux/actions/actions';
+import { getPokemonTypes, getPokedex, getPokemonAbilities, clearFilters } from './redux/actions/actions';
 
 const App = () => {
   // HOOKS
@@ -40,6 +40,9 @@ const App = () => {
     dispatch(getPokemonAbilities());
     dispatch(getPokemonTypes());
     dispatch(getPokedex());
+    return () => {
+      dispatch(clearFilters());
+    }
 }, []);
 
   return (

@@ -23,7 +23,8 @@ import {
     CLEAR_POKEMON_ABILITIES,
     FILTER_POKEMONS,
     FILTER_POKEDEX,
-    SET_FILTERS,
+    SET_POKEBALL_FILTERS,
+    SET_POKEDEX_FILTERS,
     CLEAR_FILTERS
 } from '../actions/actions-types';
 
@@ -54,11 +55,16 @@ const initialState = {
         level: 0,
         username: '',
         userPicture: '',
-        filters: {
+        pokeballFilters: {
             order: 'id',
             direction: 'ASC',
             type: '',
-        }
+        },
+        pokedexFilters: {
+            order: 'id',
+            direction: 'ASC',
+            type: '',
+        },
     }
 }
 
@@ -160,21 +166,37 @@ const reducer = (state = initialState, { type, payload }) => {
                 ...state,
                 pokeballFiltered: payload,
             }
+
         case FILTER_POKEDEX:
             return {
                 ...state,
                 pokedex: payload
             }
-        case SET_FILTERS:
+
+        case SET_POKEBALL_FILTERS:
             return {
                 ...state,
-                config: { ...state.config, filters: { ...payload } }
+                config: { 
+                    ...state.config,
+                    pokeballFilters: payload
+                }
             }
+
+        case SET_POKEDEX_FILTERS:
+            return {
+                ...state,
+                config: { 
+                    ...state.config,
+                    pokedexFilters: payload
+                }
+            }
+
         case CLEAR_FILTERS:
             return {
                 ...state,
-                config: { ...state.config, filters: { ...payload } }
+                config: { ...state.config, pokedexFilters: payload, pokeballFilters: payload }
             }
+
         case GET_LOGIN:
             return {
                 ...state,
