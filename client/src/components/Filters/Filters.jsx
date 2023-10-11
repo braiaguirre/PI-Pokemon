@@ -55,6 +55,12 @@ function Filters({ filters }) {
         }
     }
 
+    useEffect(() => {
+        orderRef.current.value = filters.order;
+        directionRef.current.value = filters.direction;
+        typeRef.current.value = filters.type;
+    })
+
     return (
         <>
             <div className={ styles.container }>
