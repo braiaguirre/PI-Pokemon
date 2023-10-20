@@ -33,7 +33,7 @@ const App = () => {
   const access = useSelector(state => state.access);
   const alert = useSelector(state => state.alert);
   const popup = useSelector(state => state.popup);
-  const loading = useSelector(state => state.config.loaded);
+  const loading = useSelector(state => state.config.loading);
 
   // LOAD INITIAL APP DATA
   useEffect(() => {
@@ -68,7 +68,7 @@ const App = () => {
       :
         <>
           { loading ? 
-            <h1>LOADING DATA</h1>
+            <h1 className={ styles.loading }>Loading...</h1>
           :
             <>
               <Navbar />

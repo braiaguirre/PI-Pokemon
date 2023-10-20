@@ -3,7 +3,7 @@ const getPokemonsByIdController = require('../../controllers/pokemonsControllers
 
 const getPokemonsByIdHandler = async (req, res) => {
     try {
-        const { id } = req.params;
+        const { id } = req.query;
         const response = await getPokemonsByIdController(id);
         res.status(200).json(response);
     } catch (err) {
